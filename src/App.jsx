@@ -5,10 +5,10 @@ import { useState } from "react";
 import MainProducts from "./components/products/MainProducts.jsx";
 import Search from "./components/search/Search.jsx";
 import Footer from "./components/Footer.jsx";
+import MainViewProduct from "./components/view-product/MainViewProduct.jsx";
 
 function App() {
   const [showSearch, setShowSearch] = useState(false);
-  console.log(showSearch);
 
   return (
     <BrowserRouter>
@@ -24,7 +24,8 @@ function App() {
         </div>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/products" element={<MainProducts />} />
+          <Route path="products" element={<MainProducts />} />
+          <Route path="products/:id" element={<MainViewProduct />} />
         </Routes>
         <div className="w-full pt-20">
           <Footer />

@@ -8,6 +8,12 @@
     --tertiary: #dcf2ff;
     --gold: #dda01e;
     --white: #fff;
+    --error: #c20114;
+    --error1: #de3c4b;
+    --error2: #bb142b;
+    --gray: #cccccc,
+        --gray1: #919191,
+        --black: #000,
 }
 
 body {
@@ -47,4 +53,28 @@ body {
         width: 100%;
         color: var(--gold);
     }
+}
+
+
+.swiper-button-next,
+.swiper-button-prev {
+    background-color: var(--primary);
+    color: white;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    width: 35px;
+    height: 35px;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev::after {
+    font-size: 20px;
 }

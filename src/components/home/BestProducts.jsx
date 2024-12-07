@@ -1,20 +1,48 @@
-import { useState } from "react";
-import { BestProductHome } from "../data/BestProductsHome";
+import { useEffect, useState } from "react";
+// import { BestProductHome } from "../data/BestProductsHome";
 import { Box, Rating } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const BestProducts = () => {
-  const [fullData, setFullData] = useState(BestProductHome);
+  const navigate = useNavigate();
 
+  const [fullData, setFullData] = useState([]);
+
+  useEffect(() => {
+    const handleProduct = async () => {
+      try {
+        const res = await axios.get(
+          `https://672d29e1fd897971564194df.mockapi.io/ap/v1/mobiles`
+        );
+        console.log(res?.data);
+        setFullData(res?.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    handleProduct();
+  }, []);
+
+  const filter = fullData?.filter((item) =>
+    item?.model?.toLowerCase().includes("pro")
+  );
+
+  console.log(filter);
   return (
     <div className="w-full flex justify-center">
-      <div className="grid grid-cols-5 gap-10">
-        {fullData?.map((item, index) => (
-          <div className="flex flex-col items-start rounded gap-4" key={index}>
-            <div className="flex items-center justify-center w-[90%] bg-gray/40 px-5 py-10">
-              <img src={item?.img_src} alt="" />
+      <div className="grid grid-cols-5 ">
+        {filter?.map((item, index) => (
+          <div
+            className="flex flex-col items-start rounded cursor-pointer duration-500 hover:shadow-md p-3"
+            onClick={() => navigate(`/products/${item?.id}`)}
+            key={index}
+          >
+            <div className="flex items-center mx-auto  justify-center w-[90%] bg-gray/40 px-3 py-10">
+              <img src={item?.img_src[0]} alt="" />
             </div>
 
-            <div className="flex flex-col items-start">
+            <div className="flex flex-col items-start pt-3">
               <span className="text-lg text-primary">{item?.model}</span>
               <span className="text-sm text-gray1">
                 {item?.storage} / {item?.ram}

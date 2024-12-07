@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { FaShoppingCart, FaUser } from "react-icons/fa";
 import { LiaSearchSolid } from "react-icons/lia";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Nav = ({ setShowSearch }) => {
   const [scroll, setScroll] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const scrollNav = () => {
@@ -18,8 +19,10 @@ const Nav = ({ setShowSearch }) => {
 
   return (
     <div
-      className={`flex fixed z-50 items-center justify-center w-full px-20 py-5 duration-500 text-white 
-          ${scroll && "bg-primary !py-2 shadow-md"}`}
+      className={`flex fixed z-50 items-center justify-center w-full px-20 py-5 duration-500 text-white  
+         ${location?.pathname !== "/" && "bg-primary"}
+          ${scroll && "bg-primary !py-2 shadow-md"}
+          `}
     >
       <div className="flex items-center justify-between relative w-full">
         <div className="flex items-center basis-1/5 ">

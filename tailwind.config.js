@@ -14,11 +14,15 @@ export default {
       "gray": "#cccccc",
       "gray1": "#919191",
       "black": "#000",
+      "error": "#c20114",
+      "error1": "#de3c4b",
+      "error2": "#bb142b",
+
       "transparent": "#00000000"
     },
     extend: {
       fontFamily: {
-        roboto: ['Roboto', 'sans-serif'], // افزودن فونت Roboto
+        roboto: ['Roboto', 'sans-serif'],
       },
     },
   },
