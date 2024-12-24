@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 import { Box, Rating } from "@mui/material";
@@ -10,10 +10,11 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
+import { toast, ToastContainer, Zoom } from "react-toastify";
 
 const MainViewProduct = () => {
   const params = useParams();
-
+  const navigate = useNavigate();
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [dataProduct, setDataProduct] = useState([]);
   const [selectColor, setSelectColor] = useState(null);
@@ -36,6 +37,8 @@ const MainViewProduct = () => {
   const selectColors = (color) => {
     setSelectColor(color);
   };
+  const notify = () => toast("Please select color product!");
+
   return (
     <div className="w-full flex items-center gap-5 mt-32">
       <div className="flex flex-col items-center relative justify-center gap-5 w-20 basis-1/2">
@@ -46,6 +49,7 @@ const MainViewProduct = () => {
           }}
           spaceBetween={0}
           navigation={true}
+          loop={true}
           thumbs={{ swiper: thumbsSwiper }}
           modules={[FreeMode, Navigation, Thumbs]}
           className="mySwiper2 w-[80%] h-full flex items-center justify-center"
@@ -124,7 +128,6 @@ const MainViewProduct = () => {
               ))}
             </div>
           </div>
-
           <div className="flex items-end justify-between gap-20">
             <div className="flex flex-col items-start gap-2">
               <span className="text-lg">Price: </span>
@@ -132,18 +135,36 @@ const MainViewProduct = () => {
                 ${dataProduct?.price}
               </span>
             </div>
-
             <div className="w-full flex items-center gap-5">
               <button className="bg-primary text-white hover:shadow duration-300 flex items-center justify-center gap-3 h-10 w-36">
                 Buy Now
               </button>
-              <button className="border-2 border-primary text-primary flex items-center justify-center gap-2 h-10 w-36">
+              <button
+                onClick={
+                  selectColor !== null
+                    ? () => navigate(`/products/${params?.id}/cart`)
+                    : notify
+                }
+                className="border-2 border-primary text-primary flex items-center justify-center gap-2 h-10 w-36"
+              >
                 Add to basket <FaShoppingCart />
               </button>
             </div>
           </div>
         </div>
       </div>
+      <ToastContainer
+        position="top-center"
+        limit={1}
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        pauseOnHover={false}
+        rtl={false}
+        closeOnClick
+        theme="dark"
+        transition={Zoom}
+      />
     </div>
   );
 };

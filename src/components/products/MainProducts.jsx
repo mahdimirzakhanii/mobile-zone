@@ -1,14 +1,11 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useState } from "react";
 import SingleProductsList from "./SingleProductsList";
 import { PulseLoader } from "react-spinners";
 import { useSearchParams } from "react-router-dom";
 import Paginate from "../Paginate";
 import { RiArrowDownSLine } from "react-icons/ri";
 
-const MainProducts = () => {
-  const [productsList, setProductsList] = useState([]);
-  const [loading, setLoading] = useState(false);
+const MainProducts = ({ productsList, loading }) => {
   const [showFilter, setShowFilter] = useState(false);
   const [filter, setFilter] = useState("All");
   const [serachParams, setSearchParams] = useSearchParams();
@@ -25,24 +22,6 @@ const MainProducts = () => {
       return prevParams;
     });
   }
-  
-  useEffect(() => {
-    const handleProducts = async () => {
-      setLoading(true);
-      try {
-        const res = await axios.get(
-          "https://672d29e1fd897971564194df.mockapi.io/ap/v1/mobiles"
-        );
-        console.log(res?.data);
-        setProductsList(res?.data);
-      } catch (error) {
-        console.log(error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    handleProducts();
-  }, []);
 
   const filterList =
     filter === "All"
@@ -68,7 +47,6 @@ const MainProducts = () => {
   return (
     <div className="flex flex-col items-center w-full gap-5 pt-32">
       <span className="text-2xl text-start w-full px-20">Products</span>
-
       <div className="flex flex-col relative items-start  gap-3 w-3/4">
         <span
           className="text-lg bg-secondary text-tertiary flex items-center justify-center gap-2 cursor-pointer w-28 py-1 rounded-md"
