@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { FaShoppingCart, FaUser } from "react-icons/fa";
 import { LiaSearchSolid } from "react-icons/lia";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Nav = ({ setShowSearch }) => {
   const [scroll, setScroll] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const scrollNav = () => {
@@ -49,7 +50,10 @@ const Nav = ({ setShowSearch }) => {
             onClick={() => setShowSearch(true)}
             className="text-2xl cursor-pointer"
           />
-          <FaShoppingCart className="text-xl cursor-pointer" />
+          <FaShoppingCart
+            onClick={() => navigate("/cart")}
+            className="text-xl cursor-pointer"
+          />
           <FaUser className="text-xl cursor-pointer" />
         </div>
       </div>

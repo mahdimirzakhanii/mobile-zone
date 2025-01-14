@@ -1,18 +1,37 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SingleListCartProduct from "./SingleListCartProduct";
+import { useSelector } from "react-redux";
+import axios from "axios";
 
-const TableListCartProduct = ({ productsList }) => {
-  const [quantity, setQuantity] = useState(0);
+const TableListCartProduct = () => {
+  const [dataBasket, setDataBasket] = useState([]);
+  const [refreshList, setRefreshList] = useState(0);
 
-  const increamentQuantity = () => {
-    if (quantity < 0) return;
-    setQuantity((prevQuantity) => (prevQuantity += 1));
-  };
+  useEffect(() => {
+    setRefreshList(1);
+  }, [setRefreshList]);
 
-  const decreamentQuantity = () => {
-    if (quantity <= 0) return;
-    setQuantity((prevQuantity) => (prevQuantity -= 1));
-  };
+  useEffect(() => {
+    if (refreshList !== 1) return;
+    const hanelDataBasket = async () => {
+      try {
+        const res = await axios.get(
+          `https://672d29e1fd897971564194df.mockapi.io/ap/v1/basket/`
+        );
+        console.log(res?.data);
+        setDataBasket(res?.data);
+        setRefreshList(0);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    hanelDataBasket();
+  }, [refreshList]);
+
+  // delete product
+
+  // const product = useSelector((state)=> state?.dataMobile?.mobile)
+  // console.log(product)
 
   return (
     <div className="flex items-center gap-5 w-full px-10">
@@ -33,13 +52,28 @@ const TableListCartProduct = ({ productsList }) => {
               <th className="w-[10%]"></th>
             </tr>
           </thead>
-          <tbody className="w-full">
-            <SingleListCartProduct
-              productsList={productsList}
-              increamentQuantity={increamentQuantity}
-              decreamentQuantity={decreamentQuantity}
-              quantity={quantity}
-            />
+          <tbody className="w-full flex items-center justify-center">
+            {dataBasket?.length > 0 ? (
+              dataBasket?.map((item, index) => (
+                <SingleListCartProduct
+                  setRefreshList={setRefreshList}
+                  key={index}
+                  id={item?.id}
+                  model={item?.model}
+                  name={item?.name}
+                  img={item?.img_src[0]}
+                  price={item?.price * item?.quantity}
+                  ram={item?.ram}
+                  // decreamentQuantity={decreamentQuantity}
+                  quantity={item?.quantity}
+                  // increamentQuantity={increamentQuantity}
+                />
+              ))
+            ) : (
+              <span className="text-xl text-secondary w-full text-center">
+                Your shopping cart is empty.
+              </span>
+            )}
           </tbody>
         </table>
       </div>

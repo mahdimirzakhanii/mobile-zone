@@ -63,7 +63,7 @@ function App() {
         />
         <Route path="/products/:id" element={<MainViewProduct />} />
         <Route
-          path="/products/:id/cart"
+          path="/cart"
           element={<MainCartProduct productsList={productsList} />}
         />
       </Routes>

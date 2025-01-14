@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 
 const SingleProductsList = ({ item }) => {
   const navigate = useNavigate();
-
   return (
     <div className="flex items-center justify-center w-1/6">
       <div
@@ -33,12 +32,12 @@ const SingleProductsList = ({ item }) => {
 
         <div className="flex items-center gap-2">
           <span className="font-sans">${item?.price}</span>
-          {item?.color?.map((color, idx) => (
+          {item?.color?.map((c, index) => (
             <div
-              key={idx}
+              key={index}
               className="w-4 h-4 rounded-full"
               style={{
-                background: color,
+                background: c,
                 boxShadow: "0px 2px 2px gray",
               }}
             ></div>

@@ -11,14 +11,17 @@ import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import { toast, ToastContainer, Zoom } from "react-toastify";
+import { addMobile } from "../redux/slice";
+import { useDispatch } from "react-redux";
 
 const MainViewProduct = () => {
   const params = useParams();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [dataProduct, setDataProduct] = useState([]);
   const [selectColor, setSelectColor] = useState(null);
-
+  const [dataBasket, setDataBasket] = useState([]);
   useEffect(() => {
     const handleProduct = async () => {
       try {
@@ -34,11 +37,60 @@ const MainViewProduct = () => {
     handleProduct();
   }, [params?.id]);
 
+  useEffect(() => {
+    const hanelDataBasket = async () => {
+      try {
+        const res = await axios.get(
+          `https://672d29e1fd897971564194df.mockapi.io/ap/v1/basket/`
+        );
+        console.log(res?.data);
+        setDataBasket(res?.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    hanelDataBasket();
+  }, []);
+
+  // add to basket
+  const addBasket = async () => {
+    let mobileId = dataBasket?.some((item) => item?.idMobile === params?.id);
+    if (mobileId) return toast("This product is in your cart.");
+
+    let formData = {
+      idMobile: params?.id,
+      name: dataProduct?.name,
+      model: dataProduct?.model,
+      img_src: dataProduct?.img_src,
+      rate: dataProduct?.rate,
+      ram: dataProduct?.ram,
+      storage: dataProduct?.storage,
+      price: dataProduct?.price,
+      color: dataProduct?.color,
+    };
+    try {
+      const res = await axios.post(
+        `https://672d29e1fd897971564194df.mockapi.io/ap/v1/basket/`,
+        formData
+      );
+      console.log(res?.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const selectColors = (color) => {
     setSelectColor(color);
   };
-  const notify = () => toast("Please select color product!");
-
+  const handleAddToCart = () => {
+    addBasket();
+    dispatch(addMobile(dataProduct));
+    // if (selectColor !== null) {
+    //   navigate(`/products/${params?.id}/cart`);
+    // } else {
+    // toast("Please select color product!");
+    //   notify;
+  };
   return (
     <div className="w-full flex items-center gap-5 mt-32">
       <div className="flex flex-col items-center relative justify-center gap-5 w-20 basis-1/2">
@@ -140,11 +192,7 @@ const MainViewProduct = () => {
                 Buy Now
               </button>
               <button
-                onClick={
-                  selectColor !== null
-                    ? () => navigate(`/products/${params?.id}/cart`)
-                    : notify
-                }
+                onClick={handleAddToCart}
                 className="border-2 border-primary text-primary flex items-center justify-center gap-2 h-10 w-36"
               >
                 Add to basket <FaShoppingCart />
