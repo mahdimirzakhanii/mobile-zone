@@ -1,20 +1,19 @@
 import { useEffect, useState } from "react";
 import { FaShoppingCart, FaUser } from "react-icons/fa";
 import { LiaSearchSolid } from "react-icons/lia";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import MainCartNavbar from "./cart-navbar/MainCartNavbar";
 
 const Nav = ({ setShowSearch }) => {
   const [scroll, setScroll] = useState(false);
   const location = useLocation();
-  const navigate = useNavigate();
+  const [showCart, setShowCart] = useState(false);
 
   useEffect(() => {
     const scrollNav = () => {
       setScroll(window.scrollY > 100);
     };
-
     window.addEventListener("scroll", scrollNav);
-
     return () => window.removeEventListener("scroll", scrollNav);
   }, [scroll]);
 
@@ -51,12 +50,13 @@ const Nav = ({ setShowSearch }) => {
             className="text-2xl cursor-pointer"
           />
           <FaShoppingCart
-            onClick={() => navigate("/cart")}
+            onClick={() => setShowCart(!showCart)}
             className="text-xl cursor-pointer"
           />
           <FaUser className="text-xl cursor-pointer" />
         </div>
       </div>
+      {showCart && <MainCartNavbar setShowCart={setShowCart} />}
     </div>
   );
 };

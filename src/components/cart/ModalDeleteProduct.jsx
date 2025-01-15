@@ -3,8 +3,8 @@ import Modal from "../modal/Modal";
 
 const ModalDeleteProduct = ({ idProduct, setShowModal, deleteProduct }) => {
   return (
-    <Modal >
-      <div className="w-1/4 bg-white shadow-lg gap-5 py-3 rounded-lg flex flex-col items-center">
+    <Modal>
+      <div className="w-1/4 bg-white border-b-4 border-b-error shadow-lg gap-5 py-3 rounded-lg flex flex-col items-center">
         <PiXCircle className="text-error text-5xl" />
         <h2 className="text-primary text-lg">Delete Product</h2>
         <span className=" text-gray1">Are you sure delete product?</span>

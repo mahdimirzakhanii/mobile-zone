@@ -83,7 +83,7 @@ const MainViewProduct = () => {
     }
   };
   const selectColors = (color) => {
-    setSelectColor(color);
+    setSelectColor(color);  
   };
   const handleAddToCart = () => {
     addBasket();
