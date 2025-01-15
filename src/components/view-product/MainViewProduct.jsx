@@ -5,14 +5,14 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 import { Box, Rating } from "@mui/material";
 import { FaShoppingCart } from "react-icons/fa";
-
+import { toast, ToastContainer, Zoom } from "react-toastify";
+import { addMobile } from "../redux/slice";
+import { useDispatch } from "react-redux";
+import { FiMinus, FiPlus } from "react-icons/fi";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
-import { toast, ToastContainer, Zoom } from "react-toastify";
-import { addMobile } from "../redux/slice";
-import { useDispatch } from "react-redux";
 
 const MainViewProduct = () => {
   const params = useParams();
@@ -22,6 +22,8 @@ const MainViewProduct = () => {
   const [dataProduct, setDataProduct] = useState([]);
   const [selectColor, setSelectColor] = useState(null);
   const [dataBasket, setDataBasket] = useState([]);
+  const [showCounter, setShowCounter] = useState(false);
+
   useEffect(() => {
     const handleProduct = async () => {
       try {
@@ -56,7 +58,7 @@ const MainViewProduct = () => {
   const addBasket = async () => {
     let mobileId = dataBasket?.some((item) => item?.idMobile === params?.id);
     if (mobileId) return toast("This product is in your cart.");
-
+    if (!selectColor) return toast("Please select color product!");
     let formData = {
       idMobile: params?.id,
       name: dataProduct?.name,
@@ -74,23 +76,20 @@ const MainViewProduct = () => {
         formData
       );
       console.log(res?.data);
+      toast("Product added to cart");
+      setShowCounter(true);
     } catch (error) {
       console.log(error);
     }
   };
-
   const selectColors = (color) => {
     setSelectColor(color);
   };
   const handleAddToCart = () => {
     addBasket();
     dispatch(addMobile(dataProduct));
-    // if (selectColor !== null) {
-    //   navigate(`/products/${params?.id}/cart`);
-    // } else {
-    // toast("Please select color product!");
-    //   notify;
   };
+
   return (
     <div className="w-full flex items-center gap-5 mt-32">
       <div className="flex flex-col items-center relative justify-center gap-5 w-20 basis-1/2">
@@ -188,15 +187,28 @@ const MainViewProduct = () => {
               </span>
             </div>
             <div className="w-full flex items-center gap-5">
-              <button className="bg-primary text-white hover:shadow duration-300 flex items-center justify-center gap-3 h-10 w-36">
+              <button
+                onClick={() => navigate("/cart")}
+                className="bg-primary text-white hover:shadow duration-300 flex items-center justify-center gap-3 h-10 w-36"
+              >
                 Buy Now
               </button>
-              <button
-                onClick={handleAddToCart}
-                className="border-2 border-primary text-primary flex items-center justify-center gap-2 h-10 w-36"
-              >
-                Add to basket <FaShoppingCart />
-              </button>
+              {!showCounter ? (
+                <button
+                  onClick={handleAddToCart}
+                  className="border-2 border-primary text-primary flex items-center justify-center gap-2 h-10 w-36"
+                >
+                  Add to basket <FaShoppingCart />
+                </button>
+              ) : (
+                <td className="flex justify-start w-36 pl-7 text-secondary ">
+                  <div className="w-full flex items-center justify-between rounded-full py-1.5 px-2  border border-secondary">
+                    <FiMinus className="cursor-pointer" />
+                    <span className="font-bold">5</span>
+                    <FiPlus className="cursor-pointer" />
+                  </div>
+                </td>
+              )}
             </div>
           </div>
         </div>

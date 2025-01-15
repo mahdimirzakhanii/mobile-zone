@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 import SingleListCartProduct from "./SingleListCartProduct";
 import { useSelector } from "react-redux";
 import axios from "axios";
+import ModalDeleteProduct from "./ModalDeleteProduct";
 
 const TableListCartProduct = () => {
   const [dataBasket, setDataBasket] = useState([]);
   const [refreshList, setRefreshList] = useState(0);
-
+  const [showModal, setShowModal] = useState(false);
+  const [idProduct, setIdProduct] = useState(null);
   useEffect(() => {
     setRefreshList(1);
   }, [setRefreshList]);
@@ -29,7 +31,19 @@ const TableListCartProduct = () => {
   }, [refreshList]);
 
   // delete product
-
+  const deleteProduct = async (id) => {
+    if (!id) return;
+    try {
+      const res = await axios.delete(
+        `https://672d29e1fd897971564194df.mockapi.io/ap/v1/basket/${id}`
+      );
+      console.log(res?.data);
+      setShowModal(false);
+      setRefreshList(1);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   // const product = useSelector((state)=> state?.dataMobile?.mobile)
   // console.log(product)
 
@@ -56,6 +70,8 @@ const TableListCartProduct = () => {
             {dataBasket?.length > 0 ? (
               dataBasket?.map((item, index) => (
                 <SingleListCartProduct
+                  setShowModal={setShowModal}
+                  setIdProduct={setIdProduct}
                   setRefreshList={setRefreshList}
                   key={index}
                   id={item?.id}
@@ -77,6 +93,13 @@ const TableListCartProduct = () => {
           </tbody>
         </table>
       </div>
+      {showModal && (
+        <ModalDeleteProduct
+          idProduct={idProduct}
+          setShowModal={setShowModal}
+          deleteProduct={deleteProduct}
+        />
+      )}
     </div>
   );
 };
