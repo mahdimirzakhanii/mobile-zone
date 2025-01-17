@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react";
 import SingleListCartProduct from "./SingleListCartProduct";
-import { useSelector } from "react-redux";
 import axios from "axios";
 import ModalDeleteProduct from "./ModalDeleteProduct";
-
 const TableListCartProduct = () => {
   const [dataBasket, setDataBasket] = useState([]);
   const [refreshList, setRefreshList] = useState(0);
   const [showModal, setShowModal] = useState(false);
   const [idProduct, setIdProduct] = useState(null);
+
   useEffect(() => {
     setRefreshList(1);
   }, [setRefreshList]);
@@ -44,9 +43,7 @@ const TableListCartProduct = () => {
       console.log(error);
     }
   };
-  // const product = useSelector((state)=> state?.dataMobile?.mobile)
-  // console.log(product)
-
+  
   return (
     <div className="flex items-center gap-5 w-full px-10">
       <div className="flex flex-col items-start gap-10 w-full">
@@ -72,7 +69,7 @@ const TableListCartProduct = () => {
                 <SingleListCartProduct
                   setShowModal={setShowModal}
                   setIdProduct={setIdProduct}
-                  setRefreshList={setRefreshList}
+                  // setRefreshList={setRefreshList}
                   key={index}
                   id={item?.id}
                   model={item?.model}

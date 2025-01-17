@@ -15,7 +15,6 @@ const BestProducts = () => {
         const res = await axios.get(
           `https://672d29e1fd897971564194df.mockapi.io/ap/v1/mobiles`
         );
-        console.log(res?.data);
         setFullData(res?.data);
       } catch (error) {
         console.log(error);
@@ -28,7 +27,6 @@ const BestProducts = () => {
     item?.model?.toLowerCase().includes("pro")
   );
 
-  console.log(filter);
   return (
     <div className="w-full flex justify-center">
       <div className="grid grid-cols-5 ">

@@ -10,40 +10,9 @@ import axios from "axios";
 import MainCartProduct from "./components/cart/MainCartProduct.jsx";
 
 function App() {
-  const [productsList, setProductsList] = useState([]);
-  const [loading, setLoading] = useState(false);
+  // const [productsList, setProductsList] = useState([]);
+  // const [loading, setLoading] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
-  const [serachParams, setSearchParams] = useSearchParams();
-  const [search, setSearch] = useState("");
-
-  function handleSearch(key, value) {
-    setSearchParams((prevParams) => {
-      if (value === null || value === "") {
-        prevParams.delete(key);
-      } else {
-        prevParams.set(key, value);
-      }
-      return prevParams;
-    });
-  }
-  useEffect(() => {
-    const handleProducts = async () => {
-      setLoading(true);
-      try {
-        const res = await axios.get(
-          "https://672d29e1fd897971564194df.mockapi.io/ap/v1/mobiles"
-        );
-        console.log(res?.data);
-        setProductsList(res?.data);
-      } catch (error) {
-        console.log(error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    handleProducts();
-  }, []);
-
   return (
     <div className="w-full h-full flex flex-col items-center">
       {/* open search-bar  */}
@@ -59,12 +28,12 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route
           path="/products"
-          element={<MainProducts productsList={productsList} />}
+          element={<MainProducts  />}
         />
         <Route path="/products/:id" element={<MainViewProduct />} />
         <Route
           path="/cart"
-          element={<MainCartProduct productsList={productsList} />}
+          element={<MainCartProduct  />}
         />
       </Routes>
 

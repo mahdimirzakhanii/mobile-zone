@@ -11,7 +11,8 @@ const mobileSlice = createSlice({
         addMobile(state, action) {
             const mobileItem = state.mobile.find((item) => item.id === action.payload.id);
             if (mobileItem) {
-                mobileItem.quantity += 1;
+                // mobileItem.quantity += 1;
+                return;
             } else {
                 state.mobile.push({ ...action.payload, quantity: 1 });
             }

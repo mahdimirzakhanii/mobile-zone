@@ -20,9 +20,13 @@ const MainViewProduct = () => {
   const dispatch = useDispatch();
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [dataProduct, setDataProduct] = useState([]);
+  const [addDataCart, setAddDataCart] = useState([]);
   const [selectColor, setSelectColor] = useState(null);
   const [dataBasket, setDataBasket] = useState([]);
-  const [showCounter, setShowCounter] = useState(false);
+  const [refresh, setRefresh] = useState(0);
+  useEffect(() => {
+    setRefresh(1);
+  }, [setRefresh]);
 
   useEffect(() => {
     const handleProduct = async () => {
@@ -32,6 +36,7 @@ const MainViewProduct = () => {
         );
         console.log(res?.data);
         setDataProduct(res?.data);
+        setRefresh(0);
       } catch (error) {
         console.log(error);
       }
@@ -55,9 +60,9 @@ const MainViewProduct = () => {
   }, []);
 
   // add to basket
+  let foundMobile = dataBasket?.some((item) => item?.idMobile === params?.id);
   const addBasket = async () => {
-    let mobileId = dataBasket?.some((item) => item?.idMobile === params?.id);
-    if (mobileId) return toast("This product is in your cart.");
+    if (foundMobile) return toast("This product is in your cart.");
     if (!selectColor) return toast("Please select color product!");
     let formData = {
       idMobile: params?.id,
@@ -76,18 +81,19 @@ const MainViewProduct = () => {
         formData
       );
       console.log(res?.data);
+      setAddDataCart(res?.data);
       toast("Product added to cart");
-      setShowCounter(true);
     } catch (error) {
       console.log(error);
     }
   };
   const selectColors = (color) => {
-    setSelectColor(color);  
+    setSelectColor(color);
   };
   const handleAddToCart = () => {
     addBasket();
-    dispatch(addMobile(dataProduct));
+    dispatch(addMobile(addDataCart));
+    setRefresh(1);
   };
 
   return (
@@ -193,7 +199,7 @@ const MainViewProduct = () => {
               >
                 Buy Now
               </button>
-              {!showCounter ? (
+              {!foundMobile ? (
                 <button
                   onClick={handleAddToCart}
                   className="border-2 border-primary text-primary flex items-center justify-center gap-2 h-10 w-36"

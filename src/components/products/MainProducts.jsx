@@ -1,16 +1,38 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SingleProductsList from "./SingleProductsList";
 import { PulseLoader } from "react-spinners";
 import { useSearchParams } from "react-router-dom";
 import Paginate from "../Paginate";
 import { RiArrowDownSLine } from "react-icons/ri";
+import axios from "axios";
 
-const MainProducts = ({ productsList, loading }) => {
-  const [showFilter, setShowFilter] = useState(false);
-  const [filter, setFilter] = useState("All");
+const MainProducts = () => {
   const [serachParams, setSearchParams] = useSearchParams();
   const page = serachParams.get("page");
   const rows = serachParams.get("rows");
+
+  const [productsList, setProductsList] = useState([]);
+  const [filter, setFilter] = useState("All");
+  const [showFilter, setShowFilter] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const handleProducts = async () => {
+      setLoading(true);
+      try {
+        const res = await axios.get(
+          "https://672d29e1fd897971564194df.mockapi.io/ap/v1/mobiles"
+        );
+        console.log(res?.data);
+        setProductsList(res?.data);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    handleProducts();
+  }, []);
 
   function handleSearch(key, value) {
     setSearchParams((prevParams) => {

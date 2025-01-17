@@ -5,7 +5,6 @@ import axios from "axios";
 const SingleListCartProduct = ({
   setIdProduct,
   setShowModal,
-  setRefreshList,
   id,
   model,
   name,
