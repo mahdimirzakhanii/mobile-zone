@@ -4,15 +4,16 @@ import { PiX } from "react-icons/pi";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { GridLoader } from "react-spinners";
+
 import axios from "axios";
 const MainCartNavbar = ({ setShowCart }) => {
   const navigate = useNavigate();
-  const dataCart = useSelector((state) => state?.dataMobile?.mobile);
   const [dataBasket, setDataBasket] = useState([]);
-
-  const cartItems = dataCart?.length > 0 ? dataCart : dataBasket;
+  const [loadign, setLoadign] = useState(false);
 
   useEffect(() => {
+    setLoadign(true);
     const hanelDataBasket = async () => {
       try {
         const res = await axios.get(
@@ -22,21 +23,29 @@ const MainCartNavbar = ({ setShowCart }) => {
         setDataBasket(res?.data);
       } catch (error) {
         console.log(error);
+      } finally {
+        setLoadign(false);
       }
     };
     hanelDataBasket();
-  }, [dataCart, setShowCart]);
+  }, [ setShowCart]);
+
+  // const dataCart = useSelector((state) => state?.dataMobile?.mobile);
+  // const cartItems = dataCart?.length > 0 ? dataCart : dataBasket;
+  // console.log(dataCart);
 
   return (
-    <div className="flex top-16 right-20 flex-col gap-3 absolute items-center rounded-lg shadow-lg w-1/5 bg-primary text-white p-3">
+    <div className="flex max-h-[300px] h-[300px] overflow-y-auto top-16 right-20 flex-col gap-3 absolute items-center rounded-lg shadow-lg w-1/5 bg-primary text-white p-3">
       <div className="w-full flex justify-end  items-center cursor-pointer ">
         <PiX
           onClick={() => setShowCart(false)}
           className="text-xl text-white"
         />
       </div>
-      {cartItems?.length > 0 ? (
-        cartItems?.map((item, index) => (
+      {loadign ? (
+        <GridLoader color="#dda01e" width={5} />
+      ) : dataBasket?.length > 0 ? (
+        dataBasket?.map((item, index) => (
           <div
             key={index}
             className="flex items-start justify-between border-b-2 border-b-tertiary/10 pb-2 gap-3 w-full h-full"
@@ -61,7 +70,7 @@ const MainCartNavbar = ({ setShowCart }) => {
           <span> Your shopping cart is empty.</span>
         </div>
       )}
-      {dataCart?.length > 0 && (
+      {dataBasket?.length > 0 && (
         <div className="flex items-center w-full justify-center">
           <button
             onClick={() => {

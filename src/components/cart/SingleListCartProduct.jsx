@@ -16,7 +16,7 @@ const SingleListCartProduct = ({
   increamentQuantity,
 }) => {
   return (
-    <tr className="flex items-center justify-center w-full border-b border-b-tertiary pb-5">
+    <tr className="flex  items-center justify-center w-full border-b border-b-tertiary pb-5">
       <td className="flex items-center gap-3 justify-start pl-5 w-[30%]">
         <img src={img} width={100} alt="" />
         <span className="text-secondary">

@@ -82,6 +82,7 @@ const MainViewProduct = () => {
       );
       console.log(res?.data);
       setAddDataCart(res?.data);
+      // dispatch(addMobile(addDataCart));
       toast("Product added to cart");
     } catch (error) {
       console.log(error);
@@ -90,9 +91,10 @@ const MainViewProduct = () => {
   const selectColors = (color) => {
     setSelectColor(color);
   };
+
   const handleAddToCart = () => {
     addBasket();
-    dispatch(addMobile(addDataCart));
+    // dispatch(addMobile(addDataCart));
     setRefresh(1);
   };
 

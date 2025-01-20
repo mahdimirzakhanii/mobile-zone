@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import SingleProductsList from "./SingleProductsList";
-import { PulseLoader } from "react-spinners";
+import { GridLoader } from "react-spinners";
 import { useSearchParams } from "react-router-dom";
 import Paginate from "../Paginate";
 import { RiArrowDownSLine } from "react-icons/ri";
@@ -115,7 +115,7 @@ const MainProducts = () => {
 
       <div className="flex items-center justify-center gap-5 w-full h-full min-h-[500px] flex-wrap">
         {loading ? (
-          <PulseLoader />
+          <GridLoader color="#dda01e" cssOverride={{}} width={0} />
         ) : (
           records?.map((item, index) => (
             <SingleProductsList key={index} item={item} />

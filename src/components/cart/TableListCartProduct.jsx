@@ -63,7 +63,7 @@ const TableListCartProduct = () => {
               <th className="w-[10%]"></th>
             </tr>
           </thead>
-          <tbody className="w-full flex items-center justify-center">
+          <tbody className="w-full flex-col flex items-center justify-center">
             {dataBasket?.length > 0 ? (
               dataBasket?.map((item, index) => (
                 <SingleListCartProduct
