@@ -24,6 +24,7 @@ const MainViewProduct = () => {
   const [selectColor, setSelectColor] = useState(null);
   const [dataBasket, setDataBasket] = useState([]);
   const [refresh, setRefresh] = useState(0);
+  const [showCounter, setShowCounter] = useState(false);
   useEffect(() => {
     setRefresh(1);
   }, [setRefresh]);
@@ -52,12 +53,13 @@ const MainViewProduct = () => {
         );
         console.log(res?.data);
         setDataBasket(res?.data);
+        dispatch(addMobile(dataBasket));
       } catch (error) {
         console.log(error);
       }
     };
     hanelDataBasket();
-  }, []);
+  }, [dispatch]);
 
   // add to basket
   let foundMobile = dataBasket?.some((item) => item?.idMobile === params?.id);
@@ -82,7 +84,8 @@ const MainViewProduct = () => {
       );
       console.log(res?.data);
       setAddDataCart(res?.data);
-      // dispatch(addMobile(addDataCart));
+      setShowCounter(true);
+      dispatch(addMobile(addDataCart));
       toast("Product added to cart");
     } catch (error) {
       console.log(error);
@@ -168,7 +171,7 @@ const MainViewProduct = () => {
 
         <div className="w-full flex flex-col items-start gap-10">
           <div className="flex items-start flex-col gap-2">
-            <span className="text-lg">Colors:</span>
+            <span className="text-lg text-black/70">Colors:</span>
             <div className="flex items-center gap-4">
               {dataProduct?.color?.map((color, idx) => (
                 <div
@@ -201,7 +204,7 @@ const MainViewProduct = () => {
               >
                 Buy Now
               </button>
-              {!foundMobile ? (
+              {!foundMobile && !showCounter ? (
                 <button
                   onClick={handleAddToCart}
                   className="border-2 border-primary text-primary flex items-center justify-center gap-2 h-10 w-36"

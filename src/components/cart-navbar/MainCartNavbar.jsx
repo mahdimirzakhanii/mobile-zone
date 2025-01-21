@@ -30,9 +30,9 @@ const MainCartNavbar = ({ setShowCart }) => {
     hanelDataBasket();
   }, [ setShowCart]);
 
-  // const dataCart = useSelector((state) => state?.dataMobile?.mobile);
+  const dataCart = useSelector((state) => state?.dataMobile?.mobile);
   // const cartItems = dataCart?.length > 0 ? dataCart : dataBasket;
-  // console.log(dataCart);
+  console.log(dataCart);
 
   return (
     <div className="flex max-h-[300px] h-[300px] overflow-y-auto top-16 right-20 flex-col gap-3 absolute items-center rounded-lg shadow-lg w-1/5 bg-primary text-white p-3">
