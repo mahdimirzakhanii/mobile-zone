@@ -6,7 +6,7 @@ import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 import { Box, Rating } from "@mui/material";
 import { FaShoppingCart } from "react-icons/fa";
 import { toast, ToastContainer, Zoom } from "react-toastify";
-import { addMobile } from "../redux/slice";
+// import { addMobile } from "../redux/slice";
 import { useDispatch } from "react-redux";
 import { FiMinus, FiPlus } from "react-icons/fi";
 import "swiper/css";
@@ -53,7 +53,7 @@ const MainViewProduct = () => {
         );
         console.log(res?.data);
         setDataBasket(res?.data);
-        dispatch(addMobile(dataBasket));
+        // dispatch(addMobile(dataBasket));
       } catch (error) {
         console.log(error);
       }
@@ -85,7 +85,7 @@ const MainViewProduct = () => {
       console.log(res?.data);
       setAddDataCart(res?.data);
       setShowCounter(true);
-      dispatch(addMobile(addDataCart));
+      // dispatch(addMobile(addDataCart));
       toast("Product added to cart");
     } catch (error) {
       console.log(error);

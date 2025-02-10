@@ -1,11 +1,10 @@
 import {PiShoppingCartSimpleBold} from "react-icons/pi";
-import Search from "../search/Search.jsx";
 
 const Header = () => {
     return (
         <div className="w-full h-full flex relative flex-col items-center py-10">
             <div
-                className="h-screen w-full -translate-y-10 flex flex-col items-start gap-6 justify-center "
+                className="h-screen w-full -translate-y-10 flex flex-col items-start gap-6 justify-center"
                 style={{
                     backgroundImage: "url('/image/public/banner.png')",
                     backgroundSize: "100% 100%",

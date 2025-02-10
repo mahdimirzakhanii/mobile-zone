@@ -1,25 +1,38 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
+
+export const getData = createAsyncThunk("products/fetch",
+    async () => {
+        try {
+            const res = await axios.get("https://672d29e1fd897971564194df.mockapi.io/ap/v1/mobiles");
+            return res?.data
+        } catch (error) {
+            console.log(error);
+        }
+    })
 
 const initialState = {
-    mobile: []
+    listMobile: [],
+    loading: false,
+    error: null,
 }
-
 const mobileSlice = createSlice({
     name: "mobile",
     initialState,
-    reducers: {
-        addMobile(state, action) {
-            const mobileItem = state.mobile.find((item) => item.id === action.payload.id);
-            if (mobileItem) {
-                // mobileItem.quantity += 1;
-                // return;
-            } else {
-                state.mobile.push({ ...action.payload });
-            }
-        }
+    reducers: {},
+    extraReducers: (builder) => {
+        builder
+            .addCase(getData.pending, (state) => {
+                state.loading = true
+            })
+            .addCase(getData.fulfilled, (state, action) => {
+                state.loading = false;
+                state.listMobile = action.payload;
+            })
+            .addCase(getData.rejected, (state, action) => {
+                state.loading = false;
+                state.error = action.error.message;
+            })
     }
 })
-
-export const { addMobile } = mobileSlice.actions;
-
 export default mobileSlice.reducer;
