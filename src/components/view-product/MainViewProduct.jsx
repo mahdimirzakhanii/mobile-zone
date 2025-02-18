@@ -1,3 +1,7 @@
+import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/navigation";
+import "swiper/css/thumbs";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
@@ -6,18 +10,11 @@ import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 import { Box, Rating } from "@mui/material";
 import { FaShoppingCart } from "react-icons/fa";
 import { toast, ToastContainer, Zoom } from "react-toastify";
-// import { addMobile } from "../redux/slice";
-import { useDispatch } from "react-redux";
 import { FiMinus, FiPlus } from "react-icons/fi";
-import "swiper/css";
-import "swiper/css/free-mode";
-import "swiper/css/navigation";
-import "swiper/css/thumbs";
 
 const MainViewProduct = () => {
   const params = useParams();
   const navigate = useNavigate();
-  const dispatch = useDispatch();
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [dataProduct, setDataProduct] = useState([]);
   const [addDataCart, setAddDataCart] = useState([]);
@@ -25,6 +22,7 @@ const MainViewProduct = () => {
   const [dataBasket, setDataBasket] = useState([]);
   const [refresh, setRefresh] = useState(0);
   const [showCounter, setShowCounter] = useState(false);
+
   useEffect(() => {
     setRefresh(1);
   }, [setRefresh]);
@@ -44,22 +42,6 @@ const MainViewProduct = () => {
     };
     handleProduct();
   }, [params?.id]);
-
-  useEffect(() => {
-    const hanelDataBasket = async () => {
-      try {
-        const res = await axios.get(
-          `https://672d29e1fd897971564194df.mockapi.io/ap/v1/basket/`
-        );
-        console.log(res?.data);
-        setDataBasket(res?.data);
-        // dispatch(addMobile(dataBasket));
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    hanelDataBasket();
-  }, [dispatch]);
 
   // add to basket
   let foundMobile = dataBasket?.some((item) => item?.idMobile === params?.id);
@@ -85,7 +67,6 @@ const MainViewProduct = () => {
       console.log(res?.data);
       setAddDataCart(res?.data);
       setShowCounter(true);
-      // dispatch(addMobile(addDataCart));
       toast("Product added to cart");
     } catch (error) {
       console.log(error);
@@ -94,10 +75,8 @@ const MainViewProduct = () => {
   const selectColors = (color) => {
     setSelectColor(color);
   };
-
   const handleAddToCart = () => {
     addBasket();
-    // dispatch(addMobile(addDataCart));
     setRefresh(1);
   };
 

@@ -1,37 +1,34 @@
 import { useEffect, useState } from "react";
 import Summary from "./Summary";
 import TableListCartProduct from "./TableListCartProduct";
-import axios from "axios";
-
+import { useDispatch, useSelector } from "react-redux";
+import { handleBasket } from "../redux/basketSlice";
 const MainCartProduct = () => {
-  const [productsList, setProductsList] = useState([]);
-  const [loading, setLoading] = useState(false);
-
+  const [refreshList, setRefreshList] = useState(0);
+  const dispatch = useDispatch();
+  const { dataBasket, loading } = useSelector((state) => state?.basket);
   useEffect(() => {
-    const handleProducts = async () => {
-      setLoading(true);
-      try {
-        const res = await axios.get(
-          "https://672d29e1fd897971564194df.mockapi.io/ap/v1/mobiles"
-        );
-        console.log(res?.data);
-        setProductsList(res?.data);
-      } catch (error) {
-        console.log(error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    handleProducts();
-  }, [loading]);
+    setRefreshList(1);
+  }, [setRefreshList]);
 
+  //delete product
+  useEffect(() => {
+    if (loading || refreshList !== 1) return;
+    dispatch(handleBasket());
+    setRefreshList(0);
+  }, [dispatch, refreshList]);
+
+  console.log(dataBasket);
   return (
     <div className="flex px-3 items-center gap-5 mt-32 w-full">
-      <div className="w-3/4">
-        <TableListCartProduct productsList={productsList} />
+      <div className="w-[70%] xl:w-3/4">
+        <TableListCartProduct
+          setRefreshList={setRefreshList}
+          dataBasket={dataBasket}
+        />
       </div>
-      <div className="w-1/4">
-        <Summary />
+      <div className="w-[30%] xl:w-1/4">
+        <Summary setRefreshList={setRefreshList} dataBasket={dataBasket} />
       </div>
     </div>
   );

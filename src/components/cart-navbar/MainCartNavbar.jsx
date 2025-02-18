@@ -1,39 +1,22 @@
 import { FiMinus, FiPlus } from "react-icons/fi";
 import { FaShoppingCart } from "react-icons/fa";
 import { PiX } from "react-icons/pi";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { handleBasket } from "../redux/basketSlice";
 import { GridLoader } from "react-spinners";
+import { useEffect, useState } from "react";
 
-import axios from "axios";
 const MainCartNavbar = ({ setShowCart }) => {
   const navigate = useNavigate();
-  const [dataBasket, setDataBasket] = useState([]);
-  const [loadign, setLoadign] = useState(false);
+  const { dataBasket, loading } = useSelector((state) => state?.basket);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    setLoadign(true);
-    const hanelDataBasket = async () => {
-      try {
-        const res = await axios.get(
-          `https://672d29e1fd897971564194df.mockapi.io/ap/v1/basket/`
-        );
-        console.log(res?.data);
-        setDataBasket(res?.data);
-      } catch (error) {
-        console.log(error);
-      } finally {
-        setLoadign(false);
-      }
-    };
-    hanelDataBasket();
-  }, [ setShowCart]);
-
-  const dataCart = useSelector((state) => state?.dataMobile?.mobile);
-  // const cartItems = dataCart?.length > 0 ? dataCart : dataBasket;
-  console.log(dataCart);
-
+    if (loading) return;
+    dispatch(handleBasket());
+  }, [dispatch]);
+  console.log(loading);
   return (
     <div className="flex max-h-[300px] h-[300px] overflow-y-auto top-16 right-20 flex-col gap-3 absolute items-center rounded-lg shadow-lg w-1/5 bg-primary text-white p-3">
       <div className="w-full flex justify-end  items-center cursor-pointer ">
@@ -42,7 +25,7 @@ const MainCartNavbar = ({ setShowCart }) => {
           className="text-xl text-white"
         />
       </div>
-      {loadign ? (
+      {loading ? (
         <GridLoader color="#dda01e" width={5} />
       ) : dataBasket?.length > 0 ? (
         dataBasket?.map((item, index) => (

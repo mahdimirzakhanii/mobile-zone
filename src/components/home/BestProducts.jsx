@@ -1,29 +1,17 @@
-import { useEffect, useState } from "react";
-// import { BestProductHome } from "../data/BestProductsHome";
+import { useEffect } from "react";
 import { Box, Rating } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { getListProducts } from "../redux/slice";
 
 const BestProducts = () => {
   const navigate = useNavigate();
-
-  const [fullData, setFullData] = useState([]);
-
+  const dispatch = useDispatch();
+  const { listMobile } = useSelector((state) => state.listMobile);
   useEffect(() => {
-    const handleProduct = async () => {
-      try {
-        const res = await axios.get(
-          `https://672d29e1fd897971564194df.mockapi.io/ap/v1/mobiles`
-        );
-        setFullData(res?.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    handleProduct();
-  }, []);
-
-  const filter = fullData?.filter((item) =>
+    dispatch(getListProducts());
+  }, [dispatch]);
+  const filter = listMobile?.filter((item) =>
     item?.model?.toLowerCase().includes("pro")
   );
 
@@ -36,7 +24,7 @@ const BestProducts = () => {
             onClick={() => navigate(`/products/${item?.id}`)}
             key={index}
           >
-            <div className="flex items-center mx-auto  justify-center w-[90%] bg-gray/40 px-3 py-10">
+            <div className="flex items-center mx-auto justify-center w-[90%] bg-gray/40 px-3 py-10">
               <img src={item?.img_src[0]} alt="" />
             </div>
 

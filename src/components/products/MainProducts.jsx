@@ -5,47 +5,21 @@ import { useSearchParams } from "react-router-dom";
 import Paginate from "../Paginate";
 import { RiArrowDownSLine } from "react-icons/ri";
 import { useDispatch, useSelector } from "react-redux";
-import { getData } from "../redux/slice";
+import { getListProducts } from "../redux/slice";
 
 const MainProducts = () => {
   const [serachParams, setSearchParams] = useSearchParams();
   const page = serachParams.get("page");
   const rows = serachParams.get("rows");
 
-  const [productsList, setProductsList] = useState([]);
   const [filter, setFilter] = useState("All");
   const [showFilter, setShowFilter] = useState(false);
-  // const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
-  const { listMobile, loading } = useSelector((state) => state?.dataMobile);
+  const { listMobile, loading } = useSelector((state) => state?.listMobile);
 
   useEffect(() => {
-    dispatch(getData());
+    dispatch(getListProducts());
   }, [dispatch]);
-
-  console.log(listMobile);
-
-  // useEffect(() => {
-  //   const handleProducts = async () => {
-  //     setLoading(true);
-  //     try {
-  //       const res = await axios.get(
-  //         "https://672d29e1fd897971564194df.mockapi.io/ap/v1/mobiles"
-  //       );
-  //       console.log(res?.data);
-  //       setProductsList(res?.data);
-  //     } catch (error) {
-  //       console.log(error);
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
-  //   handleProducts();
-  // }, []);
-
-  // useEffect(() => {
-  //   dispatch();
-  // });
 
   function handleSearch(key, value) {
     setSearchParams((prevParams) => {

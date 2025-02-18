@@ -1,33 +1,11 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import SingleListCartProduct from "./SingleListCartProduct";
 import axios from "axios";
 import ModalDeleteProduct from "./ModalDeleteProduct";
-const TableListCartProduct = () => {
-  const [dataBasket, setDataBasket] = useState([]);
-  const [refreshList, setRefreshList] = useState(0);
+
+const TableListCartProduct = ({ dataBasket, setRefreshList }) => {
   const [showModal, setShowModal] = useState(false);
   const [idProduct, setIdProduct] = useState(null);
-
-  useEffect(() => {
-    setRefreshList(1);
-  }, [setRefreshList]);
-
-  useEffect(() => {
-    if (refreshList !== 1) return;
-    const hanelDataBasket = async () => {
-      try {
-        const res = await axios.get(
-          `https://672d29e1fd897971564194df.mockapi.io/ap/v1/basket/`
-        );
-        console.log(res?.data);
-        setDataBasket(res?.data);
-        setRefreshList(0);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    hanelDataBasket();
-  }, [refreshList]);
 
   // delete product
   const deleteProduct = async (id) => {
@@ -43,7 +21,7 @@ const TableListCartProduct = () => {
       console.log(error);
     }
   };
-  
+
   return (
     <div className="flex items-center gap-5 w-full px-10">
       <div className="flex flex-col items-start gap-10 w-full">
@@ -58,7 +36,7 @@ const TableListCartProduct = () => {
                 Quantity
               </th>
               <th className="text-primary flex items-center justify-start pl-5 text-lg w-[25%]">
-                Total Price
+                Price
               </th>
               <th className="w-[10%]"></th>
             </tr>
@@ -69,17 +47,14 @@ const TableListCartProduct = () => {
                 <SingleListCartProduct
                   setShowModal={setShowModal}
                   setIdProduct={setIdProduct}
-                  // setRefreshList={setRefreshList}
                   key={index}
                   id={item?.id}
                   model={item?.model}
                   name={item?.name}
                   img={item?.img_src[0]}
-                  price={item?.price * item?.quantity}
+                  price={item?.price}
                   ram={item?.ram}
-                  // decreamentQuantity={decreamentQuantity}
                   quantity={item?.quantity}
-                  // increamentQuantity={increamentQuantity}
                 />
               ))
             ) : (

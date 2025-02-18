@@ -1,8 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
 import mobileSlice from './slice'
+import basketSlice from './basketSlice'
 
 export const store = configureStore({
     reducer: {
-        dataMobile: mobileSlice,
+        listMobile: mobileSlice,
+        basket: basketSlice,
     },
 })

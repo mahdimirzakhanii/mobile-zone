@@ -2,23 +2,26 @@ import { useState } from "react";
 import { FaPaypal } from "react-icons/fa";
 import { FaCreditCard } from "react-icons/fa6";
 
-const Summary = () => {
+const Summary = ({ dataBasket }) => {
   const [paymentMethod, setPaymentMethod] = useState("");
-  const [paymentBtn, setPaymentBtn] = useState(false)
+  const [paymentBtn, setPaymentBtn] = useState(false);
+  let price = dataBasket?.map((item) => item?.price);
+
   return (
     <div className="flex flex-col items-center w-full gap-5 rounded-lg bg-primary py-5 px-3">
       <span className="text-2xl text-white border-b border-b-white/30 w-full pb-3">
         Summary Cart
       </span>
-
       <div className="flex flex-col items-start w-full gap-5 pr-3 ">
         <div className="text-white/80 flex items-center justify-between w-full ">
           <span className="text-lg">Item: </span>
-          <span>3</span>
+          <span>{dataBasket?.length}</span>
         </div>
         <div className="text-white/80 flex items-center justify-between w-full ">
-          <span className="text-lg">Total: </span>
-          <span>$5200</span>
+          <span className="text-lg">Total Price: </span>
+          <span>
+            ${price.reduce((price, currentPrice) => price + currentPrice, 0)}
+          </span>
         </div>
         <div className="flex flex-col items-start justify-center gap-3 w-full">
           <span className="text-lg text-white/80">Payment Method:</span>
@@ -40,7 +43,7 @@ const Summary = () => {
                 border: paymentMethod === "paypal" && "1px solid #fff",
               }}
             >
-              <span className="text-lg italic">PayPal </span>
+              <span className="text-lg italic">PayPal</span>
               <FaPaypal />
             </div>
             <div
@@ -65,7 +68,7 @@ const Summary = () => {
             </div>
           </div>
         </div>
-        <button 
+        <button
           onClick={() => setPaymentBtn(!paymentBtn)}
           onMouseEnter={(e) => (
             (e.currentTarget.style.background = "var(--secondary)"),
@@ -80,8 +83,8 @@ const Summary = () => {
             background: paymentBtn && "var(--secondary)",
             color: paymentBtn && "#fff ",
           }}
-        className="w-full text-xl outline-none font-bold border text-secondary border-secondary duration-300 rounded-md  py-2"
-        // onClick={}
+          className="w-full text-xl outline-none font-bold border text-secondary border-secondary duration-300 rounded-md  py-2"
+          // onClick={}
         >
           Pay
         </button>
