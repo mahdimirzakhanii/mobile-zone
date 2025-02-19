@@ -16,7 +16,6 @@ const MainCartNavbar = ({ setShowCart }) => {
     if (loading) return;
     dispatch(handleBasket());
   }, [dispatch]);
-
   return (
     <div className="flex max-h-[300px] h-[300px] overflow-y-auto top-16 right-20 flex-col gap-3 absolute items-center rounded-lg shadow-lg w-1/5 bg-primary text-white p-3">
       <div className="w-full flex justify-end items-center cursor-pointer">
@@ -39,7 +38,7 @@ const MainCartNavbar = ({ setShowCart }) => {
               <div className="flex items-center gap-5">
                 <div className="w-full flex items-center gap-2 rounded-full p-1 border border-secondary">
                   <FiMinus className="cursor-pointer text-sm" />
-                  <span className="font-bold text-xs">{dataBasket?.length}</span>
+                  <span className="font-bold text-xs">{item?.count}</span>
                   <FiPlus className="cursor-pointer text-sm" />
                 </div>
                 <span className="text-sm text-gray">${item?.price}</span>

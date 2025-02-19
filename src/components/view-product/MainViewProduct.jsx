@@ -21,6 +21,7 @@ const MainViewProduct = () => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [dataProduct, setDataProduct] = useState([]);
   const [selectColor, setSelectColor] = useState(null);
+  const [count, setCount] = useState(1);
   const [refresh, setRefresh] = useState(0);
 
   useEffect(() => {
@@ -47,10 +48,9 @@ const MainViewProduct = () => {
   useEffect(() => {
     dispatch(handleBasket());
   }, [dispatch]);
-  
+
   // add to basket
   let foundMobile = dataBasket?.some((item) => item?.idMobile === params?.id);
-  console.log(foundMobile);
   const addBasket = async () => {
     if (foundMobile) return toast("This product is in your cart.");
     if (!selectColor) return toast("Please select color product!");
@@ -64,6 +64,7 @@ const MainViewProduct = () => {
       storage: dataProduct?.storage,
       price: dataProduct?.price,
       color: dataProduct?.color,
+      count: count,
     };
     try {
       const res = await axios.post(
@@ -71,6 +72,7 @@ const MainViewProduct = () => {
         formData
       );
       console.log(res?.data);
+      setCount(1);
       dispatch(handleBasket());
       toast("Product added to cart");
     } catch (error) {
@@ -199,9 +201,15 @@ const MainViewProduct = () => {
               ) : (
                 <td className="flex justify-start w-36 pl-7 text-secondary ">
                   <div className="w-full flex items-center justify-between rounded-full py-1.5 px-2  border border-secondary">
-                    <FiMinus className="cursor-pointer" />
-                    <span className="font-bold">5</span>
-                    <FiPlus className="cursor-pointer" />
+                    <FiMinus
+                      onClick={() => setCount((prev) => prev - 1)}
+                      className="cursor-pointer"
+                    />
+                    <span className="font-bold">{count}</span>
+                    <FiPlus
+                      onClick={() => setCount((prev) => prev + 1)}
+                      className="cursor-pointer"
+                    />
                   </div>
                 </td>
               )}
