@@ -11,17 +11,17 @@ import { Box, Rating } from "@mui/material";
 import { FaShoppingCart } from "react-icons/fa";
 import { toast, ToastContainer, Zoom } from "react-toastify";
 import { FiMinus, FiPlus } from "react-icons/fi";
+import { useDispatch, useSelector } from "react-redux";
+import { handleBasket } from "../redux/basketSlice";
 
 const MainViewProduct = () => {
   const params = useParams();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [dataProduct, setDataProduct] = useState([]);
-  const [addDataCart, setAddDataCart] = useState([]);
   const [selectColor, setSelectColor] = useState(null);
-  const [dataBasket, setDataBasket] = useState([]);
   const [refresh, setRefresh] = useState(0);
-  const [showCounter, setShowCounter] = useState(false);
 
   useEffect(() => {
     setRefresh(1);
@@ -43,8 +43,14 @@ const MainViewProduct = () => {
     handleProduct();
   }, [params?.id]);
 
+  const { dataBasket } = useSelector((state) => state?.basket);
+  useEffect(() => {
+    dispatch(handleBasket());
+  }, [dispatch]);
+  
   // add to basket
   let foundMobile = dataBasket?.some((item) => item?.idMobile === params?.id);
+  console.log(foundMobile);
   const addBasket = async () => {
     if (foundMobile) return toast("This product is in your cart.");
     if (!selectColor) return toast("Please select color product!");
@@ -65,8 +71,7 @@ const MainViewProduct = () => {
         formData
       );
       console.log(res?.data);
-      setAddDataCart(res?.data);
-      setShowCounter(true);
+      dispatch(handleBasket());
       toast("Product added to cart");
     } catch (error) {
       console.log(error);
@@ -183,12 +188,13 @@ const MainViewProduct = () => {
               >
                 Buy Now
               </button>
-              {!foundMobile && !showCounter ? (
+              {!foundMobile ? (
                 <button
                   onClick={handleAddToCart}
                   className="border-2 border-primary text-primary flex items-center justify-center gap-2 h-10 w-36"
                 >
-                  Add to basket <FaShoppingCart />
+                  Add to basket
+                  <FaShoppingCart />
                 </button>
               ) : (
                 <td className="flex justify-start w-36 pl-7 text-secondary ">

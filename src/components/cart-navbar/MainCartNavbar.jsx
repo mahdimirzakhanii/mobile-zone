@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { handleBasket } from "../redux/basketSlice";
 import { GridLoader } from "react-spinners";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 const MainCartNavbar = ({ setShowCart }) => {
   const navigate = useNavigate();
@@ -16,10 +16,10 @@ const MainCartNavbar = ({ setShowCart }) => {
     if (loading) return;
     dispatch(handleBasket());
   }, [dispatch]);
-  console.log(loading);
+
   return (
     <div className="flex max-h-[300px] h-[300px] overflow-y-auto top-16 right-20 flex-col gap-3 absolute items-center rounded-lg shadow-lg w-1/5 bg-primary text-white p-3">
-      <div className="w-full flex justify-end  items-center cursor-pointer ">
+      <div className="w-full flex justify-end items-center cursor-pointer">
         <PiX
           onClick={() => setShowCart(false)}
           className="text-xl text-white"
@@ -37,9 +37,9 @@ const MainCartNavbar = ({ setShowCart }) => {
             <div className="flex flex-col items-start gap-4 h-full w-full">
               <span className="text-sm">{item?.model}</span>
               <div className="flex items-center gap-5">
-                <div className="w-full flex items-center gap-2 rounded-full p-1  border border-secondary">
+                <div className="w-full flex items-center gap-2 rounded-full p-1 border border-secondary">
                   <FiMinus className="cursor-pointer text-sm" />
-                  <span className="font-bold text-xs">5</span>
+                  <span className="font-bold text-xs">{dataBasket?.length}</span>
                   <FiPlus className="cursor-pointer text-sm" />
                 </div>
                 <span className="text-sm text-gray">${item?.price}</span>

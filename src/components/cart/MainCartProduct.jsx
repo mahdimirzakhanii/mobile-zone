@@ -18,7 +18,6 @@ const MainCartProduct = () => {
     setRefreshList(0);
   }, [dispatch, refreshList]);
 
-  console.log(dataBasket);
   return (
     <div className="flex px-3 items-center gap-5 mt-32 w-full">
       <div className="w-[70%] xl:w-3/4">

@@ -1,6 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-
 export const handleBasket = createAsyncThunk('basket/handleBasket', async () => {
     try {
         const res = await axios.get(`https://672d29e1fd897971564194df.mockapi.io/ap/v1/basket/`);
@@ -8,7 +7,6 @@ export const handleBasket = createAsyncThunk('basket/handleBasket', async () => 
     } catch (error) {
         console.log(error);
     }
-
 })
 const basketSlice = createSlice({
     name: 'basket',
