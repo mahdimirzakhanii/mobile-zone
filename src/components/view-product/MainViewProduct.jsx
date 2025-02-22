@@ -21,7 +21,6 @@ const MainViewProduct = () => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [dataProduct, setDataProduct] = useState([]);
   const [selectColor, setSelectColor] = useState(null);
-  const [count, setCount] = useState(1);
   const [refresh, setRefresh] = useState(0);
 
   useEffect(() => {
@@ -49,7 +48,7 @@ const MainViewProduct = () => {
     dispatch(handleBasket());
   }, [dispatch]);
 
-  // add to basket
+  // add to cart
   let foundMobile = dataBasket?.some((item) => item?.idMobile === params?.id);
   const addBasket = async () => {
     if (foundMobile) return toast("This product is in your cart.");
@@ -87,6 +86,30 @@ const MainViewProduct = () => {
     setRefresh(1);
   };
 
+  const foundDataMobile = dataBasket?.find(
+    (item) => item?.idMobile === params?.id
+  );
+
+  const [count, setCount] = useState(
+    foundDataMobile?.count ? foundDataMobile?.count : 1
+  );
+  // patch count
+  const addCount = async () => {
+    if (!foundDataMobile) return;
+    let formData = {
+      count: count,
+    };
+    try {
+      const res = await axios.put(
+        `https://672d29e1fd897971564194df.mockapi.io/ap/v1/basket/${foundDataMobile?.id}`,
+        formData
+      );
+      console.log(res?.data);
+      dispatch(handleBasket());
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div className="w-full flex items-center gap-5 mt-32">
       <div className="flex flex-col items-center relative justify-center gap-5 w-20 basis-1/2">
@@ -202,12 +225,18 @@ const MainViewProduct = () => {
                 <td className="flex justify-start w-36 pl-7 text-secondary ">
                   <div className="w-full flex items-center justify-between rounded-full py-1.5 px-2  border border-secondary">
                     <FiMinus
-                      onClick={() => setCount((prev) => prev - 1)}
+                      onClick={() => {
+                        addCount();
+                        setCount((prev) => prev - 1);
+                      }}
                       className="cursor-pointer"
                     />
                     <span className="font-bold">{count}</span>
                     <FiPlus
-                      onClick={() => setCount((prev) => prev + 1)}
+                      onClick={() => {
+                        addCount();
+                        setCount((prev) => prev + 1);
+                      }}
                       className="cursor-pointer"
                     />
                   </div>
