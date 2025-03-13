@@ -49,9 +49,12 @@ const MainViewProduct = () => {
   }, [dispatch]);
 
   // add to cart
-  let foundMobile = dataBasket?.some((item) => item?.idMobile === params?.id);
+  // let foundMobile = dataBasket?.some((item) => item?.idMobile === params?.id);
+  const foundDataMobile = dataBasket?.find(
+    (item) => item?.idMobile === params?.id
+  );
   const addBasket = async () => {
-    if (foundMobile) return toast("This product is in your cart.");
+    if (foundDataMobile) return toast("This product is in your cart.");
     if (!selectColor) return toast("Please select color product!");
     let formData = {
       idMobile: params?.id,
@@ -71,33 +74,25 @@ const MainViewProduct = () => {
         formData
       );
       console.log(res?.data);
-      setCount(1);
+      // setCount(1);
       dispatch(handleBasket());
       toast("Product added to cart");
+      setRefresh(1);
     } catch (error) {
       console.log(error);
     }
   };
+
   const selectColors = (color) => {
     setSelectColor(color);
   };
-  const handleAddToCart = () => {
-    addBasket();
-    setRefresh(1);
-  };
+  const [count, setCount] = useState(foundDataMobile?.count || 1);
 
-  const foundDataMobile = dataBasket?.find(
-    (item) => item?.idMobile === params?.id
-  );
-
-  const [count, setCount] = useState(
-    foundDataMobile?.count ? foundDataMobile?.count : 1
-  );
   // patch count
-  const addCount = async () => {
+  const addCount = async (newCount) => {
     if (!foundDataMobile) return;
     let formData = {
-      count: count,
+      count: newCount,
     };
     try {
       const res = await axios.put(
@@ -110,6 +105,7 @@ const MainViewProduct = () => {
       console.log(error);
     }
   };
+
   return (
     <div className="w-full flex items-center gap-5 mt-32">
       <div className="flex flex-col items-center relative justify-center gap-5 w-20 basis-1/2">
@@ -213,9 +209,9 @@ const MainViewProduct = () => {
               >
                 Buy Now
               </button>
-              {!foundMobile ? (
+              {!foundDataMobile ? (
                 <button
-                  onClick={handleAddToCart}
+                  onClick={addBasket}
                   className="border-2 border-primary text-primary flex items-center justify-center gap-2 h-10 w-36"
                 >
                   Add to basket
@@ -226,16 +222,22 @@ const MainViewProduct = () => {
                   <div className="w-full flex items-center justify-between rounded-full py-1.5 px-2  border border-secondary">
                     <FiMinus
                       onClick={() => {
-                        addCount();
-                        setCount((prev) => prev - 1);
+                        setCount((prev) => {
+                          const newCount = prev > 1 ? prev - 1 : 1;
+                          addCount(newCount);
+                          return newCount;
+                        });
                       }}
                       className="cursor-pointer"
                     />
-                    <span className="font-bold">{count}</span>
+                    {count}
                     <FiPlus
                       onClick={() => {
-                        addCount();
-                        setCount((prev) => prev + 1);
+                        setCount((prev) => {
+                          const newCount = prev + 1;
+                          addCount(newCount);
+                          return newCount;
+                        });
                       }}
                       className="cursor-pointer"
                     />

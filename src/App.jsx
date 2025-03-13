@@ -1,17 +1,14 @@
-import { Route, Routes, useSearchParams } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Home from "./components/home/Home";
 import Nav from "./components/Nav";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import MainProducts from "./components/products/MainProducts.jsx";
 import Search from "./components/search/Search.jsx";
 import Footer from "./components/Footer.jsx";
 import MainViewProduct from "./components/view-product/MainViewProduct.jsx";
-import axios from "axios";
 import MainCartProduct from "./components/cart/MainCartProduct.jsx";
 
 function App() {
-  // const [productsList, setProductsList] = useState([]);
-  // const [loading, setLoading] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
   return (
     <div className="w-full h-full flex flex-col items-center">
@@ -26,15 +23,9 @@ function App() {
       </div>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route
-          path="/products"
-          element={<MainProducts  />}
-        />
+        <Route path="/products" element={<MainProducts />} />
         <Route path="/products/:id" element={<MainViewProduct />} />
-        <Route
-          path="/cart"
-          element={<MainCartProduct  />}
-        />
+        <Route path="/cart" element={<MainCartProduct />} />
       </Routes>
 
       <div className="w-full pt-20">

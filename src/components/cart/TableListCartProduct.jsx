@@ -48,13 +48,7 @@ const TableListCartProduct = ({ dataBasket, setRefreshList }) => {
                   setShowModal={setShowModal}
                   setIdProduct={setIdProduct}
                   key={index}
-                  id={item?.id}
-                  model={item?.model}
-                  name={item?.name}
-                  img={item?.img_src[0]}
-                  price={item?.price}
-                  ram={item?.ram}
-                  quantity={item?.quantity}
+                  item={item}
                 />
               ))
             ) : (
