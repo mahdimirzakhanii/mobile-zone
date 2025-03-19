@@ -22,6 +22,7 @@ const MainViewProduct = () => {
   const [dataProduct, setDataProduct] = useState([]);
   const [selectColor, setSelectColor] = useState(null);
   const [refresh, setRefresh] = useState(0);
+  const [count, setCount] = useState(1);
 
   useEffect(() => {
     setRefresh(1);
@@ -44,15 +45,21 @@ const MainViewProduct = () => {
   }, [params?.id]);
 
   const { dataBasket } = useSelector((state) => state?.basket);
+
   useEffect(() => {
     dispatch(handleBasket());
   }, [dispatch]);
 
   // add to cart
-  // let foundMobile = dataBasket?.some((item) => item?.idMobile === params?.id);
+
   const foundDataMobile = dataBasket?.find(
     (item) => item?.idMobile === params?.id
   );
+
+  useEffect(() => {
+    setCount(Number(foundDataMobile?.count) || 1);
+  }, [foundDataMobile]);
+
   const addBasket = async () => {
     if (foundDataMobile) return toast("This product is in your cart.");
     if (!selectColor) return toast("Please select color product!");
@@ -74,7 +81,7 @@ const MainViewProduct = () => {
         formData
       );
       console.log(res?.data);
-      // setCount(1);
+      setCount(1);
       dispatch(handleBasket());
       toast("Product added to cart");
       setRefresh(1);
@@ -82,12 +89,9 @@ const MainViewProduct = () => {
       console.log(error);
     }
   };
-
   const selectColors = (color) => {
     setSelectColor(color);
   };
-  const [count, setCount] = useState(foundDataMobile?.count || 1);
-
   // patch count
   const addCount = async (newCount) => {
     if (!foundDataMobile) return;
@@ -105,6 +109,23 @@ const MainViewProduct = () => {
       console.log(error);
     }
   };
+  //delete product
+  // useEffect(() => {
+  //   const deleteProduct = async () => {
+  //     if (!params?.id || count !== 0) return;
+  //     try {
+  //       const res = await axios.delete(
+  //         `https://672d29e1fd897971564194df.mockapi.io/ap/v1/basket/${params?.id}`
+  //       );
+  //       console.log(res?.data);
+  //       dispatch(handleBasket());
+  //       setRefresh(1);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   };
+  //   deleteProduct();
+  // }, [count, params?.id]);
 
   return (
     <div className="w-full flex items-center gap-5 mt-32">
@@ -223,7 +244,7 @@ const MainViewProduct = () => {
                     <FiMinus
                       onClick={() => {
                         setCount((prev) => {
-                          const newCount = prev > 1 ? prev - 1 : 1;
+                          const newCount = prev - 1;
                           addCount(newCount);
                           return newCount;
                         });
