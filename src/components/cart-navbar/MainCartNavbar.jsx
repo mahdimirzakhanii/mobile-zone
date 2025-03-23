@@ -69,7 +69,7 @@ const MainCartNavbar = ({ setShowCart }) => {
             key={index}
             className="flex items-start justify-between border-b-2 border-b-tertiary/10 pb-2 gap-3 w-full h-full"
           >
-            <img src={item?.img_src[0]} width={100} height={100} alt="" />
+            <img src={item?.img_src[0]} width={80} height={80} alt="" />
             <div className="flex flex-col items-start gap-4 h-full w-full">
               <span className="text-sm">{item?.model}</span>
               <div className="flex items-center gap-5">

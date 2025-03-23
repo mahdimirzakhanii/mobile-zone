@@ -9,7 +9,9 @@ import MainViewProduct from "./components/view-product/MainViewProduct.jsx";
 import MainCartProduct from "./components/cart/MainCartProduct.jsx";
 
 function App() {
+  const [scroll, setScroll] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
+
   return (
     <div className="w-full h-full flex flex-col items-center">
       {/* open search-bar  */}
@@ -18,9 +20,12 @@ function App() {
           <Search setShowSearch={setShowSearch} />
         </div>
       )}
-      <div className="w-full">
-        <Nav setShowSearch={setShowSearch} showSearch={showSearch} />
-      </div>
+      <Nav
+        scroll={scroll}
+        setScroll={setScroll}
+        setShowSearch={setShowSearch}
+        showSearch={showSearch}
+      />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<MainProducts />} />

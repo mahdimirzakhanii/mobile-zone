@@ -4,12 +4,12 @@ import { useNavigate } from "react-router-dom";
 const SingleProductsList = ({ item }) => {
   const navigate = useNavigate();
   return (
-    <div className="flex items-center justify-center w-1/6">
+    <div className="flex  border border-blue-100  items-center justify-center w-1/6">
       <div
         onClick={() => navigate(`/products/${item?.id}`)}
-        className="flex flex-col items-start rounded cursor-pointer duration-500 hover:shadow-md p-3"
+        className="flex flex-col items-start rounded cursor-pointer duration-300 hover:shadow-lg p-3"
       >
-        <div className="flex items-center justify-center mx-auto  w-[90%] bg-gray/40 px-5 py-10">
+        <div className="flex items-center justify-center mx-auto w-full bg-blue-100 px-5 py-10">
           <img src={item?.img_src[0]} alt="" />
         </div>
 

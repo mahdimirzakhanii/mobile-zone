@@ -2,7 +2,7 @@ import { IoCall, IoMail, IoLocationSharp } from "react-icons/io5";
 
 const Footer = () => {
   return (
-    <div className="bg-secondary text-white px-3 py-5 flex items-start justify-between">
+    <div className="bg-blue-950 text-white px-3 py-10 flex items-start justify-between">
       <div className="flex w-full basis-1/4 flex-col items-center gap-3">
         <img className="w-32" src="/assets/img/logo1.png" alt="" />
       </div>
@@ -16,20 +16,20 @@ const Footer = () => {
       </div>
 
       <div className="flex basis-1/4 flex-col items-center gap-3">
-        <span className="text-lg font-bold w-full text-start">Contact me</span>
+        <span className="text-lg font-bold w-full  text-start">Contact me</span>
 
         <div className="flex mx-auto flex-col items-center w-full ">
           <div className="flex items-center justify-start gap-3 w-full">
             <IoCall />
-            <span className="text-gray">mobilezone@gmail.com</span>
+            <span className="text-gray-200 cursor-pointer">mobilezone@gmail.com</span>
           </div>
           <div className="flex items-center justify-start gap-3 w-full">
             <IoMail />
-            <span className="text-gray">+12345678-90</span>
+            <span className="text-gray-200 cursor-pointer">+12345678-90</span>
           </div>
           <div className="flex items-center justify-start gap-3 w-full">
             <IoLocationSharp />
-            <span className="text-gray">Iran-Tehran</span>
+            <span className="text-gray-200 cursor-pointer">Iran-Tehran</span>
           </div>
         </div>
       </div>

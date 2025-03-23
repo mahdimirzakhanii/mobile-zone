@@ -17,14 +17,14 @@ const BestProducts = () => {
 
   return (
     <div className="w-full flex justify-center">
-      <div className="grid grid-cols-5 ">
+      <div className="grid grid-cols-5 gap-5">
         {filter?.map((item, index) => (
           <div
-            className="flex flex-col items-start rounded cursor-pointer duration-500 hover:shadow-md p-3"
+            className="flex border border-blue-100 flex-col items-start rounded cursor-pointer duration-300 hover:shadow-lg p-3"
             onClick={() => navigate(`/products/${item?.id}`)}
             key={index}
           >
-            <div className="flex items-center mx-auto justify-center w-[90%] bg-gray/40 px-3 py-10">
+            <div className="flex items-center mx-auto justify-center w-full bg-blue-100 px-3 py-10">
               <img src={item?.img_src[0]} alt="" />
             </div>
 

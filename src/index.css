@@ -3,10 +3,10 @@
 @tailwind utilities;
 
 :root {
-  --primary: #003459;
-  --secondary: #40628b;
-  --tertiary: #dcf2ff;
-  --gold: #dda01e;
+  --primary: #1d224e;
+  --secondary: #7097ea;
+  --tertiary: #dfe7fa;
+  --gold: #e29600;
   --white: #fff;
   --error: #c20114;
   --error1: #de3c4b;

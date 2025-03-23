@@ -4,8 +4,7 @@ import { LiaSearchSolid } from "react-icons/lia";
 import { Link, useLocation } from "react-router-dom";
 import MainCartNavbar from "./cart-navbar/MainCartNavbar";
 
-const Nav = ({ setShowSearch }) => {
-  const [scroll, setScroll] = useState(false);
+const Nav = ({ setShowSearch, scroll, setScroll }) => {
   const location = useLocation();
   const [showCart, setShowCart] = useState(false);
 
@@ -19,14 +18,16 @@ const Nav = ({ setShowSearch }) => {
 
   return (
     <div
-      className={`flex fixed z-50 items-center justify-center w-full px-20 py-5 duration-500 text-white  
-         ${location?.pathname !== "/" && "bg-primary"}
-          ${scroll && "bg-primary !py-2 shadow-md"}
+      className={`flex fixed z-50 !py-2 mt-1 items-center rounded-md px-5 justify-center w-[80%] duration-500 text-white  
+         ${location?.pathname !== "/" && "bg-blue-950"}
+          ${scroll && "bg-blue-950  shadow-md"}
           `}
     >
       <div className="flex items-center justify-between relative w-full">
         <div className="flex items-center basis-1/5 ">
-          <img src="/image/public/logo1.png" width={70} height={70} alt="" />
+          <a href="https://resume-topaz-ten.vercel.app/" target="blanck">
+            <img src="/image/public/logo1.png" width={70} height={70} alt="" />
+          </a>
         </div>
 
         <div className="flex items-center justify-end gap-20 basis-2/5">

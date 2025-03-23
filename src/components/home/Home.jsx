@@ -40,11 +40,11 @@ const Home = () => {
               key={index}
             >
               <img
-                className="w-24 h-24 object-contain	rounded-full  bg-primary/10 hover:shadow-lg duration-300 p-2"
+                className="w-28 h-28 object-contain	rounded-full bg-blue-100 hover:shadow-lg duration-300 p-2"
                 src={item?.imgSrc}
                 alt=""
               />
-              <span className="text-xl text-primary">{item?.name}</span>
+              <span className="text-xl text-blue-700">{item?.name}</span>
             </div>
           ))}
         </div>
