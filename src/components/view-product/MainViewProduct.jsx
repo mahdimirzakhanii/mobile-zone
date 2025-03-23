@@ -51,11 +51,9 @@ const MainViewProduct = () => {
   }, [dispatch]);
 
   // add to cart
-
   const foundDataMobile = dataBasket?.find(
     (item) => item?.idMobile === params?.id
   );
-
   useEffect(() => {
     setCount(Number(foundDataMobile?.count) || 1);
   }, [foundDataMobile]);
@@ -110,23 +108,23 @@ const MainViewProduct = () => {
     }
   };
   //delete product
-  // useEffect(() => {
-  //   const deleteProduct = async () => {
-  //     if (!params?.id || count !== 0) return;
-  //     try {
-  //       const res = await axios.delete(
-  //         `https://672d29e1fd897971564194df.mockapi.io/ap/v1/basket/${params?.id}`
-  //       );
-  //       console.log(res?.data);
-  //       dispatch(handleBasket());
-  //       setRefresh(1);
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   };
-  //   deleteProduct();
-  // }, [count, params?.id]);
-
+  useEffect(() => {
+    const deleteProduct = async () => {
+      if (!foundDataMobile?.id || count !== 0) return;
+      try {
+        const res = await axios.delete(
+          `https://672d29e1fd897971564194df.mockapi.io/ap/v1/basket/${foundDataMobile?.id}`
+        );
+        console.log(res?.data);
+        dispatch(handleBasket());
+        toast("Product removed from cart");
+        setRefresh(1);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    deleteProduct();
+  }, [count, foundDataMobile?.id, dispatch]);
   return (
     <div className="w-full flex items-center gap-5 mt-32">
       <div className="flex flex-col items-center relative justify-center gap-5 w-20 basis-1/2">

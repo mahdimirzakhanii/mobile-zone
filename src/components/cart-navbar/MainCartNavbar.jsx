@@ -6,16 +6,53 @@ import { useNavigate } from "react-router-dom";
 import { handleBasket } from "../redux/basketSlice";
 import { GridLoader } from "react-spinners";
 import { useEffect } from "react";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 const MainCartNavbar = ({ setShowCart }) => {
   const navigate = useNavigate();
-  const { dataBasket, loading } = useSelector((state) => state?.basket);
   const dispatch = useDispatch();
+  const { dataBasket, loading } = useSelector((state) => state?.basket);
 
   useEffect(() => {
-    if (loading) return;
     dispatch(handleBasket());
   }, [dispatch]);
+
+  // تابع برای آپدیت تعداد در سرور
+  const updateCount = async (itemId, newCount) => {
+    if (newCount < 0) return; // جلوگیری از تعداد منفی
+    const item = dataBasket.find((i) => i.idMobile === itemId);
+    if (!item) return;
+
+    try {
+      const formData = { count: newCount };
+      const res = await axios.put(
+        `https://672d29e1fd897971564194df.mockapi.io/ap/v1/basket/${item.id}`,
+        formData
+      );
+      console.log(res?.data);
+      dispatch(handleBasket());
+      if (newCount === 0) {
+        await axios.delete(
+          `https://672d29e1fd897971564194df.mockapi.io/ap/v1/basket/${item.id}`
+        );
+        toast("Product removed from cart");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  // تابع برای افزایش یا کاهش تعداد
+  const handleCountChange = (itemId, change) => {
+    const item = dataBasket.find((i) => i.idMobile === itemId);
+    if (!item) return;
+
+    const currentCount = Number(item.count) || 0;
+    const newCount = currentCount + change;
+    updateCount(itemId, newCount);
+  };
+
   return (
     <div className="flex max-h-[300px] h-[300px] overflow-y-auto top-16 right-20 flex-col gap-3 absolute items-center rounded-lg shadow-lg w-1/5 bg-primary text-white p-3">
       <div className="w-full flex justify-end items-center cursor-pointer">
@@ -37,9 +74,15 @@ const MainCartNavbar = ({ setShowCart }) => {
               <span className="text-sm">{item?.model}</span>
               <div className="flex items-center gap-5">
                 <div className="w-full flex items-center gap-2 rounded-full p-1 border border-secondary">
-                  <FiMinus className="cursor-pointer text-sm" />
+                  <FiMinus
+                    onClick={() => handleCountChange(item?.idMobile, -1)}
+                    className="cursor-pointer text-sm"
+                  />
                   <span className="font-bold text-xs">{item?.count}</span>
-                  <FiPlus className="cursor-pointer text-sm" />
+                  <FiPlus
+                    onClick={() => handleCountChange(item?.idMobile, 1)}
+                    className="cursor-pointer text-sm"
+                  />
                 </div>
                 <span className="text-sm text-gray">${item?.price}</span>
               </div>
@@ -49,7 +92,7 @@ const MainCartNavbar = ({ setShowCart }) => {
       ) : (
         <div className="flex flex-col items-center gap-5 w-full">
           <FaShoppingCart className="text-2xl" />
-          <span> Your shopping cart is empty.</span>
+          <span>Your shopping cart is empty.</span>
         </div>
       )}
       {dataBasket?.length > 0 && (
@@ -59,7 +102,7 @@ const MainCartNavbar = ({ setShowCart }) => {
               navigate("/cart");
               setShowCart(false);
             }}
-            className="w-28 py-1.5 bg-gold text-primary rounded-md  shadow-lg"
+            className="w-28 py-1.5 bg-gold text-primary rounded-md shadow-lg"
           >
             View Cart
           </button>
