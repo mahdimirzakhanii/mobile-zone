@@ -20,7 +20,7 @@ const Nav = ({ setShowSearch, scroll, setScroll }) => {
     <div
       className={`flex fixed z-50 !py-2 mt-1 items-center rounded-md px-5 justify-center w-[80%] duration-500 text-white  
          ${location?.pathname !== "/" && "bg-blue-950"}
-          ${scroll && "bg-blue-950  shadow-md"}
+          ${(scroll || showCart) && "bg-blue-950 shadow-md"}
           `}
     >
       <div className="flex items-center justify-between relative w-full">

@@ -14,7 +14,7 @@ function App() {
 
   return (
     <div className="w-full h-full flex flex-col items-center">
-      {/* open search-bar  */}
+      {/* open search-bar */}
       {showSearch && (
         <div className="fixed left-0 top-0 z-[1000] w-full h-full">
           <Search setShowSearch={setShowSearch} />
@@ -32,7 +32,6 @@ function App() {
         <Route path="/products/:id" element={<MainViewProduct />} />
         <Route path="/cart" element={<MainCartProduct />} />
       </Routes>
-
       <div className="w-full pt-20">
         <Footer />
       </div>

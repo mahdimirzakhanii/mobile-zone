@@ -54,7 +54,7 @@ const MainCartNavbar = ({ setShowCart }) => {
   };
 
   return (
-    <div className="flex max-h-[300px] h-[300px] overflow-y-auto top-16 right-20 flex-col gap-3 absolute items-center rounded-lg shadow-lg w-1/5 bg-primary text-white p-3">
+    <div className="flex max-h-[300px] h-[300px] overflow-y-auto top-[72px] right-10 flex-col gap-3 absolute items-center rounded-lg shadow-lg w-1/5 bg-blue-950 text-white p-3">
       <div className="w-full flex justify-end items-center cursor-pointer">
         <PiX
           onClick={() => setShowCart(false)}
@@ -67,13 +67,13 @@ const MainCartNavbar = ({ setShowCart }) => {
         dataBasket?.map((item, index) => (
           <div
             key={index}
-            className="flex items-start justify-between border-b-2 border-b-tertiary/10 pb-2 gap-3 w-full h-full"
+            className="flex items-start justify-between border-b-2 border-b-gray-blue-200 pb-2 gap-3 w-full h-full"
           >
             <img src={item?.img_src[0]} width={80} height={80} alt="" />
-            <div className="flex flex-col items-start gap-4 h-full w-full">
+            <div className="flex flex-col items-start gap-3 h-full w-full">
               <span className="text-sm">{item?.model}</span>
               <div className="flex items-center gap-5">
-                <div className="w-full flex items-center gap-2 rounded-full p-1 border border-secondary">
+                <div className="w-full flex items-center gap-2 rounded-full p-1 border border-blue-600">
                   <FiMinus
                     onClick={() => handleCountChange(item?.idMobile, -1)}
                     className="cursor-pointer text-sm"
@@ -102,7 +102,7 @@ const MainCartNavbar = ({ setShowCart }) => {
               navigate("/cart");
               setShowCart(false);
             }}
-            className="w-28 py-1.5 bg-gold text-primary rounded-md shadow-lg"
+            className="w-28 py-1.5 bg-gray-blue-600 text-blue-950 rounded-md shadow-lg"
           >
             View Cart
           </button>

@@ -17,7 +17,7 @@ const Banner = () => {
               8GB
             </span>
           </div>
-          <button className="text-white bg-blue-950  text-base rounded px-8 py-2">
+          <button className="text-white bg-blue-950 text-base rounded px-8 py-2">
             buy
           </button>
         </div>
