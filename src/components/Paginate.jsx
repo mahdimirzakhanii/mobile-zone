@@ -25,13 +25,13 @@ const Paginate = ({ pageCount, currentPage, setCurrentPage, handleSearch }) => {
           pageRangeDisplayed={1}
           containerClassName="flex items-center justify-between gap-4"
           pageLinkClassName={
-            "text-primary w-8 h-8 rounded-md flex items-center justify-center"
+            "text-blue-700 w-8 h-8 rounded-md flex items-center justify-center"
           }
           activeLinkClassName={
-            "bg-secondary shadow-[0_0_5px_#00000020] text-white w-8 h-8 rounded-md flex items-center justify-center cursor-default"
+            "bg-gray-blue-300 shadow-[0_0_5px_#00000020] text-white w-8 h-8 rounded-md flex items-center justify-center cursor-default"
           }
-          previousLinkClassName="text-sm text-primary"
-          nextLinkClassName="text-sm text-primary"
+          previousLinkClassName="text-sm text-blue-700"
+          nextLinkClassName="text-sm text-blue-700"
           disabledLinkClassName="cursor-default"
           key={pageCount}
           forcePage={pageCount > 1 && currentPage - 1}
