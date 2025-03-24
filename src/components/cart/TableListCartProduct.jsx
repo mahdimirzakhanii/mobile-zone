@@ -27,15 +27,15 @@ const TableListCartProduct = ({ dataBasket, setRefreshList }) => {
       <div className="flex flex-col items-start gap-10 w-full">
         <span className="text-3xl">Shoping Cart</span>
         <table className="w-full flex items-center flex-col gap-5">
-          <thead className="w-full border-b border-b-tertiary pb-2">
+          <thead className="w-full border-b border-b-gray-blue-400 pb-2">
             <tr className="flex items-center justify-center w-full">
-              <th className="text-primary flex items-center justify-start pl-5 text-lg w-[30%]">
+              <th className="text-blue-900 flex items-center justify-start pl-5 text-lg w-[30%]">
                 Product
               </th>
-              <th className="text-primary flex items-center justify-start pl-5 text-lg w-[25%]">
+              <th className="text-blue-900 flex items-center justify-start pl-5 text-lg w-[25%]">
                 Quantity
               </th>
-              <th className="text-primary flex items-center justify-start pl-5 text-lg w-[25%]">
+              <th className="text-blue-900 flex items-center justify-start pl-5 text-lg w-[25%]">
                 Price
               </th>
               <th className="w-[10%]"></th>
@@ -52,7 +52,7 @@ const TableListCartProduct = ({ dataBasket, setRefreshList }) => {
                 />
               ))
             ) : (
-              <span className="text-xl text-secondary w-full text-center">
+              <span className="text-xl text-blue-500 w-full text-center">
                 Your shopping cart is empty.
               </span>
             )}

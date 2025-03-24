@@ -8,30 +8,30 @@ const Summary = ({ dataBasket }) => {
   let price = dataBasket?.map((item) => item?.price);
 
   return (
-    <div className="flex flex-col items-center w-full gap-5 rounded-lg bg-primary py-5 px-3">
-      <span className="text-2xl text-white border-b border-b-white/30 w-full pb-3">
+    <div className="flex flex-col items-center w-full gap-5 rounded-lg bg-blue-950 py-5 px-3">
+      <span className="text-2xl text-white border-b border-b-gray-blue-200 w-full pb-3">
         Summary Cart
       </span>
       <div className="flex flex-col items-start w-full gap-5 pr-3 ">
-        <div className="text-white/80 flex items-center justify-between w-full ">
+        <div className="text-gray-blue-200 flex items-center justify-between w-full ">
           <span className="text-lg">Item: </span>
           <span>{dataBasket?.length}</span>
         </div>
-        <div className="text-white/80 flex items-center justify-between w-full ">
+        <div className="text-gray-blue-200 flex items-center justify-between w-full ">
           <span className="text-lg">Total Price: </span>
           <span>
             ${price.reduce((price, currentPrice) => price + currentPrice, 0)}
           </span>
         </div>
         <div className="flex flex-col items-start justify-center gap-3 w-full">
-          <span className="text-lg text-white/80">Payment Method:</span>
+          <span className="text-lg text-gray-blue-200">Payment Method:</span>
           <div className="flex items-center gap-3 mx-auto w-full">
             <div
-              className="flex text-secondary duration-300 items-center justify-center gap-3 w-1/2 rounded-full py-2 cursor-pointer border border-white/30"
+              className="flex text-blue-600 bg-transparent duration-300 items-center justify-center gap-3 w-1/2 rounded-full py-2 cursor-pointer border border-blue-600"
               onClick={() => setPaymentMethod("paypal")}
               onMouseEnter={(e) => (
-                (e.currentTarget.style.border = "1px solid #fff"),
-                (e.currentTarget.style.color = "#fff")
+                (e.currentTarget.style.border = "1px solid #c8daef"),
+                (e.currentTarget.style.color = "#c8daef")
               )}
               onMouseLeave={(e) =>
                 paymentMethod !== "paypal" &&
@@ -39,19 +39,20 @@ const Summary = ({ dataBasket }) => {
                 (e.currentTarget.style.color = "var(--secondary)"))
               }
               style={{
-                color: paymentMethod === "paypal" && "#fff",
-                border: paymentMethod === "paypal" && "1px solid #fff",
+                color: paymentMethod === "paypal" && "#c8daef",
+                border:
+                  paymentMethod === "paypal" && "1px solid #c8daef",
               }}
             >
               <span className="text-lg italic">PayPal</span>
               <FaPaypal />
             </div>
             <div
-              className="flex text-secondary duration-300 items-center justify-center gap-3 w-1/2 rounded-full py-2 cursor-pointer border border-white/30"
+              className="flex text-blue-600 bg-transparent duration-300 items-center justify-center gap-3 w-1/2 rounded-full py-2 cursor-pointer border border-blue-600"
               onClick={() => setPaymentMethod("credit")}
               onMouseEnter={(e) => (
-                (e.currentTarget.style.border = "1px solid #fff"),
-                (e.currentTarget.style.color = "#fff")
+                (e.currentTarget.style.border = "1px solid #c8daef"),
+                (e.currentTarget.style.color = "#c8daef")
               )}
               onMouseLeave={(e) =>
                 paymentMethod !== "credit" &&
@@ -59,8 +60,8 @@ const Summary = ({ dataBasket }) => {
                 (e.currentTarget.style.color = "var(--secondary)"))
               }
               style={{
-                color: paymentMethod === "credit" && "#fff",
-                border: paymentMethod === "credit" && "1px solid #fff",
+                color: paymentMethod === "credit" && "#c8daef",
+                border: paymentMethod === "credit" && "1px solid #c8daef",
               }}
             >
               <span className="text-lg italic">Credit Cart</span>
@@ -71,8 +72,8 @@ const Summary = ({ dataBasket }) => {
         <button
           onClick={() => setPaymentBtn(!paymentBtn)}
           onMouseEnter={(e) => (
-            (e.currentTarget.style.background = "var(--secondary)"),
-            (e.currentTarget.style.color = "#fff")
+            (e.currentTarget.style.background = "#c8daef"),
+            (e.currentTarget.style.color = "var(--primary)")
           )}
           onMouseLeave={(e) =>
             !paymentBtn &&
@@ -80,10 +81,10 @@ const Summary = ({ dataBasket }) => {
             (e.currentTarget.style.color = "var(--secondary)"))
           }
           style={{
-            background: paymentBtn && "var(--secondary)",
-            color: paymentBtn && "#fff ",
+            background: paymentBtn && "#c8daef",
+            color: paymentBtn && "var(--primary)",
           }}
-          className="w-full text-xl outline-none font-bold border text-secondary border-secondary duration-300 rounded-md  py-2"
+          className="w-full text-xl outline-none font-bold border text-blue-600 border-secondary duration-300 rounded-md  py-2"
           // onClick={}
         >
           Pay

@@ -4,15 +4,11 @@
 
 :root {
   --primary: #1d224e;
-  --secondary: #7097ea;
-  --tertiary: #dfe7fa;
+  --secondary: #28588f;
+  --tertiary: #c8daef;
   --gold: #e29600;
   --white: #fff;
-  --error: #c20114;
-  --error1: #de3c4b;
-  --error2: #bb142b;
-  --gray: #cccccc;
-  --gray1: #919191;
+  --error: #ae0d06;
   --black: #000;
 }
 
@@ -57,7 +53,7 @@ body {
 
 .swiper-button-next,
 .swiper-button-prev {
-  background-color: var(--primary);
+  background-color: var(--secondary);
   color: white;
   border-radius: 50%;
   width: 10px;

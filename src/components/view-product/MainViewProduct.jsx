@@ -167,7 +167,7 @@ const MainViewProduct = () => {
               className={`w-full flex items-center justify-center`}
             >
               <img
-                className="w-[130px]  flex items-center justify-center"
+                className="w-[130px] flex items-center justify-center"
                 src={item}
               />
             </SwiperSlide>
@@ -176,7 +176,7 @@ const MainViewProduct = () => {
       </div>
 
       <div className="flex flex-col items-start gap-6 basis-1/2">
-        <span className="text-4xl text-primary">{dataProduct?.model}</span>
+        <span className="text-4xl text-blue-600">{dataProduct?.model}</span>
 
         <div className="w-full flex flex-col items-start gap-2">
           <span className="text-black/70">
@@ -201,13 +201,13 @@ const MainViewProduct = () => {
                 <div
                   key={idx}
                   onClick={() => selectColors(color)}
-                  className="w-8 h-8 relative flex items-center justify-center rounded-full hover:shadow cursor-pointer"
+                  className="w-7 h-7 shadow-md  relative flex items-center justify-center rounded-full  cursor-pointer"
                   style={{ background: color }}
                 >
                   <div
                     className="w-10 h-10 rounded-full absolute"
                     style={{
-                      border: selectColor === color && "2px solid var(--gold)",
+                      border: selectColor === color && "3px solid var(--gold)",
                     }}
                   ></div>
                 </div>
@@ -224,14 +224,14 @@ const MainViewProduct = () => {
             <div className="w-full flex items-center gap-5">
               <button
                 onClick={() => navigate("/cart")}
-                className="bg-primary text-white hover:shadow duration-300 flex items-center justify-center gap-3 h-10 w-36"
+                className="bg-blue-900 text-white hover:shadow duration-300 flex items-center justify-center gap-3 h-10 w-36"
               >
                 Buy Now
               </button>
               {!foundDataMobile ? (
                 <button
                   onClick={addBasket}
-                  className="border-2 border-primary text-primary flex items-center justify-center gap-2 h-10 w-36"
+                  className="border-2 border-blue-900 text-blue-900 flex items-center justify-center gap-2 h-10 w-36"
                 >
                   Add to basket
                   <FaShoppingCart />

@@ -58,40 +58,40 @@ const MainProducts = () => {
       <span className="text-2xl text-start w-full px-20">Products</span>
       <div className="flex flex-col relative items-start gap-3 w-full px-24">
         <span
-          className="text-lg bg-gray-blue-400 text-blue-950 flex items-center justify-between cursor-pointer w-28 py-1 px-3 rounded-md"
+          className="text-lg bg-blue-950 text-gray-blue-400 flex items-center justify-between cursor-pointer w-28 py-1 px-3 rounded-md"
           onClick={() => setShowFilter(!showFilter)}
         >
           {filter ? filter : "All"}
           <RiArrowDownSLine />
         </span>
         {showFilter && (
-          <div className=" z-50 absolute bg-gray-blue-400 text-blue-950 w-28 rounded-md cursor-pointer top-10 flex flex-col items-center justify-center ">
+          <div className=" z-50 absolute bg-blue-950 text-gray-blue-400 w-28 rounded-md cursor-pointer top-10 flex flex-col items-center justify-center ">
             <span
-              className="w-full text-start hover:bg-gray-blue-200 first:rounded-t-md last:rounded-b-md py-1 px-3"
+              className="w-full text-start hover:bg-blue-900 first:rounded-t-md last:rounded-b-md py-1 px-3"
               onClick={() => handleFilter("All")}
             >
               All
             </span>
             <span
-              className="w-full text-start hover:bg-gray-blue-200 first:rounded-t-md last:rounded-b-md py-1 px-3"
+              className="w-full text-start hover:bg-blue-900 first:rounded-t-md last:rounded-b-md py-1 px-3"
               onClick={() => handleFilter("Apple")}
             >
               Apple
             </span>
             <span
-              className="w-full text-start hover:bg-gray-blue-200 first:rounded-t-md last:rounded-b-md py-1 px-3"
+              className="w-full text-start hover:bg-blue-900 first:rounded-t-md last:rounded-b-md py-1 px-3"
               onClick={() => handleFilter("Samsung")}
             >
               Samsung
             </span>
             <span
-              className="w-full text-start hover:bg-gray-blue-200 first:rounded-t-md last:rounded-b-md py-1 px-3"
+              className="w-full text-start hover:bg-blue-900 first:rounded-t-md last:rounded-b-md py-1 px-3"
               onClick={() => handleFilter("Xiaomi")}
             >
               Xiaomi
             </span>
             <span
-              className="w-full text-start hover:bg-gray-blue-200 first:rounded-t-md last:rounded-b-md py-1 px-3"
+              className="w-full text-start hover:bg-blue-900 first:rounded-t-md last:rounded-b-md py-1 px-3"
               onClick={() => handleFilter("Huawei")}
             >
               Huawei

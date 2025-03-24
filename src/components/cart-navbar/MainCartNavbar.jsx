@@ -102,7 +102,7 @@ const MainCartNavbar = ({ setShowCart }) => {
               navigate("/cart");
               setShowCart(false);
             }}
-            className="w-28 py-1.5 bg-gray-blue-600 text-blue-950 rounded-md shadow-lg"
+            className="w-28 py-1.5 bg-gray-blue-400 text-blue-950 rounded-md shadow-lg"
           >
             View Cart
           </button>
