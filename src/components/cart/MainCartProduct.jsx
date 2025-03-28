@@ -16,7 +16,7 @@ const MainCartProduct = () => {
     if (loading || refreshList !== 1) return;
     dispatch(handleBasket());
     setRefreshList(0);
-  }, [dispatch, refreshList]);
+  }, [dispatch, refreshList, loading]);
 
   return (
     <div className="flex px-3 items-center gap-5 mt-32 w-full">

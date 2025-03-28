@@ -2,13 +2,11 @@ import { useEffect, useState } from "react";
 import SingleListCartProduct from "./SingleListCartProduct";
 import axios from "axios";
 import ModalDeleteProduct from "./ModalDeleteProduct";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { handleBasket } from "../redux/basketSlice";
 import { toast } from "react-toastify";
 
 const TableListCartProduct = ({ dataBasket, setRefreshList }) => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [idProduct, setIdProduct] = useState(null);
   const [showModal, setShowModal] = useState(false);
