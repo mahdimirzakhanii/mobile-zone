@@ -5,7 +5,7 @@ import { FaCreditCard } from "react-icons/fa6";
 const Summary = ({ dataBasket }) => {
   const [paymentMethod, setPaymentMethod] = useState("");
   const [paymentBtn, setPaymentBtn] = useState(false);
-  let price = dataBasket?.map((item) => item?.price);
+  let price = dataBasket.map((item) => item?.price);
 
   return (
     <div className="flex flex-col items-center w-full gap-5 rounded-lg bg-blue-950 py-5 px-3">

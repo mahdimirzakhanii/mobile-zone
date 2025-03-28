@@ -1,11 +1,56 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SingleListCartProduct from "./SingleListCartProduct";
 import axios from "axios";
 import ModalDeleteProduct from "./ModalDeleteProduct";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { handleBasket } from "../redux/basketSlice";
+import { toast } from "react-toastify";
 
 const TableListCartProduct = ({ dataBasket, setRefreshList }) => {
-  const [showModal, setShowModal] = useState(false);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [idProduct, setIdProduct] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+
+  useEffect(() => {
+    dispatch(handleBasket());
+  }, [dispatch]);
+
+  // تابع برای آپدیت تعداد در سرور
+  const updateCount = async (itemId, newCount) => {
+    if (newCount < 0) return; // جلوگیری از تعداد منفی
+    const item = dataBasket.find((i) => i.idMobile === itemId);
+    if (!item) return;
+
+    try {
+      const formData = { count: newCount };
+      const res = await axios.put(
+        `https://672d29e1fd897971564194df.mockapi.io/ap/v1/basket/${item.id}`,
+        formData
+      );
+      console.log(res?.data);
+      dispatch(handleBasket());
+      if (newCount === 0) {
+        await axios.delete(
+          `https://672d29e1fd897971564194df.mockapi.io/ap/v1/basket/${item.id}`
+        );
+        toast("Product removed from cart");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  // تابع برای افزایش یا کاهش تعداد
+  const handleCountChange = (itemId, change) => {
+    const item = dataBasket.find((i) => i.idMobile === itemId);
+    if (!item) return;
+
+    const currentCount = Number(item.count) || 0;
+    const newCount = currentCount + change;
+    updateCount(itemId, newCount);
+  };
 
   // delete product
   const deleteProduct = async (id) => {
@@ -49,6 +94,8 @@ const TableListCartProduct = ({ dataBasket, setRefreshList }) => {
                   setIdProduct={setIdProduct}
                   key={index}
                   item={item}
+                  handleCountChange={handleCountChange}
+
                 />
               ))
             ) : (
