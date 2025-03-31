@@ -13,6 +13,7 @@ import { toast, ToastContainer, Zoom } from "react-toastify";
 import { FiMinus, FiPlus } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
 import { handleBasket } from "../redux/basketSlice";
+import SliderProduct from "./SliderProduct";
 
 const MainViewProduct = () => {
   const params = useParams();
@@ -128,7 +129,7 @@ const MainViewProduct = () => {
   return (
     <div className="w-full flex items-center gap-5 mt-32">
       <div className="flex flex-col items-center relative justify-center gap-5 w-20 basis-1/2">
-        <Swiper
+        {/* <Swiper
           style={{
             "--swiper-navigation-color": "#fff",
             "--swiper-pagination-color": "#000",
@@ -172,7 +173,8 @@ const MainViewProduct = () => {
               />
             </SwiperSlide>
           ))}
-        </Swiper>
+        </Swiper> */}
+        <SliderProduct imgProduct={dataProduct?.img_src} />
       </div>
 
       <div className="flex flex-col items-start gap-6 basis-1/2">
