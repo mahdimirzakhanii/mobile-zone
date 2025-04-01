@@ -10,7 +10,7 @@ const SingleProductsList = ({ item }) => {
         className="flex flex-col items-start rounded cursor-pointer duration-300 hover:shadow-lg p-3"
       >
         <div className="flex items-center justify-center mx-auto w-full bg-gray-blue-100 px-5 py-10">
-          <img src={item?.img_src[0]} alt="" />
+          <img className="max-w-[200] w-[200px] max-h-[200px] h-[200px] object-contain" src={item?.img_src[0]} alt="" />
         </div>
 
         <div className="flex flex-col items-start">

@@ -27,16 +27,14 @@ const Home = () => {
       <div className="w-full h-full">
         <Header />
       </div>
-
       <div className="flex flex-col items-center px-10 w-full gap-10">
         <div className="flex flex-col items-start gap-4 w-full">
           <span className="text-2xl text-start pl-20">Browse By Category</span>
         </div>
-
         <div className="flex w-full items-center justify-around  pb-40">
           {category?.map((item, index) => (
             <div
-              className="flex flex-col gap-3 items-center justify-around w-full basis-1/6 p-2  cursor-pointer "
+              className="flex flex-col gap-3 items-center justify-around w-full basis-1/6 p-2 cursor-pointer "
               key={index}
             >
               <img
@@ -49,7 +47,6 @@ const Home = () => {
           ))}
         </div>
         <Banner />
-
         <div className="flex flex-col items-center gap-4 w-full pl-20">
           <span className="text-2xl text-start w-full items-start ">
             Explore Our Products

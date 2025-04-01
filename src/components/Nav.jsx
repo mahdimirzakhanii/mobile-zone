@@ -54,7 +54,7 @@ const Nav = ({ setShowSearch, scroll, setScroll }) => {
             onClick={() => setShowCart(!showCart)}
             className="text-xl cursor-pointer"
           />
-          <FaUser className="text-xl cursor-pointer" />
+          {/* <FaUser className="text-xl cursor-pointer" /> */}
         </div>
       </div>
       {showCart && <MainCartNavbar setShowCart={setShowCart} />}
