@@ -24,8 +24,8 @@ const BestProducts = () => {
             onClick={() => navigate(`/products/${item?.id}`)}
             key={index}
           >
-            <div className="flex items-center mx-auto justify-center w-full bg-gray-blue-100 px-3 py-10">
-              <img src={item?.img_src[0]} alt="" />
+            <div className="flex items-center mx-auto max-h-[220px] h-[220px] justify-center w-full bg-gray-blue-100 ">
+              <img className="max-h-[180px] h-[180px] object-contain" src={item?.img_src[0]} alt="" />
             </div>
 
             <div className="flex flex-col items-start pt-3">

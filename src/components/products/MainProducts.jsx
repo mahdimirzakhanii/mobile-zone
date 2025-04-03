@@ -36,8 +36,8 @@ const MainProducts = () => {
     filter === "All"
       ? listMobile
       : listMobile?.filter(
-          (item) => item?.name?.toLowerCase() === filter?.toLowerCase()
-        );
+        (item) => item?.name?.toLowerCase() === filter?.toLowerCase()
+      );
 
   const [currentPage, setCurrentPage] = useState(page ? page : 1);
   const [recordsPerPage, setRecordsPerPage] = useState(rows ? rows : 10);
@@ -100,22 +100,24 @@ const MainProducts = () => {
         )}
       </div>
 
-      <div className="flex items-center justify-center gap-5 w-full h-full min-h-[500px] flex-wrap">
-        {loading ? (
-          <GridLoader color="#dda01e" cssOverride={{}} width={0} />
-        ) : (
-          records?.map((item, index) => (
-            <SingleProductsList key={index} item={item} />
-          ))
-        )}
-      </div>
+      <div className="w-full flex justify-center">
+        <div className="grid grid-cols-5 gap-5 w-[85%]" >
+          {loading ? (
+            <GridLoader color="#dda01e" cssOverride={{}} width={0} />
+          ) : (
+            records?.map((item) => (
+              <SingleProductsList key={item?.id} item={item} />
+            ))
+          )}
+        </div>
+      </div >
       <Paginate
         handleSearch={handleSearch}
         pageCount={npage}
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
       />
-    </div>
+    </div >
   );
 };
 export default MainProducts;
