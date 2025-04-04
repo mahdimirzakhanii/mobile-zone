@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { MdArrowBackIosNew, MdArrowForwardIos } from "react-icons/md";
 
 const SliderProduct = ({ imgProduct }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -20,13 +21,17 @@ const SliderProduct = ({ imgProduct }) => {
         src={imgProduct?.[currentIndex]}
       />
       <span
-        onClick={goToPrev}
-        className="absolute bg-blue-700 text-white text-3xl w-10 h-10 flex items-center justify-center rounded-full cursor-pointer -right-10"
-      >{`>`}</span>
-      <span
         onClick={goToNext}
-        className="absolute bg-blue-700 text-white text-3xl w-10 h-10 flex items-center justify-center rounded-full cursor-pointer -left-10"
-      >{`<`}</span>
+        className="absolute bg-blue-700 text-white text-3xl w-10 h-10 flex items-center justify-center rounded-full cursor-pointer -right-14"
+      >
+        <MdArrowForwardIos />
+      </span>
+      <span
+        onClick={goToPrev}
+        className="absolute bg-blue-700 text-white text-3xl w-10 h-10 flex items-center justify-center rounded-full cursor-pointer -left-14"
+      >
+        <MdArrowBackIosNew />
+      </span>
     </div>
   );
 };

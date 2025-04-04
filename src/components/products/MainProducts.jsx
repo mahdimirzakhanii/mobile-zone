@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import SingleProductsList from "./SingleProductsList";
 import { GridLoader } from "react-spinners";
 import { useSearchParams } from "react-router-dom";
@@ -40,26 +40,43 @@ const MainProducts = () => {
       );
 
   const [currentPage, setCurrentPage] = useState(page ? page : 1);
-  const [recordsPerPage, setRecordsPerPage] = useState(rows ? rows : 10);
+  const [recordsPerPage, setRecordsPerPage] = useState(rows ? rows : 20);
   const lastIndex = currentPage * recordsPerPage;
   const firstIndex = lastIndex - recordsPerPage;
   const records = filterList?.slice(firstIndex, lastIndex);
   const npage = Math.ceil(filterList?.length / recordsPerPage);
-
   const handleFilter = (model) => {
     setFilter(model);
     setShowFilter(false);
     setCurrentPage(1);
     handleSearch("page", "");
   };
+  const filterRef = useRef(null);
+
+  useEffect(() => {
+    const handleClick = (event) => {
+      if (filterRef.current && !filterRef.current.contains(event.target)) {
+        setShowFilter(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClick);
+    return () => {
+      document.removeEventListener("mousedown", handleClick);
+    };
+  }, []);
+
 
   return (
     <div className="flex flex-col items-center w-full gap-5 pt-32">
-      <span className="text-2xl text-start w-full px-20">Products</span>
-      <div className="flex flex-col relative items-start gap-3 w-full px-24">
+      <span className="text-4xl text-start w-full px-28">Products</span>
+      <div className="flex flex-col relative items-start gap-3 w-full px-28" ref={filterRef}>
         <span
           className="text-lg bg-blue-950 text-gray-blue-400 flex items-center justify-between cursor-pointer w-28 py-1 px-3 rounded-md"
-          onClick={() => setShowFilter(!showFilter)}
+          onClick={(e) => {
+            e.stopPropagation();
+            setShowFilter(!showFilter);
+          }}
         >
           {filter ? filter : "All"}
           <RiArrowDownSLine />
