@@ -1,4 +1,4 @@
-import imgBanner from "../../../public/image/apple/iphone-16-pro-max.png";
+import imgBanner from "../../../public/assets/image/apple/iphone-16-pro-max.png";
 
 const Banner = () => {
   return (

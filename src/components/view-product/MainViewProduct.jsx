@@ -129,51 +129,6 @@ const MainViewProduct = () => {
   return (
     <div className="w-full flex items-center gap-5 mt-32">
       <div className="flex flex-col items-center relative justify-center gap-5 w-20 basis-1/2">
-        {/* <Swiper
-          style={{
-            "--swiper-navigation-color": "#fff",
-            "--swiper-pagination-color": "#000",
-          }}
-          spaceBetween={0}
-          navigation={true}
-          loop={true}
-          thumbs={{ swiper: thumbsSwiper }}
-          modules={[FreeMode, Navigation, Thumbs]}
-          className="mySwiper2 w-[80%] h-full flex items-center justify-center"
-        >
-          {dataProduct?.img_src?.map((item, index) => (
-            <SwiperSlide
-              key={index}
-              className="w-full flex items-center justify-center"
-            >
-              <img
-                className="w-[400px] h-[400px] flex items-center justify-center"
-                src={item}
-              />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-        <Swiper
-          onSwiper={setThumbsSwiper}
-          spaceBetween={0}
-          slidesPerView={3}
-          freeMode={true}
-          watchSlidesProgress={true}
-          modules={[FreeMode, Navigation, Thumbs]}
-          className="mySwiper w-2/3"
-        >
-          {dataProduct?.img_src?.map((item, index) => (
-            <SwiperSlide
-              key={index}
-              className={`w-full flex items-center justify-center`}
-            >
-              <img
-                className="w-[130px] flex items-center justify-center"
-                src={item}
-              />
-            </SwiperSlide>
-          ))}
-        </Swiper> */}
         <SliderProduct imgProduct={dataProduct?.img_src} />
       </div>
 

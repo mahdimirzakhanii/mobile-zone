@@ -8,10 +8,6 @@ const SingleProductsList = ({ item }) => {
       onClick={() => navigate(`/products/${item?.id}`)}
       className="flex border border-gray-blue-200 flex-col items-start rounded cursor-pointer duration-300 hover:shadow-lg p-3"
     >
-      {/* <div className="flex items-center justify-center mx-auto w-full max-h-[220px] h-[220px] bg-gray-blue-100 ">
-          <img className="max-w-[200] w-[200px] max-h-[180px] h-[180px] object-contain" src={item?.img_src[0]} alt="" />
-        </div> */}
-
       <div className="flex items-center mx-auto max-h-[220px] h-[220px] justify-center w-full bg-gray-blue-100 ">
         <img className="max-h-[180px] h-[180px] object-contain" src={item?.img_src[0]} alt="" />
       </div>

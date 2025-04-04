@@ -6,7 +6,7 @@ const Header = () => {
             <div
                 className="h-screen w-full -translate-y-10 flex flex-col items-start gap-6 justify-center"
                 style={{
-                    backgroundImage: "url('/image/public/banner.png')",
+                    backgroundImage: "url('/assets/image/public/banner.png')",
                     backgroundSize: "100% 100%",
                 }}
             >

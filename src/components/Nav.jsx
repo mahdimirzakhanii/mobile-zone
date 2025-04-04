@@ -26,7 +26,7 @@ const Nav = ({ setShowSearch, scroll, setScroll }) => {
       <div className="flex items-center justify-between relative w-full">
         <div className="flex items-center basis-1/5 ">
           <a href="https://resume-topaz-ten.vercel.app/" target="blanck">
-            <img src="/image/public/logo1.png" width={70} height={70} alt="" />
+            <img src="/assets/image/public/logo1.png" width={70} height={70} alt="" />
           </a>
         </div>
 

@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <div className="bg-blue-950 text-white px-3 py-10 flex items-start justify-between">
       <div className="flex w-full basis-1/4 flex-col items-center gap-3">
-        <img className="w-32" src="/assets/img/logo1.png" alt="" />
+        <img className="w-32" src="/assets/image/public/logo1.png" alt="" />
       </div>
 
       <div className="flex  basis-2/4 flex-col items-center gap-3">

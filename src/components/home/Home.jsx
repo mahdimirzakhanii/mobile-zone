@@ -6,19 +6,19 @@ const Home = () => {
   const category = [
     {
       name: "Apple",
-      imgSrc: "/public/image/public/aple-logo.png",
+      imgSrc: "/assets/image/public/aple-logo.png",
     },
     {
       name: "Samsung",
-      imgSrc: "/public/image/public/samsung-logo.png",
+      imgSrc: "/assets/image/public/samsung-logo.png",
     },
     {
       name: "Xiaomi",
-      imgSrc: "/public/image/public/xiaomi-logo.png",
+      imgSrc: "/assets/image/public/xiaomi-logo.png",
     },
     {
       name: "Huawei",
-      imgSrc: "/public/image/public/huawei-logo.png",
+      imgSrc: "/assets/image/public/huawei-logo.png",
     },
   ];
 
