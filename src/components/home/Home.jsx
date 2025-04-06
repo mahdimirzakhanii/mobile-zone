@@ -37,11 +37,14 @@ const Home = () => {
               className="flex flex-col gap-3 items-center justify-around w-full basis-1/6 p-2 cursor-pointer "
               key={index}
             >
-              <img
-                className="w-28 h-28 object-contain	rounded-full bg-gray-blue-200 hover:shadow-lg duration-300 p-2"
-                src={item?.imgSrc}
-                alt=""
-              />
+              <div className="w-28 h-28 bg-gray-blue-200 hover:shadow-lg duration-300 rounded-full p-2 flex items-center justify-center ">
+
+                <img
+                  className="w-20 h-20 object-contain	"
+                  src={item?.imgSrc}
+                  alt={item?.name}
+                />
+              </div>
               <span className="text-xl text-blue-600">{item?.name}</span>
             </div>
           ))}

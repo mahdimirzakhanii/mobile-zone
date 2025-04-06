@@ -1,6 +1,8 @@
-import {PiShoppingCartSimpleBold} from "react-icons/pi";
+import { PiShoppingCartSimpleBold } from "react-icons/pi";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+    const navigate = useNavigate()
     return (
         <div className="w-full h-full flex relative flex-col items-center py-10">
             <div
@@ -22,12 +24,12 @@ const Header = () => {
                         reprehenderit quam, ipsam mollitia cumque itaque rerum soluta
                         explicabo sunt accusamus officiis ipsa impedit dicta aspernatur aut
                     </p>
-                    <div className="flex items-center  gap-5">
+                    <div className="flex items-center gap-5">
                         <button
-                            onClick={() => console.log("first")}
+                            onClick={() => navigate('/products')}
                             className="flex items-center gap-3 rounded text-base bg-yellow-600 text-white px-8 py-2"
                         >
-                            <PiShoppingCartSimpleBold/>
+                            <PiShoppingCartSimpleBold />
                             Shop
                         </button>
                     </div>
