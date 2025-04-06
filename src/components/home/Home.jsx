@@ -9,6 +9,10 @@ const Home = () => {
       imgSrc: "/assets/image/public/aple-logo.png",
     },
     {
+      name: "Huawei",
+      imgSrc: "/assets/image/public/huawei-logo.png",
+    },
+    {
       name: "Samsung",
       imgSrc: "/assets/image/public/samsung-logo.png",
     },
@@ -16,10 +20,7 @@ const Home = () => {
       name: "Xiaomi",
       imgSrc: "/assets/image/public/xiaomi-logo.png",
     },
-    {
-      name: "Huawei",
-      imgSrc: "/assets/image/public/huawei-logo.png",
-    },
+
   ];
 
   return (
@@ -34,18 +35,18 @@ const Home = () => {
         <div className="flex w-full items-center justify-around  pb-40">
           {category?.map((item, index) => (
             <div
-              className="flex flex-col gap-3 items-center justify-around w-full basis-1/6 p-2 cursor-pointer "
-              key={index}
-            >
-              <div className="w-28 h-28 bg-gray-blue-200 hover:shadow-lg duration-300 rounded-full p-2 flex items-center justify-center ">
-
+              className="flex flex-col items-center gap-3 justify-center group  cursor-pointer "
+              key={index}>
+              <div className={`flex flex-col items-center justify-center w-32 h-32 rounded-full duration-300  group-hover:shadow-md 
+                 ${(item?.name === "Xiaomi" || item?.name === "Huawei") ? "bg-red-100 group-hover:shadow-red-300" : "bg-blue-100 group-hover:shadow-blue-300"}
+                  `}>
                 <img
-                  className="w-20 h-20 object-contain	"
+                  className="w-24 h-24 object-contain	"
                   src={item?.imgSrc}
                   alt={item?.name}
                 />
               </div>
-              <span className="text-xl text-blue-600">{item?.name}</span>
+              <span className="text-xl text-blue-500">{item?.name}</span>
             </div>
           ))}
         </div>

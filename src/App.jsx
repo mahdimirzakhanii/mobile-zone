@@ -12,24 +12,12 @@ import NotFound from "./components/NotFound.jsx";
 function App() {
   const [scroll, setScroll] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
-  // const [animateSearchIn, setAnimateSearchIn] = useState(false);
-  const [animateSearchOut, setAnimateSearchOut] = useState(false);
-  const handleCloseSearch = () => {
-    setAnimateSearchOut(true);
-    setTimeout(() => {
-      setShowSearch(false);
-      setAnimateSearchOut(false);
-    }, 700);
-  };
   return (
     <div className="w-full h-full flex flex-col items-center">
       {/* open search-bar */}
       {showSearch && (
         <div className="fixed left-0 top-0 z-[1000] w-full h-full">
-          <Search
-            setShowSearch={handleCloseSearch}
-            animateSearchOut={animateSearchOut}
-          />
+          <Search setShowSearch={setShowSearch} />
         </div>
       )}
       <Nav
