@@ -13,7 +13,7 @@ function App() {
   const [scroll, setScroll] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
   return (
-    <div className="w-full h-full flex flex-col items-center">
+    <div className="w-full min-h-screen flex flex-col items-center bg-blue-50">
       {/* open search-bar */}
       {showSearch && (
         <div className="fixed left-0 top-0 z-[1000] w-full h-full">

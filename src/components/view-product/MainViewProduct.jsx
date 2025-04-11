@@ -39,7 +39,7 @@ const MainViewProduct = () => {
   useEffect(() => {
     dispatch(handleBasket());
   }, []);
-  
+
   // add to cart
   const foundDataMobile = dataBasket?.find(
     (item) => item?.idMobile === params?.id
@@ -47,9 +47,9 @@ const MainViewProduct = () => {
 
   console.log(dataProduct)
   console.log(dataBasket)
-  console.log(foundDataMobile)
-  
-  
+  console.log(foundDataMobile?.color)
+  console.log(selectColor)
+
   useEffect(() => {
     setCount(Number(foundDataMobile?.count) || 1);
   }, [foundDataMobile]);
@@ -66,7 +66,7 @@ const MainViewProduct = () => {
       ram: dataProduct?.ram,
       storage: dataProduct?.storage,
       price: dataProduct?.price,
-      color: dataProduct?.color,
+      color: selectColor,
       count: count,
     };
     try {
@@ -82,9 +82,7 @@ const MainViewProduct = () => {
       console.log(error);
     }
   };
-  const selectColors = (color) => {
-    setSelectColor(color);
-  };
+
   // patch count
   const addCount = async (newCount) => {
     if (!foundDataMobile) return;
@@ -97,7 +95,8 @@ const MainViewProduct = () => {
       console.log(res?.data);
       dispatch(updateItemCount({
         id: foundDataMobile.id,
-        count: newCount
+        count: newCount,
+        color: selectColor
       }));
     } catch (error) {
       console.log(error);
@@ -151,17 +150,18 @@ const MainViewProduct = () => {
               <div className="flex items-start flex-col gap-2">
                 <span className="text-lg text-black/70">Colors:</span>
                 <div className="flex items-center gap-4">
-                  {dataProduct?.color?.map((color, idx) => (
+                  {dataProduct?.color?.map((color, c) => (
                     <div
-                      key={idx}
-                      onClick={() => selectColors(color)}
-                      className="w-7 h-7 shadow-md  relative flex items-center justify-center rounded-full  cursor-pointer"
-                      style={{ background: color }}
-                    >
+                      key={c}
+                      onClick={() => setSelectColor(color)}
+                      className="w-7 h-7 shadow-md  relative flex items-center justify-center rounded-full cursor-pointer"
+                      style={{ background: color }}>
                       <div
                         className="w-10 h-10 rounded-full absolute"
                         style={{
-                          border: selectColor === color && "3px solid var(--gold)",
+                          border: (!selectColor && foundDataMobile)
+                            ? foundDataMobile?.color === color && "3px solid var(--gold)"
+                            : selectColor === color && "3px solid var(--gold)"
                         }}
                       ></div>
                     </div>

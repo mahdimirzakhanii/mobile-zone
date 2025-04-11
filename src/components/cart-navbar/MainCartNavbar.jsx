@@ -43,7 +43,6 @@ const MainCartNavbar = ({ setShowCart }) => {
       console.log(error);
     }
   };
-
   // تابع برای افزایش یا کاهش تعداد
   const handleCountChange = (itemId, change) => {
     const item = dataBasket.find((i) => i?.idMobile === itemId);

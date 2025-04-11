@@ -117,7 +117,7 @@ const MainProducts = () => {
         )}
       </div>
 
-      <div className="w-full h-screen flex justify-center">
+      <div className="w-full min-h-screen flex justify-center">
         {loading ? (
           <HashLoader color="#dda01e" cssOverride={{}} width={100} />
         ) : (
