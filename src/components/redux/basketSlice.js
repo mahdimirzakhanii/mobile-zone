@@ -14,7 +14,15 @@ const basketSlice = createSlice({
         dataBasket: [],
         loading: false,
     },
-    reducers: {},
+    reducers: {
+        updateItemCount: (state, action) => {
+            const { id, count } = action.payload;
+            const item = state.dataBasket.find(item => item.id === id);
+            if (item) {
+                item.count = count;
+            }
+        }
+    },
     extraReducers: (builder) => {
         builder
             .addCase(handleBasket.pending, (state) => {
@@ -26,4 +34,5 @@ const basketSlice = createSlice({
             })
     }
 });
+export const { updateItemCount } = basketSlice.actions;
 export default basketSlice.reducer;

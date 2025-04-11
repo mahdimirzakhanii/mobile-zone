@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import SingleProductsList from "./SingleProductsList";
-import { GridLoader } from "react-spinners";
+import { HashLoader } from "react-spinners";
 import { useSearchParams } from "react-router-dom";
 import Paginate from "../Paginate";
 import { RiArrowDownSLine } from "react-icons/ri";
@@ -117,16 +117,17 @@ const MainProducts = () => {
         )}
       </div>
 
-      <div className="w-full flex justify-center">
-        <div className="grid grid-cols-5 gap-5 w-[85%]" >
-          {loading ? (
-            <GridLoader color="#dda01e" cssOverride={{}} width={0} />
-          ) : (
-            records?.map((item) => (
-              <SingleProductsList key={item?.id} item={item} />
-            ))
-          )}
-        </div>
+      <div className="w-full h-screen flex justify-center">
+        {loading ? (
+          <HashLoader color="#dda01e" cssOverride={{}} width={100} />
+        ) : (
+          <div className="grid grid-cols-5 gap-5 w-[85%]">
+            {records?.map((item) => (
+              <SingleProductsList item={item} key={item?.id} />
+            ))}
+          </div>
+        )
+        }
       </div >
       <Paginate
         handleSearch={handleSearch}

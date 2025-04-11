@@ -7,7 +7,6 @@ import MainCartNavbar from "./cart-navbar/MainCartNavbar";
 const Nav = ({ setShowSearch, scroll, setScroll }) => {
   const location = useLocation();
   const [showCart, setShowCart] = useState(false);
-
   useEffect(() => {
     const scrollNav = () => {
       setScroll(window.scrollY > 100);
@@ -20,9 +19,7 @@ const Nav = ({ setShowSearch, scroll, setScroll }) => {
     <div
       className={`flex fixed z-50 !py-2 mt-1 items-center rounded-md px-5 justify-center w-[80%] duration-500 text-white  
          ${location?.pathname !== "/" && "bg-blue-950"}
-          ${(scroll || showCart) && "bg-blue-950 shadow-md"}
-          `}
-    >
+          ${(scroll || showCart) && "bg-blue-950 shadow-md"}`}>
       <div className="flex items-center justify-between relative w-full">
         <div className="flex items-center basis-1/5 ">
           <a href="https://resume-topaz-ten.vercel.app/" target="blanck">
@@ -38,7 +35,7 @@ const Nav = ({ setShowSearch, scroll, setScroll }) => {
             <Link to="/products">Products</Link>
           </div>
           <div className="text-base nav-item">
-            <Link to="/">About</Link>
+            <Link to="/cart">Basket</Link>
           </div>
           <div className="text-base nav-item">
             <Link to="/">Contact</Link>

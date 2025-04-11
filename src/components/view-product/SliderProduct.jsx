@@ -22,14 +22,12 @@ const SliderProduct = ({ imgProduct }) => {
       />
       <span
         onClick={goToNext}
-        className="absolute bg-blue-700 text-white text-3xl w-10 h-10 flex items-center justify-center rounded-full cursor-pointer -right-14"
-      >
+        className="absolute bg-blue-700 text-white text-3xl w-10 h-10 flex items-center justify-center rounded-full cursor-pointer -right-14">
         <MdArrowForwardIos />
       </span>
       <span
         onClick={goToPrev}
-        className="absolute bg-blue-700 text-white text-3xl w-10 h-10 flex items-center justify-center rounded-full cursor-pointer -left-14"
-      >
+        className="absolute bg-blue-700 text-white text-3xl w-10 h-10 flex items-center justify-center rounded-full cursor-pointer -left-14">
         <MdArrowBackIosNew />
       </span>
     </div>
