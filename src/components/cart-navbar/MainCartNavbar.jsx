@@ -53,7 +53,7 @@ const MainCartNavbar = ({ setShowCart }) => {
   };
 
   return (
-    <div className="flex max-h-[300px] h-[300px] overflow-y-auto top-[72px] right-10 flex-col gap-3 absolute items-center rounded-lg shadow-lg w-1/5 bg-blue-950 text-white p-3">
+    <div className="flex max-h-[300px] h-[300px] overflow-y-auto top-[72px] right-0 flex-col gap-3 absolute items-center rounded-lg shadow-lg w-[50%] lg:w-1/5 bg-blue-950 text-white p-3">
       <div className="w-full flex justify-end items-center cursor-pointer">
         <PiX
           onClick={() => setShowCart(false)}
