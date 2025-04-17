@@ -17,10 +17,10 @@ const BestProducts = () => {
 
   return (
     <div className="w-full flex justify-center">
-      <div className="grid grid-cols-5 gap-5">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 md:gap-5">
         {filter?.map((item, index) => (
           <div
-            className="flex border border-gray-blue-200 flex-col items-start rounded cursor-pointer duration-300 hover:shadow-lg p-3"
+            className="flex border border-gray-blue-200 flex-col items-start justify-between rounded cursor-pointer duration-300 hover:shadow-lg p-3"
             onClick={() => navigate(`/products/${item?.id}`)}
             key={index}
           >
@@ -45,18 +45,20 @@ const BestProducts = () => {
               />
             </Box>
 
-            <div className="flex items-center gap-2">
+            <div className="flex flex-col lg:flex-row items-start lg:items-center gap-2">
               <span className="font-sans">${item?.price}</span>
-              {item?.color?.map((color, idx) => (
-                <div
-                  key={idx}
-                  className="w-4 h-4 rounded-full"
-                  style={{
-                    background: color,
-                    boxShadow: "0px 2px 2px gray",
-                  }}
-                ></div>
-              ))}
+              <div className="flex  items-center justify-start gap-3">
+                {item?.color?.map((color, idx) => (
+                  <div
+                    key={idx}
+                    className="w-4 h-4 rounded-full"
+                    style={{
+                      background: color,
+                      boxShadow: "0px 2px 2px gray",
+                    }}
+                  ></div>
+                ))}
+              </div>
             </div>
           </div>
         ))}

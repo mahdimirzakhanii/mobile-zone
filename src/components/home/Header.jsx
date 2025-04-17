@@ -12,13 +12,13 @@ const Header = () => {
                     backgroundSize: "100% 100%",
                 }}
             >
-                <div className="flex flex-col items-start gap-5 px-20 w-full">
+                <div className="flex flex-col items-start gap-5 px-5 md:px-20 w-full">
                     <div className="flex items-end font-bold w-full">
-                        <span className="text-7xl text-white">Mobile</span>
-                        <span className="text-7xl text-yellow-600">Zone</span>
+                        <span className="text-5xl lg:text-7xl text-white">Mobile</span>
+                        <span className="text-5xl lg:text-7xl text-yellow-600">Zone</span>
                     </div>
 
-                    <p className="w-1/3 text-base text-white">
+                    <p className="w-full lg:w-1/3 text-base text-white">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam
                         magnam incidunt nam cuex quidem nesciunt odio exercitationem
                         reprehenderit quam, ipsam mollitia cumque itaque rerum soluta
@@ -27,7 +27,7 @@ const Header = () => {
                     <div className="flex items-center gap-5">
                         <button
                             onClick={() => navigate('/products')}
-                            className="flex items-center gap-3 rounded text-base bg-yellow-600 text-white px-8 py-2"
+                            className="flex items-center gap-3 rounded text-sm lg:text-base bg-yellow-600 text-white px-3 lg:px-8 py-2"
                         >
                             <PiShoppingCartSimpleBold />
                             Shop
