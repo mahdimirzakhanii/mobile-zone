@@ -6,7 +6,8 @@
   --primary: #1d224e;
   --secondary: #28588f;
   --tertiary: #c8daef;
-  --gold: #e29600;
+  --bg-body: #f3f6fc;
+   --gold: #e29600;
   --white: #fff;
   --error: #ae0d06;
   --black: #000;
@@ -85,40 +86,39 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-track {
-  background: var(--sb-track-color);
+  background: var(--bg-body);
   border-radius: 1px;
 }
 
 body::-webkit-scrollbar-thumb {
-  background: var(--sb-thumb-color);
+  background: var(--primary);
   border-radius: 1px;
 }
 
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
-  
+
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: var(--sb-track-color);
+  background: var(--bg-body);
 }
 
 
 ::-webkit-scrollbar-thumb {
-  background: var(--sb-thumb-color);
+  background: var(--primary);
   border-radius: 1px;
-  border: 2px solid #f3f6fc;
 }
 
 .scroll_firefox {
   scrollbar-width: thin;
-  scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+  scrollbar-color: var(--primary) var(--bg-body);
 }
 
 @supports not selector(::-webkit-scrollbar) {
   body {
-    scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+    scrollbar-color: var(--primary) var(--bg-body);
   }
 }

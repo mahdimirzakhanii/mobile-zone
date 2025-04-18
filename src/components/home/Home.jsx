@@ -30,7 +30,7 @@ const Home = () => {
       </div>
       <div className="flex flex-col items-center px-3 lg:px-10 w-full gap-10">
         <div className="flex flex-col items-start gap-4 w-full">
-          <span className="text-xl lg:text-2xl text-start pl-3 lg:pl-20">Browse By Category</span>
+          <span className="text-xl lg:text-2xl font-medium text-start pl-3 lg:pl-20">Browse By Category</span>
         </div>
         <div className="flex w-full items-center justify-around pb-20 lg:pb-40">
           {category?.map((item, index) => (
@@ -54,7 +54,7 @@ const Home = () => {
         </div>
         <Banner />
         <div className="flex flex-col items-center gap-4 w-full pl-0 lg:pl-20">
-          <span className="text-xl lg:text-2xl text-start w-full items-start ">
+          <span className="text-xl lg:text-2xl font-medium text-start w-full items-start ">
             Explore Our Products
           </span>
           <BestProducts />

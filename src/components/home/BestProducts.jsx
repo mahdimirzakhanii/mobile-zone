@@ -47,7 +47,7 @@ const BestProducts = () => {
 
             <div className="flex flex-col lg:flex-row items-start lg:items-center gap-2">
               <span className="font-sans">${item?.price}</span>
-              <div className="flex  items-center justify-start gap-3">
+              <div className="flex items-center justify-start gap-3">
                 {item?.color?.map((color, idx) => (
                   <div
                     key={idx}

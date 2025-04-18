@@ -68,11 +68,11 @@ const MainProducts = () => {
 
 
   return (
-    <div className="flex flex-col items-center w-full gap-5 pt-32">
-      <span className="text-4xl text-start w-full px-28">Products</span>
-      <div className="flex flex-col relative items-start gap-3 w-full px-28" ref={filterRef}>
+    <div className="flex flex-col items-center w-full gap-5 px-1 pt-24 lg:pt-32">
+      <span className="text-xl lg:text-2xl font-semibold text-start w-full pl-3 lg:px-28">Products</span>
+      <div className="flex flex-col relative items-start gap-3 w-full pl-3 lg:px-28" ref={filterRef}>
         <span
-          className="text-lg bg-blue-950 text-gray-blue-400 flex items-center justify-between cursor-pointer w-28 py-1 px-3 rounded-md"
+          className="text-sm lg:text-lg bg-blue-950 text-gray-blue-400 flex items-center justify-between cursor-pointer w-24 lg:w-28 py-1 px-3 rounded-md"
           onClick={(e) => {
             e.stopPropagation();
             setShowFilter(!showFilter);
@@ -82,33 +82,33 @@ const MainProducts = () => {
           <RiArrowDownSLine />
         </span>
         {showFilter && (
-          <div className=" z-50 absolute bg-blue-950 text-gray-blue-400 w-28 rounded-md cursor-pointer top-10 flex flex-col items-center justify-center ">
+          <div className="z-50 absolute bg-blue-950 text-gray-blue-400 w-28 lg:w-36 rounded-md cursor-pointer top-[29px] lg:top-10 flex flex-col items-center justify-center  ">
             <span
-              className="w-full text-start hover:bg-blue-900 first:rounded-t-md last:rounded-b-md py-1 px-3"
+              className="w-full text-sm lg:text-base text-start hover:bg-blue-900 first:rounded-t-md last:rounded-b-md py-1 px-3"
               onClick={() => handleFilter("All")}
             >
               All
             </span>
             <span
-              className="w-full text-start hover:bg-blue-900 first:rounded-t-md last:rounded-b-md py-1 px-3"
+              className="w-full text-sm lg:text-base  text-start hover:bg-blue-900 first:rounded-t-md last:rounded-b-md py-1 px-3"
               onClick={() => handleFilter("Apple")}
             >
               Apple
             </span>
             <span
-              className="w-full text-start hover:bg-blue-900 first:rounded-t-md last:rounded-b-md py-1 px-3"
+              className="w-full text-sm lg:text-base  text-start hover:bg-blue-900 first:rounded-t-md last:rounded-b-md py-1 px-3"
               onClick={() => handleFilter("Samsung")}
             >
               Samsung
             </span>
             <span
-              className="w-full text-start hover:bg-blue-900 first:rounded-t-md last:rounded-b-md py-1 px-3"
+              className="w-full text-sm lg:text-base  text-start hover:bg-blue-900 first:rounded-t-md last:rounded-b-md py-1 px-3"
               onClick={() => handleFilter("Xiaomi")}
             >
               Xiaomi
             </span>
             <span
-              className="w-full text-start hover:bg-blue-900 first:rounded-t-md last:rounded-b-md py-1 px-3"
+              className="w-full text-sm lg:text-base  text-start hover:bg-blue-900 first:rounded-t-md last:rounded-b-md py-1 px-3"
               onClick={() => handleFilter("Huawei")}
             >
               Huawei
@@ -121,7 +121,7 @@ const MainProducts = () => {
         {loading ? (
           <HashLoader color="#dda01e" cssOverride={{}} width={100} />
         ) : (
-          <div className="grid grid-cols-5 gap-5 w-[85%]">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 md:gap-5 w-full md:w-[85%]">
             {records?.map((item) => (
               <SingleProductsList item={item} key={item?.id} />
             ))}
