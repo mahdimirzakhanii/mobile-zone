@@ -14,20 +14,17 @@ const SliderProduct = ({ imgProduct }) => {
     );
   };
   return (
-    <div className="relative flex items-center justify-center">
-      <img
-        className="max-w-[400px] w-[400px] max-h-[500px] h-[500px] object-contain"
-        width={400}
-        src={imgProduct?.[currentIndex]}
-      />
+    <div className="relative w-full md:w-fit flex items-center justify-center">
+      <img className="w-full md:w-[300px] h-[400px] lg:max-w-[400px] lg:w-[400px] lg:max-h-[500px] lg:h-[500px] object-contain"
+        src={imgProduct?.[currentIndex]} />
       <span
         onClick={goToNext}
-        className="absolute bg-blue-700 text-white text-3xl w-10 h-10 flex items-center justify-center rounded-full cursor-pointer -right-14">
+        className="absolute bg-blue-700 text-white text-xl lg:text-3xl w-8 h-8 lg:w-10 lg:h-10 flex items-center justify-center rounded-full cursor-pointer right-3 md:-right-8 lg:-right-14">
         <MdArrowForwardIos />
       </span>
       <span
         onClick={goToPrev}
-        className="absolute bg-blue-700 text-white text-3xl w-10 h-10 flex items-center justify-center rounded-full cursor-pointer -left-14">
+        className="absolute bg-blue-700 text-white text-xl lg:text-3xl w-8 h-8 lg:w-10 lg:h-10 flex items-center justify-center rounded-full cursor-pointer left-3 md:-left-8 lg:-left-14">
         <MdArrowBackIosNew />
       </span>
     </div>

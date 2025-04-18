@@ -121,17 +121,16 @@ const MainViewProduct = () => {
   }, [count, foundDataMobile?.id, dispatch]);
   return (
 
-    <div className="w-full flex items-center justify-center min-h-[50vh] gap-5 mt-32">
+    <div className="w-full flex flex-col md:flex-row items-center justify-center min-h-[50vh] gap-5 mt-32">
       {loading ? (
         <HashLoader color="#dda01e" cssOverride={{}} width={100} />
       ) : (
         <>
-          <div className="flex flex-col items-center relative justify-center gap-5 w-20 basis-1/2">
+          <div className="flex flex-col items-center relative justify-center gap-5 w-full md:w-[55%] lg:w-1/2">
             <SliderProduct imgProduct={dataProduct?.img_src} />
           </div>
-          <div className="flex flex-col items-start gap-6 basis-1/2">
+          <div className="flex flex-col items-start gap-2 md:gap-6 px-5 md:px-0 w-full md:w-[45%] lg:w-1/2">
             <span className="text-4xl text-blue-600">{dataProduct?.model}</span>
-
             <div className="w-full flex flex-col items-start gap-2">
               <span className="text-black/70">
                 {dataProduct?.ram} / {dataProduct?.storage}
@@ -146,7 +145,7 @@ const MainViewProduct = () => {
                 />
               </Box>
             </div>
-            <div className="w-full flex flex-col items-start gap-10">
+            <div className="w-full flex flex-col items-start gap-3 md:gap-10">
               <div className="flex items-start flex-col gap-2">
                 <span className="text-lg text-black/70">Colors:</span>
                 <div className="flex items-center gap-4">
@@ -168,32 +167,32 @@ const MainViewProduct = () => {
                   ))}
                 </div>
               </div>
-              <div className="flex items-end justify-between gap-20">
+              <div className="flex items-start w-full lg:items-end flex-col lg:flex-row justify-between gap-2 lg:gap-20">
                 <div className="flex flex-col items-start gap-2">
                   <span className="text-lg">Price: </span>
                   <span className="text-error1 text-3xl">
                     ${dataProduct?.price}
                   </span>
                 </div>
-                <div className="w-full flex items-center gap-5">
+                <div className="w-full flex items-center justify-around sm:justify-start md:justify-normal gap-2 md:gap-5">
                   <button
                     onClick={() => navigate("/cart")}
-                    className="bg-blue-900 text-white hover:shadow duration-300 flex items-center justify-center gap-3 h-10 w-36"
+                    className="bg-blue-900 text-white hover:shadow duration-300 flex items-center justify-center gap-3 text-sm md:text-base h-10 w-28 md:w-36"
                   >
                     Buy Now
                   </button>
                   {!foundDataMobile ? (
                     <button
                       onClick={addBasket}
-                      className="border-2 border-blue-900 text-blue-900 flex items-center justify-center gap-2 h-10 w-36"
+                      className="border-2 border-blue-900 text-blue-900 flex items-center justify-center gap-1 md:gap-2 text-sm md:text-base h-10 w-28 md:w-36"
                     >
                       Add to basket
                       <FaShoppingCart />
                     </button>
                   ) : (
                     <td className="flex justify-start pl-7 text-secondary ">
-                      <div className=" flex items-center justify-between rounded-full border border-blue-900">
-                        <div className="flex cursor-pointer items-center justify-center h-full py-2 text-white w-10 bg-blue-900 rounded-l-full">
+                      <div className=" flex items-center justify-between  border border-blue-900">
+                        <div className="flex cursor-pointer items-center justify-center h-full py-2.5 text-white w-10 bg-blue-900 ">
                           <FiMinus
                             onClick={() => {
                               setCount((prev) => {
@@ -205,7 +204,7 @@ const MainViewProduct = () => {
                           />
                         </div>
                         <span className="text-lg px-6 text-blue-900">{count}</span>
-                        <div className="flex cursor-pointer items-center justify-center w-10 h-full py-2 text-white bg-blue-900 rounded-r-full">
+                        <div className="flex cursor-pointer items-center justify-center w-10 h-full py-2.5 text-white bg-blue-900 ">
                           <FiPlus
                             onClick={() => {
                               setCount((prev) => {
