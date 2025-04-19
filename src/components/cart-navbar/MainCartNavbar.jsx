@@ -53,44 +53,48 @@ const MainCartNavbar = ({ setShowCart }) => {
   };
 
   return (
-    <div className="flex max-h-[300px] h-[300px] overflow-y-auto top-[72px] right-0 flex-col gap-3 absolute items-center rounded-lg shadow-lg w-[50%] lg:w-1/5 bg-blue-950 text-white p-3">
-      <div className="w-full flex justify-end items-center cursor-pointer">
+    <div className="flex max-h-[400px] h-[400px] overflow-y-auto top-[72px] gap-2 right-0 flex-col absolute items-center rounded-lg shadow-xl w-[50%] lg:w-[450px] bg-blue-950 text-white px-2 py-3">
+      <div className="flex w-full items-center justify-end">
         <PiX
           onClick={() => setShowCart(false)}
-          className="text-xl text-white"
+          className="text-xl top-3 cursor-pointer text-white"
         />
       </div>
-      {loading ? (
-        <GridLoader color="#dda01e" width={5} />
-      ) : dataBasket?.length > 0 ? (
-        dataBasket?.map((item, index) => (
-          <div
-            key={index}
-            className="flex items-start justify-between border-b-2 border-b-gray-blue-200 pb-2 gap-3 w-full h-full">
-            <img src={item?.img_src[0]} width={80} height={80} alt="" />
-            <div className="flex flex-col items-start gap-4 h-full w-full">
-              <span className="text-sm">{item?.model}</span>
-              <div className="w-fit flex items-center gap-2 rounded-full p-1.5 border border-blue-600">
-                <FiMinus
-                  onClick={() => handleCountChange(item?.idMobile, -1)}
-                  className="cursor-pointer text-sm"
-                />
-                <span className="font-bold text-xs">{item?.count}</span>
-                <FiPlus
-                  onClick={() => handleCountChange(item?.idMobile, 1)}
-                  className="cursor-pointer text-sm"
-                />
+      <div className="flex flex-col items-center justify-start gap-1 h-full w-full">
+        {loading ? (
+          <GridLoader color="#dda01e" width={5} />
+        ) : dataBasket?.length > 0 ? (
+          dataBasket?.map((item, index) => (
+            <div
+              key={index}
+              className="flex bg-gray-blue-50/10 rounded-md p-2 items-start justify-between  pb-2 gap-3 w-full">
+              <img src={item?.img_src[0]} className="basis-1/6 w-[60px] object-contain h-[80px]" alt="" />
+              <div className="flex items-center justify-start gap-10 h-full w-full">
+                <span className="text-sm lg:text-base basis-3/6">{item?.model}</span>
+                {/* <div className="flex flex-col items-center w-full gap-3"> */}
+                <div className="w-fit flex items-center gap-2 basis-1/6 p-1.5">
+                  <FiMinus
+                    onClick={() => handleCountChange(item?.idMobile, -1)}
+                    className="cursor-pointer bg-yellow-600 rounded-full text-blue-950 text-xl"
+                  />
+                  <span className="font-bold ">{item?.count}</span>
+                  <FiPlus
+                    onClick={() => handleCountChange(item?.idMobile, 1)}
+                    className="cursor-pointer bg-yellow-600 rounded-full text-blue-950 text-xl"
+                  />
+                </div>
+                <span className="text-lg text-gray basis-1/6">${item?.price}</span>
+                {/* </div> */}
               </div>
-              <span className="text-sm text-gray">${item?.price}</span>
             </div>
+          ))
+        ) : (
+          <div className="flex flex-col items-center justify-center h-full gap-5 w-full">
+            <FaShoppingCart className="text-5xl" />
+            <span>Your shopping cart is empty.</span>
           </div>
-        ))
-      ) : (
-        <div className="flex flex-col items-center  gap-5 w-full">
-          <FaShoppingCart className="text-5xl" />
-          <span>Your shopping cart is empty.</span>
-        </div>
-      )}
+        )}
+      </div>
       {dataBasket?.length > 0 && (
         <div className="flex items-center w-full justify-center">
           <button
