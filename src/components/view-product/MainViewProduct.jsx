@@ -191,31 +191,33 @@ const MainViewProduct = () => {
                     </button>
                   ) : (
                     <td className="flex justify-start pl-7 text-secondary ">
-                      <div className=" flex items-center justify-between  border border-blue-900">
-                        <div className="flex cursor-pointer items-center justify-center h-full py-2.5 text-white w-10 bg-blue-900 ">
-                          <FiMinus
-                            onClick={() => {
-                              setCount((prev) => {
-                                const newCount = prev - 1;
-                                addCount(newCount);
-                                return newCount;
-                              });
-                            }}
-                          />
-                        </div>
+                      {/* <div className=" flex items-center justify-between  border border-blue-900"> */}
+                        {/* <div className="flex cursor-pointer items-center justify-center h-full py-2.5 text-white w-10 bg-blue-900 "> */}
+                        <FiMinus
+                          className="cursor-pointer bg-blue-700 rounded-full text-white text-3xl"
+                          onClick={() => {
+                            setCount((prev) => {
+                              const newCount = prev - 1;
+                              addCount(newCount);
+                              return newCount;
+                            });
+                          }}
+                        />
+                        {/* </div> */}
                         <span className="text-lg px-6 text-blue-900">{count}</span>
-                        <div className="flex cursor-pointer items-center justify-center w-10 h-full py-2.5 text-white bg-blue-900 ">
-                          <FiPlus
-                            onClick={() => {
-                              setCount((prev) => {
-                                const newCount = prev + 1;
-                                addCount(newCount);
-                                return newCount;
-                              });
-                            }}
-                          />
-                        </div>
-                      </div>
+                        {/* <div className="flex cursor-pointer items-center justify-center w-10 h-full py-2.5 text-white bg-blue-900 "> */}
+                        <FiPlus
+                          className="cursor-pointer bg-blue-700 rounded-full text-white text-3xl"
+                          onClick={() => {
+                            setCount((prev) => {
+                              const newCount = prev + 1;
+                              addCount(newCount);
+                              return newCount;
+                            });
+                          }}
+                        />
+                        {/* </div> */}
+                      {/* </div> */}
                     </td>
                   )}
                 </div>

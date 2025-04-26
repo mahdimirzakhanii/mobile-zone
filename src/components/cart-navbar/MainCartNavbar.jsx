@@ -68,23 +68,23 @@ const MainCartNavbar = ({ setShowCart }) => {
             <div
               key={index}
               className="flex bg-gray-blue-50/10 rounded-md p-2 items-start justify-between  pb-2 gap-3 w-full">
-              <img src={item?.img_src[0]} className="basis-1/6 w-[60px] object-contain h-[80px]" alt="" />
-              <div className="flex items-center justify-start gap-10 h-full w-full">
-                <span className="text-sm lg:text-base basis-3/6">{item?.model}</span>
-                {/* <div className="flex flex-col items-center w-full gap-3"> */}
-                <div className="w-fit flex items-center gap-2 basis-1/6 p-1.5">
-                  <FiMinus
-                    onClick={() => handleCountChange(item?.idMobile, -1)}
-                    className="cursor-pointer bg-yellow-600 rounded-full text-blue-950 text-xl"
-                  />
-                  <span className="font-bold ">{item?.count}</span>
-                  <FiPlus
-                    onClick={() => handleCountChange(item?.idMobile, 1)}
-                    className="cursor-pointer bg-yellow-600 rounded-full text-blue-950 text-xl"
-                  />
+              <img src={item?.img_src[0]} className="basis-[10%] w-[60px] object-contain h-[80px]" alt="" />
+              <div className="flex items-center basis-[90%] h-full w-full">
+                <span className="text-sm lg:text-base text-wrap basis-[60%]">{item?.model}</span>
+                <div className="flex justify-between items-center basis-[40%] w-full">
+                  <div className="w-fit flex items-center gap-2  p-1.5">
+                    <FiMinus
+                      onClick={() => handleCountChange(item?.idMobile, -1)}
+                      className="cursor-pointer bg-yellow-600 rounded-full text-blue-950 text-xl"
+                    />
+                    <span className="font-bold ">{item?.count}</span>
+                    <FiPlus
+                      onClick={() => handleCountChange(item?.idMobile, 1)}
+                      className="cursor-pointer bg-yellow-600 rounded-full text-blue-950 text-xl"
+                    />
+                  </div>
+                  <span className="text-base text-gray">${item?.price}</span>
                 </div>
-                <span className="text-lg text-gray basis-1/6">${item?.price}</span>
-                {/* </div> */}
               </div>
             </div>
           ))
