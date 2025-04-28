@@ -53,23 +53,23 @@ const MainCartNavbar = ({ setShowCart }) => {
   };
 
   return (
-    <div className="flex max-h-[400px] h-[400px] overflow-y-auto top-[72px] gap-2 right-0 flex-col absolute items-center rounded-lg shadow-xl w-[50%] lg:w-[450px] bg-blue-950 text-white px-2 py-3">
+    <div className="flex top-[72px] gap-2 right-0 flex-col absolute items-center rounded-lg shadow-xl w-full lg:w-[450px] bg-blue-950 text-white px-2 py-3">
       <div className="flex w-full items-center justify-end">
         <PiX
           onClick={() => setShowCart(false)}
           className="text-xl top-3 cursor-pointer text-white"
         />
       </div>
-      <div className="flex flex-col items-center justify-start gap-1 h-full w-full">
+      <div className="flex flex-col min-h-[200px] rounded-md max-h-[400px] h-[400px] overflow-y-auto items-center justify-start gap-1 w-full">
         {loading ? (
           <GridLoader color="#dda01e" width={5} />
         ) : dataBasket?.length > 0 ? (
           dataBasket?.map((item, index) => (
             <div
               key={index}
-              className="flex bg-gray-blue-50/10 rounded-md p-2 items-start justify-between  pb-2 gap-3 w-full">
+              className="flex  bg-gray-blue-50/10 w-full rounded-md p-2 items-start justify-between pb-2 gap-3 ">
               <img src={item?.img_src[0]} className="basis-[10%] w-[60px] object-contain h-[80px]" alt="" />
-              <div className="flex items-center basis-[90%] h-full w-full">
+              <div className="flex flex-row items-center basis-[90%] h-full w-full">
                 <span className="text-sm lg:text-base text-wrap basis-[60%]">{item?.model}</span>
                 <div className="flex justify-between items-center basis-[40%] w-full">
                   <div className="w-fit flex items-center gap-2  p-1.5">
