@@ -16,7 +16,12 @@ const BestProducts = () => {
   );
 
   return (
-    <div className="w-full flex justify-center">
+    <div className="w-full flex flex-col gap-4 justify-center">
+      {filter?.[0] &&
+        <span className="text-xl lg:text-2xl font-medium text-start w-full items-start ">
+          Explore Our Products
+        </span>
+      }
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 md:gap-5">
         {filter?.map((item, index) => (
           <div

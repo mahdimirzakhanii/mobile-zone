@@ -63,37 +63,38 @@ const MainCartNavbar = ({ setShowCart }) => {
       <div className="flex flex-col min-h-[200px] rounded-md max-h-[400px] h-[400px] overflow-y-auto items-center justify-start gap-1 w-full">
         {loading ? (
           <GridLoader color="#dda01e" width={5} />
-        ) : dataBasket?.length > 0 ? (
-          dataBasket?.map((item, index) => (
-            <div
-              key={index}
-              className="flex  bg-gray-blue-50/10 w-full rounded-md p-2 items-start justify-between pb-2 gap-3 ">
-              <img src={item?.img_src[0]} className="basis-[10%] w-[60px] object-contain h-[80px]" alt="" />
-              <div className="flex flex-row items-center basis-[90%] h-full w-full">
-                <span className="text-sm lg:text-base text-wrap basis-[60%]">{item?.model}</span>
-                <div className="flex justify-between items-center basis-[40%] w-full">
-                  <div className="w-fit flex items-center gap-2  p-1.5">
-                    <FiMinus
-                      onClick={() => handleCountChange(item?.idMobile, -1)}
-                      className="cursor-pointer bg-yellow-600 rounded-full text-blue-950 text-xl"
-                    />
-                    <span className="font-bold ">{item?.count}</span>
-                    <FiPlus
-                      onClick={() => handleCountChange(item?.idMobile, 1)}
-                      className="cursor-pointer bg-yellow-600 rounded-full text-blue-950 text-xl"
-                    />
+        )
+          : dataBasket?.length > 0 ? (
+            dataBasket?.map((item, index) => (
+              <div
+                key={index}
+                className="flex  bg-gray-blue-50/10 w-full rounded-md p-2 items-start justify-between pb-2 gap-3 ">
+                <img src={item?.img_src[0]} className="basis-[10%] w-[60px] object-contain h-[80px]" alt="" />
+                <div className="flex flex-row items-center basis-[90%] h-full w-full">
+                  <span className="text-sm lg:text-base text-wrap basis-[60%]">{item?.model}</span>
+                  <div className="flex justify-between items-center basis-[40%] w-full">
+                    <div className="w-fit flex items-center gap-2  p-1.5">
+                      <FiMinus
+                        onClick={() => handleCountChange(item?.idMobile, -1)}
+                        className="cursor-pointer bg-yellow-600 rounded-full text-blue-950 text-xl"
+                      />
+                      <span className="font-bold ">{item?.count}</span>
+                      <FiPlus
+                        onClick={() => handleCountChange(item?.idMobile, 1)}
+                        className="cursor-pointer bg-yellow-600 rounded-full text-blue-950 text-xl"
+                      />
+                    </div>
+                    <span className="text-base text-gray">${item?.price}</span>
                   </div>
-                  <span className="text-base text-gray">${item?.price}</span>
                 </div>
               </div>
+            ))
+          ) : (
+            <div className="flex flex-col items-center justify-center h-full gap-5 w-full">
+              <FaShoppingCart className="text-5xl" />
+              <span>Your shopping cart is empty.</span>
             </div>
-          ))
-        ) : (
-          <div className="flex flex-col items-center justify-center h-full gap-5 w-full">
-            <FaShoppingCart className="text-5xl" />
-            <span>Your shopping cart is empty.</span>
-          </div>
-        )}
+          )}
       </div>
       {dataBasket?.length > 0 && (
         <div className="flex items-center w-full justify-center">

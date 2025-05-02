@@ -6,7 +6,7 @@ import { FaShoppingCart } from "react-icons/fa";
 import { toast, ToastContainer, Zoom } from "react-toastify";
 import { FiMinus, FiPlus } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
-import { updateItemCount } from "../redux/basketSlice";
+import { addToBasket, deleteToBasket, updateItemCount } from "../redux/basketSlice";
 import { handleBasket } from "../redux/basketSlice";
 import { HashLoader } from "react-spinners";
 import SliderProduct from "./SliderProduct";
@@ -35,24 +35,17 @@ const MainViewProduct = () => {
   }, [params?.id]);
 
   const { dataBasket, loading } = useSelector((state) => state?.basket);
-
   useEffect(() => {
     dispatch(handleBasket());
   }, []);
 
   // add to cart
-  const foundDataMobile = dataBasket?.find(
-    (item) => item?.idMobile === params?.id
-  );
-
-  console.log(dataProduct)
-  console.log(dataBasket)
-  console.log(foundDataMobile?.color)
-  console.log(selectColor)
+  const foundDataMobile = dataBasket?.find((item) => item?.idMobile === params?.id);
 
   useEffect(() => {
     setCount(Number(foundDataMobile?.count) || 1);
   }, [foundDataMobile]);
+
 
   const addBasket = async () => {
     if (foundDataMobile) return toast("This product is in your cart.");
@@ -70,14 +63,11 @@ const MainViewProduct = () => {
       count: count,
     };
     try {
-      const res = await axios.post(
-        `https://672d29e1fd897971564194df.mockapi.io/ap/v1/basket/`,
-        formData
-      );
+      const res = await axios.post(`https://672d29e1fd897971564194df.mockapi.io/ap/v1/basket/`, formData);
       console.log(res?.data);
-      setCount(1);
-      dispatch(handleBasket());
+      dispatch(addToBasket(res?.data));
       toast("Product added to cart");
+      setCount(1);
     } catch (error) {
       console.log(error);
     }
@@ -86,17 +76,14 @@ const MainViewProduct = () => {
   // patch count
   const addCount = async (newCount) => {
     if (!foundDataMobile) return;
-
     try {
-      const res = await axios.put(
-        `https://672d29e1fd897971564194df.mockapi.io/ap/v1/basket/${foundDataMobile?.id}`,
+      const res = await axios.put(`https://672d29e1fd897971564194df.mockapi.io/ap/v1/basket/${foundDataMobile?.id}`,
         { count: newCount },
       );
       console.log(res?.data);
       dispatch(updateItemCount({
-        id: foundDataMobile.id,
-        count: newCount,
-        color: selectColor
+        id: foundDataMobile?.id,
+        count: newCount
       }));
     } catch (error) {
       console.log(error);
@@ -111,17 +98,16 @@ const MainViewProduct = () => {
           `https://672d29e1fd897971564194df.mockapi.io/ap/v1/basket/${foundDataMobile?.id}`
         );
         console.log(res?.data);
-        dispatch(handleBasket());
+        dispatch(deleteToBasket(res?.data));
         toast("Product removed from cart");
       } catch (error) {
         console.log(error);
       }
     };
     deleteProduct();
-  }, [count, foundDataMobile?.id, dispatch]);
+  }, [count, foundDataMobile?.id]);
   return (
-
-    <div className="w-full flex flex-col md:flex-row items-center justify-center min-h-[50vh] gap-5 mt-32">
+    <div className="w-full flex flex-col md:flex-row items-center justify-center min-h-[50vh] gap-5 mt-32" >
       {loading ? (
         <HashLoader color="#dda01e" cssOverride={{}} width={100} />
       ) : (
@@ -191,33 +177,27 @@ const MainViewProduct = () => {
                     </button>
                   ) : (
                     <td className="flex justify-start pl-7 text-secondary ">
-                      {/* <div className=" flex items-center justify-between  border border-blue-900"> */}
-                        {/* <div className="flex cursor-pointer items-center justify-center h-full py-2.5 text-white w-10 bg-blue-900 "> */}
-                        <FiMinus
-                          className="cursor-pointer bg-blue-700 rounded-full text-white text-3xl"
-                          onClick={() => {
-                            setCount((prev) => {
-                              const newCount = prev - 1;
-                              addCount(newCount);
-                              return newCount;
-                            });
-                          }}
-                        />
-                        {/* </div> */}
-                        <span className="text-lg px-6 text-blue-900">{count}</span>
-                        {/* <div className="flex cursor-pointer items-center justify-center w-10 h-full py-2.5 text-white bg-blue-900 "> */}
-                        <FiPlus
-                          className="cursor-pointer bg-blue-700 rounded-full text-white text-3xl"
-                          onClick={() => {
-                            setCount((prev) => {
-                              const newCount = prev + 1;
-                              addCount(newCount);
-                              return newCount;
-                            });
-                          }}
-                        />
-                        {/* </div> */}
-                      {/* </div> */}
+                      <FiMinus
+                        className="cursor-pointer bg-blue-700 rounded-full text-white text-3xl"
+                        onClick={() => {
+                          setCount((prev) => {
+                            const newCount = prev - 1;
+                            addCount(newCount);
+                            return newCount;
+                          });
+                        }}
+                      />
+                      <span className="text-lg px-6 text-blue-900">{count}</span>
+                      <FiPlus
+                        className="cursor-pointer bg-blue-700 rounded-full text-white text-3xl"
+                        onClick={() => {
+                          setCount((prev) => {
+                            const newCount = prev + 1;
+                            addCount(newCount);
+                            return newCount;
+                          });
+                        }}
+                      />
                     </td>
                   )}
                 </div>

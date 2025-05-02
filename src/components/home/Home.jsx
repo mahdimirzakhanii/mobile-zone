@@ -53,10 +53,7 @@ const Home = () => {
           ))}
         </div>
         <Banner />
-        <div className="flex flex-col items-center gap-4 w-full pl-0 lg:pl-20">
-          <span className="text-xl lg:text-2xl font-medium text-start w-full items-start ">
-            Explore Our Products
-          </span>
+        <div className="flex flex-col items-center w-full pl-0 lg:pl-20">
           <BestProducts />
         </div>
       </div>

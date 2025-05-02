@@ -21,6 +21,12 @@ const basketSlice = createSlice({
             if (item) {
                 item.count = count;
             }
+        },
+        addToBasket: (state, action) => {
+            state.dataBasket.push(action.payload);
+        },
+        deleteToBasket: (state, action) => {
+            state.dataBasket.pop(action.payload)
         }
     },
     extraReducers: (builder) => {
@@ -34,5 +40,5 @@ const basketSlice = createSlice({
             })
     }
 });
-export const { updateItemCount } = basketSlice.actions;
+export const { updateItemCount, addToBasket, deleteToBasket } = basketSlice.actions;
 export default basketSlice.reducer;
