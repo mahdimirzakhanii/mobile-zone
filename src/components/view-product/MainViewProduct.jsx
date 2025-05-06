@@ -11,7 +11,7 @@ import { handleBasket } from "../redux/basketSlice";
 import { HashLoader } from "react-spinners";
 import SliderProduct from "./SliderProduct";
 
-const MainViewProduct = () => {
+const MainViewProduct = ({ loadingProduct }) => {
   const params = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -45,7 +45,6 @@ const MainViewProduct = () => {
   useEffect(() => {
     setCount(Number(foundDataMobile?.count) || 1);
   }, [foundDataMobile]);
-
 
   const addBasket = async () => {
     if (foundDataMobile) return toast("This product is in your cart.");
@@ -108,7 +107,7 @@ const MainViewProduct = () => {
   }, [count, foundDataMobile?.id]);
   return (
     <div className="w-full flex flex-col md:flex-row items-center justify-center min-h-[50vh] gap-5 mt-32" >
-      {loading ? (
+      {loading && !loadingProduct ? (
         <HashLoader color="#dda01e" cssOverride={{}} width={100} />
       ) : (
         <>

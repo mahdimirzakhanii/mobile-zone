@@ -6,10 +6,11 @@ import MainCartNavbar from "./cart-navbar/MainCartNavbar";
 import { PiX } from "react-icons/pi";
 import { RiMenu3Line } from "react-icons/ri";
 
-const Nav = ({ setShowSearch, scroll, setScroll }) => {
+const Nav = ({ setShowSearch, scroll, setScroll, setLoadingProduct, loadingProduct }) => {
   const location = useLocation();
   const [showCart, setShowCart] = useState(false);
   const [menuHamburger, setMenuHamburger] = useState(false)
+
   useEffect(() => {
     const scrollNav = () => {
       setScroll(window.scrollY > 100);
@@ -77,14 +78,21 @@ const Nav = ({ setShowSearch, scroll, setScroll }) => {
               className="text-2xl cursor-pointer"
             />
             <FaShoppingCart
-              onClick={() => setShowCart(!showCart)}
+              onClick={() => {
+                setShowCart(!showCart)
+                setLoadingProduct(true)
+              }}
               className="text-xl cursor-pointer"
             />
             <FaUser className="text-xl cursor-pointer" />
           </div>
         </div>
       </div>
-      {showCart && <MainCartNavbar setShowCart={setShowCart} />}
+      {showCart &&
+        <MainCartNavbar
+          setLoadingProduct={setLoadingProduct}
+          setShowCart={setShowCart}
+        />}
     </div >
   );
 };

@@ -7,15 +7,22 @@
   --secondary: #28588f;
   --tertiary: #c8daef;
   --bg-body: #f3f6fc;
-   --gold: #e29600;
+  --gold: #e29600;
   --white: #fff;
   --error: #ae0d06;
   --black: #000;
 }
 
-body {
-  @apply font-roboto;
+@font-face {
+  font-family: 'Inter';
+  src: url('/font/inter/Inter-VariableFont_opsz\,wght.ttf') format('ttf');
+  font-weight: 400;
+  font-style: normal;
 }
+
+/* body {
+  @apply font-roboto;
+} */
 
 @layer components {
   .nav-item {

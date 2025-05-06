@@ -9,7 +9,7 @@ import { handleBasket, updateItemCount } from "../redux/basketSlice";
 import { GridLoader } from "react-spinners";
 import { toast } from "react-toastify";
 
-const MainCartNavbar = ({ setShowCart }) => {
+const MainCartNavbar = ({ setShowCart, setLoadingProduct }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { dataBasket, loading } = useSelector((state) => state?.basket);
@@ -20,12 +20,12 @@ const MainCartNavbar = ({ setShowCart }) => {
 
   const updateCount = async (itemId, newCount) => {
     if (newCount < 0) return;
-    const item = dataBasket.find((i) => i.idMobile === itemId);
+    const item = dataBasket.find((i) => i?.idMobile === itemId);
     if (!item) return;
 
     try {
       const res = await axios.put(
-        `https://672d29e1fd897971564194df.mockapi.io/ap/v1/basket/${item.id}`,
+        `https://672d29e1fd897971564194df.mockapi.io/ap/v1/basket/${item?.id}`,
         { count: newCount }
       );
       console.log(res?.data);
@@ -56,7 +56,10 @@ const MainCartNavbar = ({ setShowCart }) => {
     <div className="flex top-[72px] gap-2 right-0 flex-col absolute items-center rounded-lg shadow-xl w-full lg:w-[450px] bg-blue-950 text-white px-2 py-3">
       <div className="flex w-full items-center justify-end">
         <PiX
-          onClick={() => setShowCart(false)}
+          onClick={() => {
+            setShowCart(false)
+            setLoadingProduct(false)
+          }}
           className="text-xl top-3 cursor-pointer text-white"
         />
       </div>

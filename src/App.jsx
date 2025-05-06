@@ -12,8 +12,9 @@ import NotFound from "./components/NotFound.jsx";
 function App() {
   const [scroll, setScroll] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
+  const [loadingProduct, setLoadingProduct] = useState(false)
   return (
-    <div className="w-full min-h-screen flex flex-col items-center bg-blue-50">
+    <div className="w-full font-inter min-h-screen flex flex-col items-center bg-blue-50">
       {/* open search-bar */}
       {showSearch && (
         <div className="fixed left-0 top-0 z-[1000] w-full h-full">
@@ -21,6 +22,8 @@ function App() {
         </div>
       )}
       <Nav
+        setLoadingProduct={setLoadingProduct}
+        loadingProduct={loadingProduct}
         scroll={scroll}
         setScroll={setScroll}
         setShowSearch={setShowSearch}
@@ -29,7 +32,12 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<MainProducts />} />
-        <Route path="/products/:id" element={<MainViewProduct />} />
+        <Route path="/products/:id"
+          element={
+            <MainViewProduct
+              setLoadingProduct={setLoadingProduct}
+              loadingProduct={loadingProduct} />}
+        />
         <Route path="/cart" element={<MainCartProduct />} />
         <Route path="*" element={<NotFound />} />
 
