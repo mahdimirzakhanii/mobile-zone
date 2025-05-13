@@ -20,10 +20,6 @@
   font-style: normal;
 }
 
-/* body {
-  @apply font-roboto;
-} */
-
 @layer components {
   .nav-item {
     position: relative;
@@ -61,14 +57,10 @@
 
 .swiper-button-next,
 .swiper-button-prev {
-  background-color: var(--secondary);
-  color: white;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+  color: var(--white);
+  background-color: var(--primary);
   border-radius: 50%;
-  width: 10px;
-  height: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .swiper-button-next,
@@ -128,4 +120,13 @@ body::-webkit-scrollbar-thumb {
   body {
     scrollbar-color: var(--primary) var(--bg-body);
   }
+}
+
+.thumbs-swiper .swiper-slide {
+  opacity: 0.4;
+  transition: opacity 0.3s ease;
+}
+
+.thumbs-swiper .swiper-slide-thumb-active {
+  opacity: 1;
 }

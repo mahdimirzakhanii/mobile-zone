@@ -15,10 +15,9 @@ const MainViewProduct = ({ loadingProduct }) => {
   const params = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [dataProduct, setDataProduct] = useState([-1]);
+  const [dataProduct, setDataProduct] = useState();
   const [selectColor, setSelectColor] = useState(null);
   const [count, setCount] = useState(1);
-
   useEffect(() => {
     const handleProduct = async () => {
       try {
