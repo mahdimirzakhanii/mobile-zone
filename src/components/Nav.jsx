@@ -6,7 +6,7 @@ import MainCartNavbar from "./cart-navbar/MainCartNavbar";
 import { PiX } from "react-icons/pi";
 import { RiMenu3Line } from "react-icons/ri";
 
-const Nav = ({ setShowSearch, scroll, setScroll, setLoadingProduct, loadingProduct }) => {
+const Nav = ({ setShowSearch, scroll, setScroll, setLoadingProduct }) => {
   const location = useLocation();
   const [showCart, setShowCart] = useState(false);
   const [menuHamburger, setMenuHamburger] = useState(false)

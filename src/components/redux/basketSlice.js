@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+
 export const handleBasket = createAsyncThunk('basket/handleBasket', async () => {
     try {
         const res = await axios.get(`https://672d29e1fd897971564194df.mockapi.io/ap/v1/basket/`);
@@ -26,7 +27,7 @@ const basketSlice = createSlice({
             state.dataBasket.push(action.payload);
         },
         deleteToBasket: (state, action) => {
-            state.dataBasket.pop(action.payload)
+            state.dataBasket = state.dataBasket.filter(item => item.id !== action.payload.id);
         }
     },
     extraReducers: (builder) => {

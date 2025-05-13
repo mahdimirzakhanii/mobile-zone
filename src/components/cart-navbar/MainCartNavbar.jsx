@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { PiX } from "react-icons/pi";
@@ -13,16 +13,15 @@ const MainCartNavbar = ({ setShowCart, setLoadingProduct }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { dataBasket, loading } = useSelector((state) => state?.basket);
-
   useEffect(() => {
     dispatch(handleBasket());
   }, []);
 
+  console.log(dataBasket)
   const updateCount = async (itemId, newCount) => {
-    if (newCount < 0) return;
     const item = dataBasket.find((i) => i?.idMobile === itemId);
+    if (newCount < 0) return;
     if (!item) return;
-
     try {
       const res = await axios.put(
         `https://672d29e1fd897971564194df.mockapi.io/ap/v1/basket/${item?.id}`,
@@ -37,12 +36,14 @@ const MainCartNavbar = ({ setShowCart, setLoadingProduct }) => {
         await axios.delete(
           `https://672d29e1fd897971564194df.mockapi.io/ap/v1/basket/${item.id}`
         );
+        dispatch(handleBasket())
         toast("Product removed from cart");
       }
     } catch (error) {
       console.log(error);
     }
   };
+
   // تابع برای افزایش یا کاهش تعداد
   const handleCountChange = (itemId, change) => {
     const item = dataBasket.find((i) => i?.idMobile === itemId);

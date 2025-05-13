@@ -23,7 +23,6 @@ function App() {
       )}
       <Nav
         setLoadingProduct={setLoadingProduct}
-        loadingProduct={loadingProduct}
         scroll={scroll}
         setScroll={setScroll}
         setShowSearch={setShowSearch}
