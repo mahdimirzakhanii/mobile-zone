@@ -9,7 +9,7 @@ import 'swiper/css/thumbs';
 const SliderProduct = ({ imgProduct }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   return (
-    <div className="w-[450px]">
+    <div className="w-[500px]">
       <Swiper
         style={{
           '--swiper-navigation-color': '#fff',
@@ -23,7 +23,7 @@ const SliderProduct = ({ imgProduct }) => {
       >
         {Array.isArray(imgProduct) && imgProduct.map((item, index) => (
           <SwiperSlide key={index} className="flex items-center justify-center">
-            <img src={item} alt={`Slide ${index}`} style={{ width: '75%', height: 'auto' }} />
+            <img src={item} alt={`Slide ${index}`} style={{ width: '400px', height: '500px' }} />
           </SwiperSlide>
         ))}
       </Swiper>
@@ -32,7 +32,7 @@ const SliderProduct = ({ imgProduct }) => {
         <Swiper
           onSwiper={setThumbsSwiper}
           spaceBetween={10}
-          slidesPerView={4}
+          slidesPerView={Math.min(imgProduct?.length, 4)}
           freeMode
           watchSlidesProgress
           modules={[FreeMode, Thumbs]}
@@ -40,7 +40,7 @@ const SliderProduct = ({ imgProduct }) => {
         >
           {Array.isArray(imgProduct) && imgProduct.map((item, index) => (
             <SwiperSlide className="flex items-center justify-center" key={index}>
-              <img src={item} alt={`Thumb ${index}`} style={{ width: '80%', height: 'auto' }} />
+              <img src={item} alt={`Thumb ${index}`} style={{ width: '60px', height: '80px' }} />
             </SwiperSlide>
           ))}
         </Swiper>

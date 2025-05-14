@@ -2,18 +2,19 @@ import { useEffect, useState } from "react";
 import SingleListCartProduct from "./SingleListCartProduct";
 import axios from "axios";
 import ModalDeleteProduct from "./ModalDeleteProduct";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { handleBasket } from "../redux/basketSlice";
 import { toast } from "react-toastify";
 
-const TableListCartProduct = ({ dataBasket, setRefreshList }) => {
+const TableListCartProduct = () => {
   const dispatch = useDispatch();
+  const { dataBasket } = useSelector((state) => state?.basket);
   const [idProduct, setIdProduct] = useState(null);
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     dispatch(handleBasket());
-  }, [dispatch]);
+  }, []);
 
   // تابع برای آپدیت تعداد در سرور
   const updateCount = async (itemId, newCount) => {
@@ -59,16 +60,14 @@ const TableListCartProduct = ({ dataBasket, setRefreshList }) => {
       );
       console.log(res?.data);
       setShowModal(false);
-      setRefreshList(1);
     } catch (error) {
       console.log(error);
     }
   };
 
   return (
-    <div className="flex items-center gap-5 w-full px-10">
-      <div className="flex flex-col items-start gap-10 w-full">
-        <span className="text-3xl">Shoping Cart</span>
+    <div className="flex items-center gap-5 w-full">
+      <div className="flex flex-col items-start gap-10 w-full ">
         <table className="w-full flex items-center flex-col gap-5">
           <thead className="w-full border-b border-b-gray-blue-400 pb-2">
             <tr className="flex items-center justify-center w-full">
@@ -84,7 +83,7 @@ const TableListCartProduct = ({ dataBasket, setRefreshList }) => {
               <th className="w-[10%]"></th>
             </tr>
           </thead>
-          <tbody className="w-full flex-col flex items-center justify-center">
+          <tbody className="w-full flex-col flex items-center  justify-center">
             {dataBasket?.length > 0 ? (
               dataBasket?.map((item, index) => (
                 <SingleListCartProduct

@@ -1,33 +1,17 @@
-import { useEffect, useState } from "react";
 import Summary from "./Summary";
 import TableListCartProduct from "./TableListCartProduct";
-import { useDispatch, useSelector } from "react-redux";
-import { handleBasket } from "../redux/basketSlice";
 const MainCartProduct = () => {
-  const [refreshList, setRefreshList] = useState(0);
-  const dispatch = useDispatch();
-  const { dataBasket, loading } = useSelector((state) => state?.basket);
-  useEffect(() => {
-    setRefreshList(1);
-  }, [setRefreshList]);
-
-  //delete product
-  useEffect(() => {
-    if (loading || refreshList !== 1) return;
-    dispatch(handleBasket());
-    setRefreshList(0);
-  }, [dispatch, refreshList, loading]);
 
   return (
-    <div className="flex px-3 items-center gap-5 mt-32 w-full">
-      <div className="w-[70%] xl:w-3/4">
-        <TableListCartProduct
-          setRefreshList={setRefreshList}
-          dataBasket={dataBasket}
-        />
+    <div className="flex px-3 items-start flex-col lg:flex-row justify-between mt-28 w-full">
+      <div className="w-full lg:w-[70%] xl:w-[65%] gap-5 flex lg:pl-10 flex-col ">
+        <span className="text-3xl">Shoping Cart</span>
+        <div className="max-h-[500px] overflow-y-auto">
+          <TableListCartProduct />
+        </div>
       </div>
-      <div className="w-[30%] xl:w-1/4">
-        <Summary setRefreshList={setRefreshList} dataBasket={dataBasket} />
+      <div className="w-full lg:w-[30%] xl:w-[35%] h-full">
+        <Summary />
       </div>
     </div>
   );

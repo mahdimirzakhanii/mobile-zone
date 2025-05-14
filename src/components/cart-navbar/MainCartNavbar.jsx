@@ -77,7 +77,7 @@ const MainCartNavbar = ({ setShowCart, setLoadingProduct }) => {
                 <div className="flex flex-row items-center basis-[90%] h-full w-full">
                   <span className="text-sm lg:text-base text-wrap basis-[60%]">{item?.model}</span>
                   <div className="flex justify-between items-center basis-[40%] w-full">
-                    <div className="w-fit flex items-center gap-2  p-1.5">
+                    <div className="w-fit flex items-center gap-2 p-1.5">
                       <FiMinus
                         onClick={() => handleCountChange(item?.idMobile, -1)}
                         className="cursor-pointer bg-yellow-600 rounded-full text-blue-950 text-xl"
