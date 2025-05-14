@@ -9,7 +9,7 @@ import 'swiper/css/thumbs';
 const SliderProduct = ({ imgProduct }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   return (
-    <div className="w-[500px]">
+    <div className="w-[400px] sm:w-[500px]">
       <Swiper
         style={{
           '--swiper-navigation-color': '#fff',
@@ -23,7 +23,7 @@ const SliderProduct = ({ imgProduct }) => {
       >
         {Array.isArray(imgProduct) && imgProduct.map((item, index) => (
           <SwiperSlide key={index} className="flex items-center justify-center">
-            <img src={item} alt={`Slide ${index}`} style={{ width: '400px', height: '500px' }} />
+            <img src={item} alt={`Slide ${index}`} className="w-[300px] sm:w-[400px] h-[400px] sm:h-[500px]" />
           </SwiperSlide>
         ))}
       </Swiper>
