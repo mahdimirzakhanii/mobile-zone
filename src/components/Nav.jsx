@@ -5,12 +5,21 @@ import { Link, useLocation } from "react-router-dom";
 import MainCartNavbar from "./cart-navbar/MainCartNavbar";
 import { PiX } from "react-icons/pi";
 import { RiMenu3Line } from "react-icons/ri";
-
+import { useDispatch, useSelector } from "react-redux";
+import { handleBasket } from "./redux/basketSlice";
 const Nav = ({ setShowSearch, scroll, setScroll, setLoadingProduct }) => {
   const location = useLocation();
+  const dispatch = useDispatch();
+
   const [showCart, setShowCart] = useState(false);
   const [menuHamburger, setMenuHamburger] = useState(false)
+  const { dataBasket } = useSelector((state) => state?.basket);
 
+  useEffect(() => {
+    dispatch(handleBasket());
+  }, []);
+
+  console.log(dataBasket)
   useEffect(() => {
     const scrollNav = () => {
       setScroll(window.scrollY > 100);
@@ -46,7 +55,7 @@ const Nav = ({ setShowSearch, scroll, setScroll, setLoadingProduct }) => {
           </a>
         </div>
 
-        <div className="flex items-end start pt-2 md:pt-0 basis-4/5 gap-5 md:gap-0 flex-row-reverse md:flex-row w-full">
+        <div className="flex items-center start pt-2 md:pt-0 basis-4/5 gap-5 md:gap-0 flex-row-reverse md:flex-row w-full">
           {!menuHamburger &&
             <RiMenu3Line className="flex md:hidden cursor-pointer text-2xl" onClick={() => setMenuHamburger(true)} />
           }
@@ -72,19 +81,26 @@ const Nav = ({ setShowSearch, scroll, setScroll, setLoadingProduct }) => {
               </div>
             </div>
           </div>
-          <div className="flex items-center gap-5 justify-end basis-1/5">
+          <div className="flex items-center gap-7 justify-end basis-1/5">
             <LiaSearchSolid
               onClick={() => setShowSearch(true)}
-              className="text-2xl cursor-pointer"
+              className="text-3xl cursor-pointer"
             />
-            <FaShoppingCart
-              onClick={() => {
-                setShowCart(!showCart)
-                setLoadingProduct(true)
-              }}
-              className="text-xl cursor-pointer"
-            />
-            <FaUser className="text-xl cursor-pointer" />
+            <div className="flex items-center justify-center relative">
+              {dataBasket?.[0] &&
+                <div className="absolute -top-2 -right-3 w-5 h-5 bg-red-600 rounded-full flex items-center justify-center">
+                  <span>{dataBasket?.length}</span>
+                </div>
+              }
+              <FaShoppingCart
+                onClick={() => {
+                  setShowCart(!showCart)
+                  setLoadingProduct(true)
+                }}
+                className="text-2xl cursor-pointer"
+              />
+            </div>
+            {/* <FaUser className="text-xl cursor-pointer" /> */}
           </div>
         </div>
       </div>

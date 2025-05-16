@@ -14,7 +14,7 @@ function App() {
   const [showSearch, setShowSearch] = useState(false);
   const [loadingProduct, setLoadingProduct] = useState(false)
   return (
-    <div className="w-full font-inter min-h-screen flex flex-col items-center bg-blue-50">
+    <div className="w-full font-inter min-h-screen flex flex-col items-center justify-between bg-blue-50">
       {/* open search-bar */}
       {showSearch && (
         <div className="fixed left-0 top-0 z-[1000] w-full h-full">
