@@ -8,7 +8,7 @@ const ModalDeleteProduct = ({
 }) => {
   return (
     <Modal>
-      <div className="w-1/4 bg-white border-b-4 border-b-red-700 shadow-lg gap-5 py-3 rounded-lg flex flex-col items-center">
+      <div className="w-[90%] sm:w-1/2 md:w-1/3 lg:w-1/4 bg-white border-b-4 border-b-red-700 shadow-lg gap-5 py-3 rounded-lg flex flex-col items-center">
         <PiXCircle className="text-red-600 text-5xl" />
         <h2 className="text-red-700 text-lg">Delete Product</h2>
         <span className=" text-gray-blue-950">

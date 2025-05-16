@@ -5,6 +5,8 @@ import ModalDeleteProduct from "./ModalDeleteProduct";
 import { useDispatch, useSelector } from "react-redux";
 import { handleBasket } from "../redux/basketSlice";
 import { toast } from "react-toastify";
+import { AiOutlineShoppingCart } from "react-icons/ai";
+
 
 const TableListCartProduct = () => {
   const dispatch = useDispatch();
@@ -59,6 +61,7 @@ const TableListCartProduct = () => {
         `https://672d29e1fd897971564194df.mockapi.io/ap/v1/basket/${id}`
       );
       console.log(res?.data);
+      dispatch(handleBasket())
       setShowModal(false);
     } catch (error) {
       console.log(error);
@@ -67,8 +70,8 @@ const TableListCartProduct = () => {
 
   return (
     <div className="flex items-center gap-5 w-full">
-      <div className="flex flex-col items-start gap-10 w-full ">
-        <table className="w-full flex items-center flex-col gap-5">
+      <div className="flex flex-col items-start  gap-10 w-full ">
+        <table className="w-full min-h-[200px] lg:justify-between flex items-center flex-col gap-5">
           <thead className="w-full border-b border-b-gray-blue-400 pb-2">
             <tr className="flex items-center justify-center w-full">
               <th className="text-blue-900 flex items-center justify-start pl-5 text-lg w-[30%]">
@@ -96,9 +99,10 @@ const TableListCartProduct = () => {
                 />
               ))
             ) : (
-              <span className="text-xl text-blue-500 w-full text-center">
-                Your shopping cart is empty.
-              </span>
+              <div className=" flex flex-col items-center justify-center gap-3 w-full ">
+                <AiOutlineShoppingCart className="text-4xl lg:text-5xl text-blue-800" />
+                <span className="text-lg lg:text-2xl text-blue-500 text-center">Your Basket is empty</span>
+              </div>
             )}
           </tbody>
         </table>

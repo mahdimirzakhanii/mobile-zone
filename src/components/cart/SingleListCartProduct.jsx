@@ -8,12 +8,12 @@ const SingleListCartProduct = ({
   handleCountChange,
 }) => {
   return (
-    <tr className="flex items-center justify-between gap-10 md:gap-0 px-3 w-full border-b border-b-gray-blue-400 py-5">
+    <tr className="flex items-center relative justify-between gap-5 md:gap-0 md:px-5 w-full border-b border-b-gray-blue-400 py-5">
       <td className="flex md:items-center items-start gap-3 justify-start md:pl-5 w-[30%] md:w-[20%]">
         <img src={item?.img_src[0]} width={100} alt="" />
       </td>
-      <td className="flex flex-col md:flex-row gap-6 md:gap-0 md:pl-7 text-blue-700 w-[70%] md:w-[80%]">
-        <span className="text-blue-700 flex items-center justify-start w-full md:w-[50%]">
+      <td className="flex flex-col md:flex-row gap-4 md:gap-0 md:pl-7  w-[70%] md:w-[80%]">
+        <span className="text-blue-700 text-base md:text-xl flex items-center justify-start w-full md:w-[50%]">
           {item?.name} {item?.model}{" "}
         </span>
 
@@ -21,12 +21,12 @@ const SingleListCartProduct = ({
           <div className="w-fit flex items-center gap-5 ">
             <FiMinus
               onClick={() => handleCountChange(item?.idMobile, -1)}
-              className="cursor-pointer bg-yellow-600 rounded-full text-blue-950 text-2xl"
+              className="cursor-pointer bg-yellow-600 rounded-full text-white text-2xl"
             />
-            <span className="font-bold text-3xl">{item?.count}</span>
+            <span className="font-bold text-2xl text-blue-700">{item?.count}</span>
             <FiPlus
               onClick={() => handleCountChange(item?.idMobile, 1)}
-              className="cursor-pointer bg-yellow-600 rounded-full text-blue-950 text-2xl"
+              className="cursor-pointer bg-yellow-600 rounded-full text-white text-2xl"
             />
           </div>
         </div>
@@ -35,16 +35,15 @@ const SingleListCartProduct = ({
           <span className="text-blue-700 font-semibold">Price: ${item?.price} </span>
         </div>
       </td>
-      {/* <th className="w-[10%] flex justify-end">
-          <FaTrash
-            onClick={() => {
-              setShowModal(true);
-              setIdProduct(item?.id);
-            }}
-            className="cursor-pointer text-red-700 text-xl"
-          />
-        </th> */}
-      {/* </td> */}
+      <th className="w-[10%] bottom-8 right-10 absolute md:static flex justify-end">
+        <FaTrash
+          onClick={() => {
+            setShowModal(true);
+            setIdProduct(item?.id);
+          }}
+          className="cursor-pointer text-red-600 text-lg"
+        />
+      </th>
     </tr >
   );
 };
