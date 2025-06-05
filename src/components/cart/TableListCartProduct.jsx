@@ -69,7 +69,7 @@ const TableListCartProduct = () => {
   };
 
   return (
-    <div className="flex items-center gap-5 w-full">
+    <div className="flex items-center gap-5 w-full" >
       <div className="flex flex-col items-start  gap-10 w-full ">
         <table className="w-full min-h-[200px] lg:justify-between flex items-center flex-col gap-5">
           <thead className="w-full border-b border-b-gray-blue-400 pb-2">
@@ -99,23 +99,22 @@ const TableListCartProduct = () => {
                 />
               ))
             ) : (
-              <div className=" flex flex-col items-center justify-center gap-3 w-full ">
+              <tr className=" flex flex-col items-center justify-center gap-3 w-full ">
                 <AiOutlineShoppingCart className="text-4xl lg:text-5xl text-blue-800" />
                 <span className="text-lg lg:text-2xl text-blue-500 text-center">Your Basket is empty</span>
-              </div>
+              </tr>
             )}
           </tbody>
         </table>
       </div>
-      {showModal && (
+      {showModal &&
         <ModalDeleteProduct
           idProduct={idProduct}
           setShowModal={setShowModal}
           deleteProduct={deleteProduct}
         />
-      )}
+      }
     </div>
-  );
+  )
 };
-
 export default TableListCartProduct;

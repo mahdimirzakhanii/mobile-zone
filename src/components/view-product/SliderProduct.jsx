@@ -6,6 +6,17 @@ import 'swiper/css/free-mode';
 import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
 
+const fullScreenImage = (event) => {
+  const img = event.target;
+  if (img.requestFullscreen) {
+    img.requestFullscreen();
+  } else if (img.webkitRequestFullscreen) {
+    img.webkitRequestFullscreen();
+  } else if (img.msRequestFullscreen) {
+    img.msRequestFullscreen();
+  }
+}
+
 const SliderProduct = ({ imgProduct }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   return (
@@ -22,7 +33,10 @@ const SliderProduct = ({ imgProduct }) => {
         className="main-swiper"
       >
         {Array.isArray(imgProduct) && imgProduct.map((item, index) => (
-          <SwiperSlide key={index} className="flex items-center justify-center">
+          <SwiperSlide
+            key={index}
+            onClick={(e) => fullScreenImage(e)}
+            className="flex items-center justify-center">
             <img src={item} alt={`Slide ${index}`} className="w-[300px] sm:w-[400px] h-[400px] sm:h-[500px]" />
           </SwiperSlide>
         ))}

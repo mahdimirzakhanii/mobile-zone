@@ -5,21 +5,13 @@ import { Link, useLocation } from "react-router-dom";
 import MainCartNavbar from "./cart-navbar/MainCartNavbar";
 import { PiX } from "react-icons/pi";
 import { RiMenu3Line } from "react-icons/ri";
-import { useDispatch, useSelector } from "react-redux";
-import { handleBasket } from "./redux/basketSlice";
+import { useSelector } from "react-redux";
+
 const Nav = ({ setShowSearch, scroll, setScroll, setLoadingProduct }) => {
   const location = useLocation();
-  const dispatch = useDispatch();
-
   const [showCart, setShowCart] = useState(false);
   const [menuHamburger, setMenuHamburger] = useState(false)
   const { dataBasket } = useSelector((state) => state?.basket);
-
-  useEffect(() => {
-    dispatch(handleBasket());
-  }, []);
-
-  console.log(dataBasket)
   useEffect(() => {
     const scrollNav = () => {
       setScroll(window.scrollY > 100);

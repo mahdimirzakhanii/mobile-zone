@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { PiX } from "react-icons/pi";
@@ -23,11 +23,10 @@ const MainCartNavbar = ({ setShowCart, setLoadingProduct }) => {
     if (newCount < 0) return;
     if (!item) return;
     try {
-      const res = await axios.put(
+      await axios.put(
         `https://672d29e1fd897971564194df.mockapi.io/ap/v1/basket/${item?.id}`,
         { count: newCount }
       );
-      console.log(res?.data);
       dispatch(updateItemCount({
         id: item?.id,
         count: newCount
@@ -53,11 +52,27 @@ const MainCartNavbar = ({ setShowCart, setLoadingProduct }) => {
     updateCount(itemId, newCount);
   };
 
+  const cartRef = useRef(null);
+  useEffect(() => {
+    const handleClick = (event) => {
+      if (cartRef.current && !cartRef.current.contains(event.target)) {
+        setShowCart(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClick);
+    return () => {
+      document.removeEventListener("mousedown", handleClick);
+    };
+  }, []);
+
   return (
-    <div className="flex top-[72px] gap-2 right-0 flex-col absolute items-center rounded-lg shadow-xl w-full lg:w-[450px] bg-blue-950 text-white px-2 py-3">
-      <div className="flex w-full items-center justify-end">
+    <div ref={cartRef} className="flex top-[72px] gap-2 right-0 flex-col absolute items-center rounded-lg shadow-xl w-full lg:w-[450px] bg-blue-950 text-white px-2 py-3">
+      <div className="flex w-full items-center justify-end" >
         <PiX
-          onClick={() => {
+
+          onClick={(e) => {
+            e.stopPropagation();
             setShowCart(false)
             setLoadingProduct(false)
           }}
@@ -71,8 +86,9 @@ const MainCartNavbar = ({ setShowCart, setLoadingProduct }) => {
           : dataBasket?.length > 0 ? (
             dataBasket?.map((item, index) => (
               <div
+                onClick={() => navigate(`/products/${item?.idMobile}`)}
                 key={index}
-                className="flex  bg-gray-blue-50/10 w-full rounded-md p-2 items-start justify-between pb-2 gap-3 ">
+                className="cursor-pointer flex bg-gray-blue-50/10 w-full rounded-md p-2 items-start justify-between pb-2 gap-3 ">
                 <img src={item?.img_src[0]} className="basis-[10%] w-[60px] object-contain h-[80px]" alt="" />
                 <div className="flex flex-row items-center basis-[90%] h-full w-full">
                   <span className="text-sm lg:text-base text-wrap basis-[60%]">{item?.model}</span>

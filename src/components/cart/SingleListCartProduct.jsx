@@ -1,5 +1,6 @@
 import { FiMinus, FiPlus } from "react-icons/fi";
 import { FaTrash } from "react-icons/fa6";
+import { useNavigate } from "react-router-dom";
 
 const SingleListCartProduct = ({
   item,
@@ -7,13 +8,18 @@ const SingleListCartProduct = ({
   setIdProduct,
   handleCountChange,
 }) => {
+  const navigate = useNavigate()
   return (
     <tr className="flex items-center relative justify-between gap-5 md:gap-0 md:px-5 w-full border-b border-b-gray-blue-400 py-5">
-      <td className="flex md:items-center items-start gap-3 justify-start md:pl-5 w-[30%] md:w-[20%]">
+      <td
+        onClick={() => navigate(`/products/${item?.idMobile}`)}
+        className="cursor-pointer flex md:items-center items-start gap-3 justify-start md:pl-5 w-[30%] md:w-[20%]">
         <img src={item?.img_src[0]} width={100} alt="" />
       </td>
-      <td className="flex flex-col md:flex-row gap-4 md:gap-0 md:pl-7  w-[70%] md:w-[80%]">
-        <span className="text-blue-700 text-base md:text-xl flex items-center justify-start w-full md:w-[50%]">
+      <td className="flex flex-col cursor-pointer md:flex-row gap-4 md:gap-0 md:pl-7  w-[70%] md:w-[80%]">
+        <span
+          onClick={() => navigate(`/products/${item?.idMobile}`)}
+          className="text-blue-700 text-base md:text-xl flex items-center justify-start w-full md:w-[50%]">
           {item?.name} {item?.model}{" "}
         </span>
 
