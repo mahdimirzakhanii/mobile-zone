@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import { LiaSearchSolid } from "react-icons/lia";
 import { PiXBold } from "react-icons/pi";
-import { useDispatch, useSelector } from "react-redux";
-import { getListProducts, searchMobile } from "../redux/slice";
+// import { useDispatch, useSelector } from "react-redux";
+// import { getListProducts, searchMobile } from "../redux/slice";
 
 const Search = ({ setShowSearch }) => {
   // const { searchList, loading } = useSelector((state) => state.listMobile);
