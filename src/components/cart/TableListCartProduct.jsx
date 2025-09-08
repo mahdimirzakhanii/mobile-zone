@@ -23,7 +23,6 @@ const TableListCartProduct = () => {
     if (newCount < 0) return; // جلوگیری از تعداد منفی
     const item = dataBasket.find((i) => i.idMobile === itemId);
     if (!item) return;
-
     try {
       const formData = { count: newCount };
       const res = await axios.put(
@@ -37,6 +36,8 @@ const TableListCartProduct = () => {
           `https://672d29e1fd897971564194df.mockapi.io/ap/v1/basket/${item.id}`
         );
         toast("Product removed from cart");
+        dispatch(handleBasket());
+
       }
     } catch (error) {
       console.log(error);
@@ -47,10 +48,10 @@ const TableListCartProduct = () => {
   const handleCountChange = (itemId, change) => {
     const item = dataBasket.find((i) => i.idMobile === itemId);
     if (!item) return;
-
     const currentCount = Number(item.count) || 0;
     const newCount = currentCount + change;
     updateCount(itemId, newCount);
+    dispatch(handleBasket())
   };
 
   // delete product

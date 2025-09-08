@@ -130,3 +130,53 @@ body::-webkit-scrollbar-thumb {
 .thumbs-swiper .swiper-slide-thumb-active {
   opacity: 1;
 }
+
+/* Menu */
+
+@layer utilities {
+  @keyframes slideIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-200%) translateX(200%);
+    }
+    50% {
+      transform: translateY(-100%) translateX(100%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0%) translateX(0%);
+    }
+  }
+
+  @keyframes slideOut {
+    0% {
+      opacity: 1;
+      transform: translateY(0%) translateX(0%);
+    }
+    50% {
+      transform: translateY(-100%) translateX(-100%);
+      -webkit-transform: translateY(-100%) translateX(-100%);
+      -moz-transform: translateY(-100%) translateX(-100%);
+      -ms-transform: translateY(-100%) translateX(-100%);
+      -o-transform: translateY(-100%) translateX(-100%);
+}
+    100% {
+      opacity: 0;
+      transform: translateY(-200%) translateX(-200%);
+      -webkit-transform: translateY(-200%) translateX(-200%);
+      -moz-transform: translateY(-200%) translateX(-200%);
+      -ms-transform: translateY(-200%) translateX(-200%);
+      -o-transform: translateY(-200%) translateX(-200%);
+}
+  }
+
+  .animate-slideIn {
+    animation: slideIn 1s ease-in-out forwards;
+    -webkit-animation: slideIn 1s ease-in-out forwards;
+}
+
+  .animate-slideOut {
+    animation: slideOut 1s ease-in-out forwards;
+    -webkit-animation: slideOut 1s ease-in-out forwards;
+}
+}

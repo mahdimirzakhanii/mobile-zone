@@ -18,11 +18,10 @@ const Header = () => {
                         <span className="text-5xl lg:text-7xl text-yellow-600">Zone</span>
                     </div>
 
-                    <p className="w-full lg:w-1/3 text-base text-white">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam
-                        magnam incidunt nam cuex quidem nesciunt odio exercitationem
-                        reprehenderit quam, ipsam mollitia cumque itaque rerum soluta
-                        explicabo sunt accusamus officiis ipsa impedit dicta aspernatur aut
+                    <p className="w-full lg:w-[50%] text-lg text-white">
+                        Discover a premium mobile shopping experience at <span className="font-black text-yellow-600 text-xl">Mobile Zone</span>.
+                        We offer a hand-picked selection of the most popular smartphones and accessories, with guaranteed quality and exceptional service.
+                        Shop smarter. Live smarter.
                     </p>
                     <div className="flex items-center gap-5">
                         <button

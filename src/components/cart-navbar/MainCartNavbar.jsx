@@ -95,12 +95,18 @@ const MainCartNavbar = ({ setShowCart, setLoadingProduct }) => {
                   <div className="flex justify-between items-center basis-[40%] w-full">
                     <div className="w-fit flex items-center gap-2 p-1.5">
                       <FiMinus
-                        onClick={() => handleCountChange(item?.idMobile, -1)}
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          handleCountChange(item?.idMobile, -1)
+                        }}
                         className="cursor-pointer bg-yellow-600 rounded-full text-blue-950 text-xl"
                       />
                       <span className="font-bold ">{item?.count}</span>
                       <FiPlus
-                        onClick={() => handleCountChange(item?.idMobile, 1)}
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          handleCountChange(item?.idMobile, 1)
+                        }}
                         className="cursor-pointer bg-yellow-600 rounded-full text-blue-950 text-xl"
                       />
                     </div>

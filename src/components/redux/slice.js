@@ -20,12 +20,12 @@ const mobileSlice = createSlice({
     name: "mobile",
     initialState,
     reducers: {
-        // searchMobile: (state, action) => {
-        //     const searchTerm = action.payload.toLowerCase();
-        //     state.searchList = state.listMobile.filter((mobile) =>
-        //         mobile.name.toLowerCase().includes(searchTerm)
-        //     )
-        // }
+        searchMobile: (state, action) => {
+            const searchTerm = action.payload.toLowerCase();
+            state.searchList = state.listMobile.filter((mobile) =>
+                mobile.name.toLowerCase().includes(searchTerm)
+            )
+        }
     },
     extraReducers: (builder) => {
         builder
