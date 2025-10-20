@@ -72,8 +72,8 @@
     "price": "$1098",
     "color": ["#e01e3f", "#c8b0d9", "#b96ef3", "#8589f9"],
     "img_src": [
-      "https://m.media-amazon.com/images/I/61JvFLHZ6NL._AC_SX522_.jpg",
       "https://m.media-amazon.com/images/I/61veAtnXzWL._AC_SX522_.jpg",
+      "https://m.media-amazon.com/images/I/61JvFLHZ6NL._AC_SX522_.jpg",
       "https://m.media-amazon.com/images/I/61AFDN06yqL._AC_SX522_.jpg",
       "https://m.media-amazon.com/images/I/61nEkHocR8L._AC_SX522_.jpg"
     ]
@@ -88,9 +88,9 @@
     "price": "$721",
     "color": ["#d25997", "#f20ed6", "#3fd291"],
     "img_src": [
-      "https://m.media-amazon.com/images/I/713SsA7gftL._AC_SX522_.jpg",
       "https://m.media-amazon.com/images/I/61lLjrvDEkL._AC_SX522_.jpg",
       "https://m.media-amazon.com/images/I/61-251PVEZL._AC_SX522_.jpg",
+      "https://m.media-amazon.com/images/I/713SsA7gftL._AC_SX522_.jpg",
       "https://m.media-amazon.com/images/I/61DjMd76QnL._AC_SX522_.jpg",
       "https://m.media-amazon.com/images/I/71CSc3M2AGL._AC_SX522_.jpg"
     ]
@@ -136,8 +136,8 @@
     "price": "$712",
     "color": ["#b7e8f1", "#c77909", "#b8a598"],
     "img_src": [
-      "https://m.media-amazon.com/images/I/81fO2C9cYjL._AC_SX679_.jpg",
       "https://m.media-amazon.com/images/I/81YSmKnlijL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/81fO2C9cYjL._AC_SX679_.jpg",
       "https://m.media-amazon.com/images/I/81IPGZtygYL._AC_SX679_.jpg",
       "https://m.media-amazon.com/images/I/81FFCoft1PL._AC_SX679_.jpg"
     ]
@@ -201,8 +201,8 @@
     "price": "$1780",
     "color": ["#4f727c", "#92f9dc"],
     "img_src": [
-      "https://m.media-amazon.com/images/I/71KF8hEtqwL._AC_SX522_.jpg",
       "https://m.media-amazon.com/images/I/61aVqfqfp6L._AC_SX522_.jpg",
+      "https://m.media-amazon.com/images/I/71KF8hEtqwL._AC_SX522_.jpg",
       "https://m.media-amazon.com/images/I/61nzPMNY8zL._AC_SX522_.jpg",
       "https://m.media-amazon.com/images/I/513bFgH8-pL._AC_SX522_.jpg"
     ]
