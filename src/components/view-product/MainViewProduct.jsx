@@ -22,7 +22,7 @@ const MainViewProduct = ({ loadingProduct }) => {
     const handleProduct = async () => {
       try {
         const res = await axios.get(
-          `https://672d29e1fd897971564194df.mockapi.io/ap/v1/mobiles/${params?.id}`
+          `https://672d29e1fd897971564194df.mockapi.io/ap/v1/mobiles/16`
         );
         console.log(res?.data);
         setDataProduct(res?.data);
