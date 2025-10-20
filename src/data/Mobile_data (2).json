@@ -4,22 +4,30 @@
     "brand": "Apple",
     "model": "iPhone 17 Pro Max",
     "rate": 3.1,
-    "ram": "16GB",
+    "ram": "12GB",
     "storage": "128GB",
     "price": "$1517",
     "color": ["#59d57f", "#67d7c1", "#dd70ce"],
-    "img_src": []
+    "img_src": [
+      "https://m.media-amazon.com/images/I/716Bo6d914L._AC_SX522_.jpg",
+      "https://m.media-amazon.com/images/I/61LFeKye45L._AC_SX522_.jpg",
+      "https://m.media-amazon.com/images/I/617b0iQyo9L._AC_SX522_.jpg"
+    ]
   },
   {
     "id": "2",
     "brand": "Apple",
     "model": "iPhone 17 Pro",
     "rate": 4.5,
-    "ram": "12GB",
+    "ram": "8GB",
     "storage": "128GB",
     "price": "$1250",
     "color": ["#507e0a", "#fec92e", "#a91f47", "#b02a43"],
-    "img_src": []
+    "img_src": [
+      "https://m.media-amazon.com/images/I/716Bo6d914L._AC_SX522_.jpg",
+      "https://m.media-amazon.com/images/I/61LFeKye45L._AC_SX522_.jpg",
+      "https://m.media-amazon.com/images/I/617b0iQyo9L._AC_SX522_.jpg"
+    ]
   },
   {
     "id": "3",
@@ -30,7 +38,13 @@
     "storage": "512GB",
     "price": "$1556",
     "color": ["#fcd466", "#b9ada1", "#7e3177", "#9955d1", "#1b18b3"],
-    "img_src": []
+    "img_src": [
+      "https://m.media-amazon.com/images/I/61Da45h7jCL._AC_SX522_.jpg",
+      "https://m.media-amazon.com/images/I/61dZuAfus+L._AC_SX522_.jpg",
+      "https://m.media-amazon.com/images/I/61+-vYgxshL._AC_SX522_.jpg",
+      "https://m.media-amazon.com/images/I/61WYeXatWNL._AC_SX522_.jpg",
+      "https://m.media-amazon.com/images/I/61vNxSF6qeL._AC_SX522_.jpg"
+    ]
   },
   {
     "id": "4",
@@ -41,7 +55,12 @@
     "storage": "1TB",
     "price": "$538",
     "color": ["#2a613c", "#08dc3e", "#d6a834", "#63d252"],
-    "img_src": []
+    "img_src": [
+      "https://m.media-amazon.com/images/I/61JvFLHZ6NL._AC_SX522_.jpg",
+      "https://m.media-amazon.com/images/I/61veAtnXzWL._AC_SX522_.jpg",
+      "https://m.media-amazon.com/images/I/61AFDN06yqL._AC_SX522_.jpg",
+      "https://m.media-amazon.com/images/I/61nEkHocR8L._AC_SX522_.jpg"
+    ]
   },
   {
     "id": "5",
@@ -52,117 +71,12 @@
     "storage": "1TB",
     "price": "$1098",
     "color": ["#e01e3f", "#c8b0d9", "#b96ef3", "#8589f9"],
-    "img_src": []
-  },
-  {
-    "id": "6",
-    "brand": "Apple",
-    "model": "iPhone 16",
-    "rate": 3.0,
-    "ram": "6GB",
-    "storage": "128GB",
-    "price": "$705",
-    "color": ["#fdea19", "#d28bed", "#1ca379", "#dc4a42"],
-    "img_src": []
-  },
-  {
-    "id": "7",
-    "brand": "Apple",
-    "model": "iPhone 15 Pro Max",
-    "rate": 3.2,
-    "ram": "12GB",
-    "storage": "256GB",
-    "price": "$712",
-    "color": ["#b7e8f1", "#c77909", "#b8a598"],
-    "img_src": []
-  },
-  {
-    "id": "8",
-    "brand": "Apple",
-    "model": "iPhone 15 Pro",
-    "rate": 3.1,
-    "ram": "8GB",
-    "storage": "256GB",
-    "price": "$1110",
-    "color": ["#32a1cc", "#6134c9", "#07a945", "#5898b0", "#ad25cf"],
-    "img_src": []
-  },
-  {
-    "id": "9",
-    "brand": "Apple",
-    "model": "iPhone 15",
-    "rate": 3.9,
-    "ram": "8GB",
-    "storage": "512GB",
-    "price": "$1376",
-    "color": ["#b7100e", "#3c3461", "#8a6896", "#7d110b"],
-    "img_src": []
-  },
-  {
-    "id": "10",
-    "brand": "Apple",
-    "model": "iPhone 14 Pro Max",
-    "rate": 3.3,
-    "ram": "6GB",
-    "storage": "256GB",
-    "price": "$732",
-    "color": ["#a1fa24", "#c4881b", "#014b76", "#977274", "#284671"],
-    "img_src": []
-  },
-  {
-    "id": "11",
-    "brand": "Apple",
-    "model": "iPhone 14 Pro",
-    "rate": 3.7,
-    "ram": "16GB",
-    "storage": "256GB",
-    "price": "$1780",
-    "color": ["#4f727c", "#92f9dc", "#155081", "#4812e7", "#f7e0b5"],
-    "img_src": []
-  },
-  {
-    "id": "12",
-    "brand": "Apple",
-    "model": "iPhone 14",
-    "rate": 4.4,
-    "ram": "12GB",
-    "storage": "1TB",
-    "price": "$840",
-    "color": ["#fa79b6", "#b208a0", "#094f3a", "#1d623f"],
-    "img_src": []
-  },
-  {
-    "id": "13",
-    "brand": "Apple",
-    "model": "iPhone 13 Pro Max",
-    "rate": 4.9,
-    "ram": "8GB",
-    "storage": "1TB",
-    "price": "$884",
-    "color": ["#b54e2c", "#d1b0a8", "#488861", "#a9b967"],
-    "img_src": []
-  },
-  {
-    "id": "14",
-    "brand": "Apple",
-    "model": "iPhone 13 Pro",
-    "rate": 4.2,
-    "ram": "6GB",
-    "storage": "256GB",
-    "price": "$1434",
-    "color": ["#8a5444", "#fec20e", "#283b20", "#4605c5"],
-    "img_src": []
-  },
-  {
-    "id": "15",
-    "brand": "Apple",
-    "model": "iPhone 13",
-    "rate": 3.2,
-    "ram": "16GB",
-    "storage": "256GB",
-    "price": "$1446",
-    "color": ["#f9339a", "#f607fe", "#422483"],
-    "img_src": []
+    "img_src": [
+      "https://m.media-amazon.com/images/I/61JvFLHZ6NL._AC_SX522_.jpg",
+      "https://m.media-amazon.com/images/I/61veAtnXzWL._AC_SX522_.jpg",
+      "https://m.media-amazon.com/images/I/61AFDN06yqL._AC_SX522_.jpg",
+      "https://m.media-amazon.com/images/I/61nEkHocR8L._AC_SX522_.jpg"
+    ]
   },
   {
     "id": "16",
@@ -174,51 +88,189 @@
     "price": "$721",
     "color": ["#d25997", "#f20ed6", "#3fd291"],
     "img_src": [
-      "https://m.media-amazon.com/images/I/61+eDlSTiqL._AC_SX522_.jpg",
-      "https://m.media-amazon.com/images/I/619HAuZ95QL._AC_SX522_.jpg",
-      "https://m.media-amazon.com/images/I/712Pyq1hPfL._AC_SX522_.jpg",
-      "https://m.media-amazon.com/images/I/61+GLqbh-cL._AC_SX522_.jpg",
-      "https://m.media-amazon.com/images/I/61Ml-IP+73L._AC_SX522_.jpg"
+      "https://m.media-amazon.com/images/I/713SsA7gftL._AC_SX522_.jpg",
+      "https://m.media-amazon.com/images/I/61lLjrvDEkL._AC_SX522_.jpg",
+      "https://m.media-amazon.com/images/I/61-251PVEZL._AC_SX522_.jpg",
+      "https://m.media-amazon.com/images/I/61DjMd76QnL._AC_SX522_.jpg",
+      "https://m.media-amazon.com/images/I/71CSc3M2AGL._AC_SX522_.jpg"
     ]
   },
   {
-    "id": "17",
+    "id": "6",
     "brand": "Apple",
-    "model": "iPhone 15 Plus",
-    "rate": 4.7,
-    "ram": "12GB",
+    "model": "iPhone 16",
+    "rate": 3.0,
+    "ram": "6GB",
     "storage": "128GB",
-    "price": "$1199",
-    "color": ["#f6d072", "#c7143a", "#5cdfa2", "#96f22e", "#2f579f"],
+    "price": "$705",
+    "color": ["#fdea19", "#d28bed", "#1ca379", "#dc4a42"],
     "img_src": [
-      "https://m.media-amazon.com/images/I/61+eDlSTiqL._AC_SX522_.jpg",
-      "https://m.media-amazon.com/images/I/619HAuZ95QL._AC_SX522_.jpg",
-      "https://m.media-amazon.com/images/I/712Pyq1hPfL._AC_SX522_.jpg",
-      "https://m.media-amazon.com/images/I/61+GLqbh-cL._AC_SX522_.jpg",
-      "https://m.media-amazon.com/images/I/61Ml-IP+73L._AC_SX522_.jpg"
+      "https://m.media-amazon.com/images/I/713SsA7gftL._AC_SX522_.jpg",
+      "https://m.media-amazon.com/images/I/61lLjrvDEkL._AC_SX522_.jpg",
+      "https://m.media-amazon.com/images/I/61-251PVEZL._AC_SX522_.jpg",
+      "https://m.media-amazon.com/images/I/61DjMd76QnL._AC_SX522_.jpg",
+      "https://m.media-amazon.com/images/I/71CSc3M2AGL._AC_SX522_.jpg"
     ]
   },
   {
-    "id": "18",
+    "id": "25 ",
     "brand": "Apple",
-    "model": "iPhone 14 Plus",
-    "rate": 4.6,
+    "model": "iPhone 16E",
+    "rate": 3.9,
+    "ram": "16GB",
+    "storage": "1TB",
+    "price": "$755",
+    "color": ["#d031bd", "#2dda42", "#0c99b0"],
+    "img_src": [
+      "https://m.media-amazon.com/images/I/6173SAT0bTL._AC_SX522_.jpg",
+      "https://m.media-amazon.com/images/I/61rIhq6gXDL._AC_SX522_.jpg"
+    ]
+  },
+  {
+    "id": "7",
+    "brand": "Apple",
+    "model": "iPhone 15 Pro Max",
+    "rate": 3.2,
+    "ram": "12GB",
+    "storage": "256GB",
+    "price": "$712",
+    "color": ["#b7e8f1", "#c77909", "#b8a598"],
+    "img_src": [
+      "https://m.media-amazon.com/images/I/81fO2C9cYjL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/81YSmKnlijL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/81IPGZtygYL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/81FFCoft1PL._AC_SX679_.jpg"
+    ]
+  },
+  {
+    "id": "8",
+    "brand": "Apple",
+    "model": "iPhone 15 Pro",
+    "rate": 3.1,
+    "ram": "8GB",
+    "storage": "256GB",
+    "price": "$1110",
+    "color": ["#32a1cc", "#6134c9", "#07a945", "#5898b0", "#ad25cf"],
+    "img_src": [
+      "https://m.media-amazon.com/images/I/81fO2C9cYjL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/81YSmKnlijL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/81IPGZtygYL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/81FFCoft1PL._AC_SX679_.jpg"
+    ]
+  },
+  {
+    "id": "9",
+    "brand": "Apple",
+    "model": "iPhone 15",
+    "rate": 3.9,
+    "ram": "8GB",
+    "storage": "512GB",
+    "price": "$1376",
+    "color": ["#b7100e", "#3c3461", "#8a6896", "#7d110b"],
+    "img_src": [
+      "https://m.media-amazon.com/images/I/61qQCRAQ3sL._AC_SX522_.jpg",
+      "https://m.media-amazon.com/images/I/71k38LlSqML._AC_SX522_.jpg",
+      "https://m.media-amazon.com/images/I/71PScsfMkRL._AC_SX522_.jpg",
+      "https://m.media-amazon.com/images/I/711FMzxUyRL._AC_SX522_.jpg",
+      "https://m.media-amazon.com/images/I/712i-Bxl8qL._AC_SX522_.jpg"
+    ]
+  },
+  {
+    "id": "10",
+    "brand": "Apple",
+    "model": "iPhone 14 Pro Max",
+    "rate": 3.3,
+    "ram": "6GB",
+    "storage": "256GB",
+    "price": "$732",
+    "color": ["#a1fa24", "#c4881b", "#014b76", "#977274", "#284671"],
+    "img_src": [
+      "https://m.media-amazon.com/images/I/71KF8hEtqwL._AC_SX522_.jpg",
+      "https://m.media-amazon.com/images/I/61aVqfqfp6L._AC_SX522_.jpg",
+      "https://m.media-amazon.com/images/I/61nzPMNY8zL._AC_SX522_.jpg",
+      "https://m.media-amazon.com/images/I/513bFgH8-pL._AC_SX522_.jpg"
+    ]
+  },
+  {
+    "id": "11",
+    "brand": "Apple",
+    "model": "iPhone 14 Pro",
+    "rate": 3.7,
+    "ram": "16GB",
+    "storage": "256GB",
+    "price": "$1780",
+    "color": ["#4f727c", "#92f9dc"],
+    "img_src": [
+      "https://m.media-amazon.com/images/I/71KF8hEtqwL._AC_SX522_.jpg",
+      "https://m.media-amazon.com/images/I/61aVqfqfp6L._AC_SX522_.jpg",
+      "https://m.media-amazon.com/images/I/61nzPMNY8zL._AC_SX522_.jpg",
+      "https://m.media-amazon.com/images/I/513bFgH8-pL._AC_SX522_.jpg"
+    ]
+  },
+  {
+    "id": "12",
+    "brand": "Apple",
+    "model": "iPhone 14",
+    "rate": 4.4,
     "ram": "12GB",
     "storage": "1TB",
-    "price": "$945",
-    "color": ["#b5f1a3", "#f2fd2a", "#ef48be"],
-    "img_src": []
+    "price": "$840",
+    "color": ["#4f727c", "#92f9dc"],
+    "img_src": [
+      "https://m.media-amazon.com/images/I/61bK6PMOC3L._AC_SX522_.jpg",
+      "https://m.media-amazon.com/images/I/51sFkTjuc3L._AC_SX522_.jpg",
+      "https://m.media-amazon.com/images/I/51FQoP3cCGL._AC_SX522_.jpg"
+    ]
   },
   {
-    "id": "19",
+    "id": "13",
     "brand": "Apple",
-    "model": "iPhone 17 Plus",
-    "rate": 4.3,
+    "model": "iPhone 13 Pro Max",
+    "rate": 4.9,
+    "ram": "8GB",
+    "storage": "1TB",
+    "price": "$884",
+    "color": ["#b54e2c", "#d1b0a8", "#488861", "#a9b967"],
+    "img_src": [
+      "https://m.media-amazon.com/images/I/61O03sOUmNL._AC_SY679_.jpg",
+      "https://m.media-amazon.com/images/I/61KaO5NbpPL._AC_SY679_.jpg",
+      "https://m.media-amazon.com/images/I/619m8rLBQSL._AC_SX522_.jpg",
+      "https://m.media-amazon.com/images/I/61nEaHtArzL._AC_SX522_.jpg"
+    ]
+  },
+  {
+    "id": "14",
+    "brand": "Apple",
+    "model": "iPhone 13 Pro",
+    "rate": 4.2,
     "ram": "6GB",
-    "storage": "512GB",
-    "price": "$1136",
-    "color": ["#66e208", "#c13f42", "#da8117", "#53c44d", "#3781f8"],
-    "img_src": []
+    "storage": "256GB",
+    "price": "$1434",
+    "color": ["#8a5444", "#fec20e", "#283b20", "#4605c5"],
+    "img_src": [
+      "https://m.media-amazon.com/images/I/61afOyd+zEL._AC_SY300_SX300_QL70_ML2_.jpg",
+      "https://m.media-amazon.com/images/I/619m8rLBQSL._AC_SY300_SX300_QL70_ML2_.jpg",
+      "https://m.media-amazon.com/images/I/61KaO5NbpPL._AC_SY679_.jpg",
+      ""
+    ]
+  },
+  {
+    "id": "15",
+    "brand": "Apple",
+    "model": "iPhone 13",
+    "rate": 3.2,
+    "ram": "16GB",
+    "storage": "256GB",
+    "price": "$1446",
+    "color": ["#f9339a", "#f607fe", "#422483"],
+    "img_src": [
+      "https://m.media-amazon.com/images/I/71Nd6R6UdHL._AC_SY679_.jpg",
+      "https://m.media-amazon.com/images/I/61iPYQ4NjbL._AC_SY679_.jpg",
+      "https://m.media-amazon.com/images/I/51q2ty84-BL._AC_SY679_.jpg",
+      "https://m.media-amazon.com/images/I/61xHGtTuwjL._AC_SX522_.jpg",
+      "https://m.media-amazon.com/images/I/71GLMJ7TQiL._AC_SX522_.jpg",
+      "https://m.media-amazon.com/images/I/61l9ppRIiqL._AC_SX522_.jpg"
+    ]
   },
   {
     "id": "20",
@@ -229,63 +281,16 @@
     "storage": "512GB",
     "price": "$1368",
     "color": ["#aba37b", "#266cc4", "#5d233f", "#3ff317", "#78b6f1"],
-    "img_src": []
+    "img_src": [
+      "https://m.media-amazon.com/images/I/61iPYQ4NjbL._AC_SY679_.jpg",
+      "https://m.media-amazon.com/images/I/71Nd6R6UdHL._AC_SY679_.jpg",
+      "https://m.media-amazon.com/images/I/51q2ty84-BL._AC_SY679_.jpg",
+      "https://m.media-amazon.com/images/I/61xHGtTuwjL._AC_SX522_.jpg",
+      "https://m.media-amazon.com/images/I/71GLMJ7TQiL._AC_SX522_.jpg",
+      "https://m.media-amazon.com/images/I/61l9ppRIiqL._AC_SX522_.jpg"
+    ]
   },
-  {
-    "id": "21 ",
-    "brand": "Apple",
-    "model": "iPhone 14 Mini",
-    "rate": 4.1,
-    "ram": "8GB",
-    "storage": "1TB",
-    "price": "$1644",
-    "color": ["#52d053", "#a70a58", "#d42025", "#862477", "#e91a7f"],
-    "img_src": []
-  },
-  {
-    "id": "22",
-    "brand": "Apple",
-    "model": "iPhone 15 Mini",
-    "rate": 3.1,
-    "ram": "8GB",
-    "storage": "512GB",
-    "price": "$1194",
-    "color": ["#f86fbd", "#f0530f", "#5764ef", "#a5fd74"],
-    "img_src": []
-  },
-  {
-    "id": "23",
-    "brand": "Apple",
-    "model": "iPhone 16 Mini",
-    "rate": 3.6,
-    "ram": "6GB",
-    "storage": "1TB",
-    "price": "$570",
-    "color": ["#965d66", "#6b9d4c", "#2a95ed", "#4371e7", "#08b12f"],
-    "img_src": []
-  },
-  {
-    "id": "24 ",
-    "brand": "Apple",
-    "model": "iPhone 17 Mini",
-    "rate": 4.6,
-    "ram": "16GB",
-    "storage": "256GB",
-    "price": "$1179",
-    "color": ["#75f513", "#6a9628", "#42832d", "#250c5a", "#999163"],
-    "img_src": []
-  },
-  {
-    "id": "25 ",
-    "brand": "Apple",
-    "model": "iPhone SE 3",
-    "rate": 3.9,
-    "ram": "16GB",
-    "storage": "1TB",
-    "price": "$755",
-    "color": ["#d031bd", "#2dda42", "#0c99b0"],
-    "img_src": []
-  },
+
   {
     "id": "26 ",
     "brand": "Samsung",
@@ -295,7 +300,12 @@
     "storage": "256GB",
     "price": "$1386",
     "color": ["#bc090f", "#65b292", "#839ed4", "#5a8d9f"],
-    "img_src": []
+    "img_src": [
+      "https://m.media-amazon.com/images/I/61n0lmxP5-L._AC_SX522_.jpg",
+      "https://m.media-amazon.com/images/I/71yUVEekQWL._AC_SX522_.jpg",
+      "https://m.media-amazon.com/images/I/71YwgW1hzFL._AC_SX522_.jpg",
+      "https://m.media-amazon.com/images/I/61qvRagAn9L._AC_SX522_.jpg"
+    ]
   },
   {
     "id": "27 ",
@@ -306,7 +316,11 @@
     "storage": "128GB",
     "price": "$1428",
     "color": ["#995f02", "#11af59", "#ff5959", "#75042c"],
-    "img_src": []
+    "img_src": [
+      "https://m.media-amazon.com/images/I/61H5vRirTJL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/61R2XKoacdL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/61JZvUbmaeL._AC_SX679_.jpg"
+    ]
   },
   {
     "id": "28 ",
@@ -317,7 +331,11 @@
     "storage": "1TB",
     "price": "$1711",
     "color": ["#ecda53", "#cd87c6", "#fa4010", "#f5a0e3"],
-    "img_src": []
+    "img_src": [
+      "https://m.media-amazon.com/images/I/61R2XKoacdL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/61H5vRirTJL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/61JZvUbmaeL._AC_SX679_.jpg"
+    ]
   },
   {
     "id": "29 ",
@@ -328,7 +346,12 @@
     "storage": "256GB",
     "price": "$1341",
     "color": ["#50718a", "#78e5e5", "#a4a44c"],
-    "img_src": []
+    "img_src": [
+      "https://m.media-amazon.com/images/I/71-rnhmcyeL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/71N88DBf5FL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/71nfsiC3zrL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/713BvNzKp+L._AC_SX679_.jpg"
+    ]
   },
   {
     "id": " 30",
@@ -339,7 +362,12 @@
     "storage": "128GB",
     "price": "$1752",
     "color": ["#a6e3f9", "#e1c7e1", "#df883f", "#c0deb3", "#a4726d"],
-    "img_src": []
+    "img_src": [
+      "https://m.media-amazon.com/images/I/61EVD7V4rbL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/61FTT3T-rIL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/610hy1eIVdL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/61oI9S2eLgL._AC_SX679_.jpg"
+    ]
   },
   {
     "id": "31 ",
@@ -350,7 +378,12 @@
     "storage": "256GB",
     "price": "$1781",
     "color": ["#e13a8e", "#392090", "#471884", "#1ade6a"],
-    "img_src": []
+    "img_src": [
+      "https://m.media-amazon.com/images/I/61FTT3T-rIL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/61EVD7V4rbL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/610hy1eIVdL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/61oI9S2eLgL._AC_SX679_.jpg"
+    ]
   },
   {
     "id": "32",
@@ -361,7 +394,12 @@
     "storage": "128GB",
     "price": "$1511",
     "color": ["#1a35db", "#be08e6", "#ada6e3", "#79a9c7", "#2687b0"],
-    "img_src": []
+    "img_src": [
+      "https://m.media-amazon.com/images/I/71EJy5YCZJL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/71P8Jg9-fWL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/61o8gBOg0wL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/61QPU6-ED2L._AC_SX679_.jpg"
+    ]
   },
   {
     "id": "33 ",
@@ -372,7 +410,12 @@
     "storage": "256GB",
     "price": "$519",
     "color": ["#25900b", "#3aef76", "#1055ce", "#2a9ee3"],
-    "img_src": []
+    "img_src": [
+      "https://m.media-amazon.com/images/I/61C6pV4mArL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/71T+UqD9NtL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/61fjJO6eJfL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/71RTL7CeRZL._AC_SX679_.jpg"
+    ]
   },
   {
     "id": "34 ",
@@ -383,7 +426,12 @@
     "storage": "256GB",
     "price": "$617",
     "color": ["#b91a85", "#b67e27", "#0cc648", "#97a794", "#ac4214"],
-    "img_src": []
+    "img_src": [
+      "https://m.media-amazon.com/images/I/61fjJO6eJfL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/61C6pV4mArL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/71T+UqD9NtL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/71RTL7CeRZL._AC_SX679_.jpg"
+    ]
   },
   {
     "id": "35 ",
