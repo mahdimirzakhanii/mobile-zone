@@ -36,7 +36,7 @@ const MainProducts = () => {
     filter === "All"
       ? listMobile
       : listMobile?.filter(
-        (item) => item?.name?.toLowerCase() === filter?.toLowerCase()
+        (item) => item?.brand?.toLowerCase() === filter?.toLowerCase()
       );
 
   const [currentPage, setCurrentPage] = useState(page ? page : 1);
@@ -45,12 +45,14 @@ const MainProducts = () => {
   const firstIndex = lastIndex - recordsPerPage;
   const records = filterList?.slice(firstIndex, lastIndex);
   const npage = Math.ceil(filterList?.length / recordsPerPage);
+
   const handleFilter = (model) => {
     setFilter(model);
     setShowFilter(false);
     setCurrentPage(1);
     handleSearch("page", "");
   };
+
   const filterRef = useRef(null);
 
   useEffect(() => {
@@ -68,7 +70,7 @@ const MainProducts = () => {
 
 
   return (
-    <div className="flex flex-col items-center w-full gap-5 px-1 pt-24 lg:pt-32">
+    <div className="flex flex-col items-center w-full gap-5 px-3 pt-24 lg:pt-32">
       <span className="text-xl lg:text-2xl font-semibold text-start w-full pl-3 lg:px-28">Products</span>
       <div className="flex flex-col relative items-start gap-3 w-full pl-3 lg:px-28" ref={filterRef}>
         <span
@@ -121,7 +123,7 @@ const MainProducts = () => {
         {loading ? (
           <HashLoader color="#dda01e" cssOverride={{}} width={100} />
         ) : (
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 md:gap-5 w-full md:w-[85%]">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 lg:gap-5 w-full lg:w-[85%]">
             {records?.map((item) => (
               <SingleProductsList item={item} key={item?.id} />
             ))}
