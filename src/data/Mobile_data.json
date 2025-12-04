@@ -99,7 +99,7 @@
     "id": "6",
     "brand": "Apple",
     "model": "iPhone 16",
-    "rate": 3.0,
+    "rate": 3,
     "ram": "6GB",
     "storage": "128GB",
     "price": "$705",
@@ -248,10 +248,10 @@
     "price": "$1434",
     "color": ["#8a5444", "#fec20e", "#283b20", "#4605c5"],
     "img_src": [
-      "https://m.media-amazon.com/images/I/61afOyd+zEL._AC_SY300_SX300_QL70_ML2_.jpg",
-      "https://m.media-amazon.com/images/I/619m8rLBQSL._AC_SY300_SX300_QL70_ML2_.jpg",
+      "https://m.media-amazon.com/images/I/61O03sOUmNL._AC_SY679_.jpg",
       "https://m.media-amazon.com/images/I/61KaO5NbpPL._AC_SY679_.jpg",
-      ""
+      "https://m.media-amazon.com/images/I/619m8rLBQSL._AC_SX522_.jpg",
+      "https://m.media-amazon.com/images/I/61nEaHtArzL._AC_SX522_.jpg"
     ]
   },
   {
@@ -290,9 +290,8 @@
       "https://m.media-amazon.com/images/I/61l9ppRIiqL._AC_SX522_.jpg"
     ]
   },
-
   {
-    "id": "26 ",
+    "id": "26",
     "brand": "Samsung",
     "model": "Galaxy S25 Ultra",
     "rate": 2.8,
@@ -308,7 +307,7 @@
     ]
   },
   {
-    "id": "27 ",
+    "id": "27",
     "brand": "Samsung",
     "model": "Galaxy S25+",
     "rate": 3.8,
@@ -323,10 +322,10 @@
     ]
   },
   {
-    "id": "28 ",
+    "id": "28",
     "brand": "Samsung",
     "model": "Galaxy S25",
-    "rate": 3.0,
+    "rate": 3,
     "ram": "8GB",
     "storage": "1TB",
     "price": "$1711",
@@ -338,7 +337,7 @@
     ]
   },
   {
-    "id": "29 ",
+    "id": "29",
     "brand": "Samsung",
     "model": "Galaxy S24 Ultra",
     "rate": 2.5,
@@ -354,7 +353,7 @@
     ]
   },
   {
-    "id": " 30",
+    "id": "30",
     "brand": "Samsung",
     "model": "Galaxy S24+",
     "rate": 4.5,
@@ -370,7 +369,7 @@
     ]
   },
   {
-    "id": "31 ",
+    "id": "31",
     "brand": "Samsung",
     "model": "Galaxy S24",
     "rate": 3.5,
@@ -402,7 +401,7 @@
     ]
   },
   {
-    "id": "33 ",
+    "id": "33",
     "brand": "Samsung",
     "model": "Galaxy S23+",
     "rate": 4.6,
@@ -418,7 +417,7 @@
     ]
   },
   {
-    "id": "34 ",
+    "id": "34",
     "brand": "Samsung",
     "model": "Galaxy S23",
     "rate": 4.3,
@@ -434,7 +433,7 @@
     ]
   },
   {
-    "id": "35 ",
+    "id": "35",
     "brand": "Samsung",
     "model": "Galaxy S22 Ultra",
     "rate": 3.7,
@@ -442,10 +441,14 @@
     "storage": "1TB",
     "price": "$1286",
     "color": ["#820eea", "#80d3b4", "#0a6653", "#0b0d92", "#00e548"],
-    "img_src": []
+    "img_src": [
+      "https://m.media-amazon.com/images/I/613Fp7fknhL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/713UkbRGfkL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/61D-blSh-nL._AC_SX679_.jpg"
+    ]
   },
   {
-    "id": "36 ",
+    "id": "36",
     "brand": "Samsung",
     "model": "Galaxy S22",
     "rate": 2.7,
@@ -453,10 +456,15 @@
     "storage": "256GB",
     "price": "$925",
     "color": ["#a1ea73", "#a1756a", "#97bdae", "#72e46d"],
-    "img_src": []
+    "img_src": [
+      "https://m.media-amazon.com/images/I/71wEVd5e74L._AC_SX569_.jpg",
+      "https://m.media-amazon.com/images/I/614i7QsAJHL._AC_SX569_.jpg",
+      "https://m.media-amazon.com/images/I/61M4ndNetDL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/71MHTUNKt4L._AC_SX569_.jpg"
+    ]
   },
   {
-    "id": "37 ",
+    "id": "37",
     "brand": "Samsung",
     "model": "Galaxy S21 Ultra",
     "rate": 3.9,
@@ -464,54 +472,55 @@
     "storage": "512GB",
     "price": "$1491",
     "color": ["#8b8ddd", "#5a3bc6", "#529f09", "#6ea818", "#0a1d9a"],
-    "img_src": []
+    "img_src": [
+      "https://m.media-amazon.com/images/I/71A87GtJnoL._AC_SX522_.jpg",
+      "https://m.media-amazon.com/images/I/61rFdJmzKSL._AC_SX466_.jpg"
+    ]
   },
   {
-    "id": "38 ",
+    "id": "38",
     "brand": "Samsung",
-    "model": "Galaxy A55",
-    "rate": 5.0,
-    "ram": "12GB",
+    "model": "Galaxy A56",
+    "rate": 5,
+    "ram": "8GB",
     "storage": "256GB",
     "price": "$583",
     "color": ["#9cb91d", "#6a2028", "#05483b"],
-    "img_src": []
+    "img_src": [
+      "https://m.media-amazon.com/images/I/515dsde6YOL._AC_SX522_.jpg",
+      "https://m.media-amazon.com/images/I/412va3ytdLL._AC_.jpg",
+      "https://m.media-amazon.com/images/I/51jo6qnXEfL._AC_SX679_.jpg"
+    ]
   },
   {
-    "id": "39 ",
+    "id": "39",
     "brand": "Samsung",
-    "model": "Galaxy A35",
-    "rate": 3.0,
-    "ram": "12GB",
+    "model": "Galaxy A36",
+    "rate": 3,
+    "ram": "8GB",
     "storage": "512GB",
     "price": "$1163",
     "color": ["#be40d1", "#67f906", "#24f4b3", "#274473", "#d6c31b"],
-    "img_src": []
+    "img_src": [
+      "https://m.media-amazon.com/images/I/51s2s3pBDTL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/614n-iX9P6L._AC_SX679_.jpg"
+    ]
   },
   {
-    "id": "40 ",
-    "brand": "Samsung",
-    "model": "Galaxy A25",
-    "rate": 4.1,
-    "ram": "6GB",
-    "storage": "256GB",
-    "price": "$1043",
-    "color": ["#7f8d8e", "#c47c7d", "#9f640e"],
-    "img_src": []
-  },
-  {
-    "id": "41 ",
+    "id": "41",
     "brand": "Xiaomi",
     "model": "Xiaomi 14 Ultra",
-    "rate": 3.0,
+    "rate": 3,
     "ram": "6GB",
     "storage": "512GB",
     "price": "$408",
     "color": ["#65c356", "#73997f", "#5a54ea"],
-    "img_src": []
+    "img_src": [
+      "https://m.media-amazon.com/images/I/515zjr-ivlL._AC_SX679_.jpg"
+    ]
   },
   {
-    "id": "42 ",
+    "id": "42",
     "brand": "Xiaomi",
     "model": "Xiaomi 14 Pro",
     "rate": 4.1,
@@ -519,10 +528,12 @@
     "storage": "512GB",
     "price": "$1611",
     "color": ["#5cbe48", "#3f8ae5", "#5d39ad", "#68ae3c"],
-    "img_src": []
+    "img_src": [
+      "https://m.media-amazon.com/images/I/51AelgZWpaL._AC_SX679_.jpg"
+    ]
   },
   {
-    "id": "43 ",
+    "id": "43",
     "brand": "Xiaomi",
     "model": "Xiaomi 14",
     "rate": 2.6,
@@ -530,10 +541,13 @@
     "storage": "1TB",
     "price": "$1493",
     "color": ["#4cc1f1", "#23b989", "#c02210", "#34a8ce"],
-    "img_src": []
+    "img_src": [
+      "https://m.media-amazon.com/images/I/51tzoPJpLbL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/51hOisZjbeL._AC_SX679_.jpg"
+    ]
   },
   {
-    "id": "44 ",
+    "id": "44",
     "brand": "Xiaomi",
     "model": "Xiaomi 13 Ultra",
     "rate": 3.8,
@@ -541,10 +555,13 @@
     "storage": "512GB",
     "price": "$494",
     "color": ["#957833", "#4c37bf", "#0ae9ff", "#af70b1", "#72fa37"],
-    "img_src": []
+    "img_src": [
+      "https://m.media-amazon.com/images/I/61J7ksva1wL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/71qS-++ckwL._AC_SY879_.jpg"
+    ]
   },
   {
-    "id": "45 ",
+    "id": "45",
     "brand": "Xiaomi",
     "model": "Xiaomi 13 Pro",
     "rate": 3.4,
@@ -552,10 +569,13 @@
     "storage": "1TB",
     "price": "$1766",
     "color": ["#fb3e27", "#bef949", "#8e2c24", "#b7dd23"],
-    "img_src": []
+    "img_src": [
+      "https://m.media-amazon.com/images/I/41cxY8Xe0oL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/61GU4bcLKUL._AC_SX679_.jpg"
+    ]
   },
   {
-    "id": "46 ",
+    "id": "46",
     "brand": "Xiaomi",
     "model": "Xiaomi 13",
     "rate": 3.6,
@@ -563,10 +583,13 @@
     "storage": "512GB",
     "price": "$466",
     "color": ["#9c9bde", "#6aa944", "#4cd73e"],
-    "img_src": []
+    "img_src": [
+      "https://m.media-amazon.com/images/I/41cxY8Xe0oL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/51XKy+IEeDL._AC_SX679_.jpg"
+    ]
   },
   {
-    "id": "47 ",
+    "id": "47",
     "brand": "Xiaomi",
     "model": "Xiaomi 13T Pro",
     "rate": 3.7,
@@ -574,43 +597,14 @@
     "storage": "128GB",
     "price": "$1055",
     "color": ["#86d659", "#5866e3", "#f5f897", "#552ee2", "#ce9a74"],
-    "img_src": []
+    "img_src": [
+      "https://m.media-amazon.com/images/I/61+CPn3Op5L._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/61UK7pFw5ML._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/41hR8Wj+vcL._AC_SX679_.jpg"
+    ]
   },
   {
-    "id": "48 ",
-    "brand": "Xiaomi",
-    "model": "Xiaomi 13T",
-    "rate": 3.3,
-    "ram": "16GB",
-    "storage": "256GB",
-    "price": "$1027",
-    "color": ["#1c3324", "#d51178", "#ea69b4", "#7988a2"],
-    "img_src": []
-  },
-  {
-    "id": "49 ",
-    "brand": "Xiaomi",
-    "model": "Redmi Note 13 Pro+",
-    "rate": 4.4,
-    "ram": "6GB",
-    "storage": "256GB",
-    "price": "$1294",
-    "color": ["#9a0feb", "#7ca27e", "#cf30f1", "#ce4995"],
-    "img_src": []
-  },
-  {
-    "id": "50 ",
-    "brand": "Xiaomi",
-    "model": "Redmi Note 13 Pro",
-    "rate": 3.1,
-    "ram": "8GB",
-    "storage": "256GB",
-    "price": "$584",
-    "color": ["#97985e", "#6ba467", "#f45633", "#692ac7"],
-    "img_src": []
-  },
-  {
-    "id": "51 ",
+    "id": "51",
     "brand": "Huawei",
     "model": "Huawei Mate 70 Pro",
     "rate": 3.3,
@@ -618,32 +612,13 @@
     "storage": "256GB",
     "price": "$1131",
     "color": ["#2dec1b", "#8c47e3", "#2306c4", "#668406", "#212492"],
-    "img_src": []
+    "img_src": [
+      "https://m.media-amazon.com/images/I/51jtkUquS9L._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/51gdFr6zyUL._AC_SX679_.jpg"
+    ]
   },
   {
-    "id": "52 ",
-    "brand": "Huawei",
-    "model": "Huawei Mate 60 Pro",
-    "rate": 3.6,
-    "ram": "16GB",
-    "storage": "512GB",
-    "price": "$962",
-    "color": ["#1c66c2", "#912844", "#d633dd", "#1159dc"],
-    "img_src": []
-  },
-  {
-    "id": "53 ",
-    "brand": "Huawei",
-    "model": "Huawei Mate 60",
-    "rate": 3.8,
-    "ram": "16GB",
-    "storage": "256GB",
-    "price": "$1590",
-    "color": ["#6bf91b", "#81356c", "#3d7ac7", "#49b8a1", "#2365c4"],
-    "img_src": []
-  },
-  {
-    "id": "54 ",
+    "id": "54",
     "brand": "Huawei",
     "model": "Huawei P60 Pro",
     "rate": 2.6,
@@ -651,21 +626,14 @@
     "storage": "128GB",
     "price": "$1152",
     "color": ["#886f18", "#0c68db", "#479575", "#5de6ad"],
-    "img_src": []
+    "img_src": [
+      "https://m.media-amazon.com/images/I/71TrxGfNn-L._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/51nBsCkutzL._AC_SX679_.jpg"
+    ]
   },
+
   {
-    "id": "55 ",
-    "brand": "Huawei",
-    "model": "Huawei P60",
-    "rate": 4.8,
-    "ram": "8GB",
-    "storage": "256GB",
-    "price": "$793",
-    "color": ["#896eb4", "#f5e936", "#9555ac"],
-    "img_src": []
-  },
-  {
-    "id": "56 ",
+    "id": "56",
     "brand": "Huawei",
     "model": "Huawei Nova 12 Pro",
     "rate": 3.4,
@@ -673,10 +641,12 @@
     "storage": "256GB",
     "price": "$633",
     "color": ["#8789d2", "#d6f19c", "#e609bb", "#6adb34"],
-    "img_src": []
+    "img_src": [
+      "https://m.media-amazon.com/images/I/61S7ZeE-mpL._AC_SX679_.jpg"
+    ]
   },
   {
-    "id": "57 ",
+    "id": "57",
     "brand": "Huawei",
     "model": "Huawei Nova 12",
     "rate": 3.3,
@@ -684,21 +654,12 @@
     "storage": "128GB",
     "price": "$1178",
     "color": ["#b1fb56", "#8a3d04", "#338ee2"],
-    "img_src": []
+    "img_src": [
+      "https://m.media-amazon.com/images/I/51ssC1uC0nL._AC_SX679_.jpg"
+    ]
   },
   {
-    "id": "58 ",
-    "brand": "Huawei",
-    "model": "Huawei Mate X5",
-    "rate": 4.2,
-    "ram": "6GB",
-    "storage": "512GB",
-    "price": "$1043",
-    "color": ["#591e2b", "#5184e2", "#3e35a2"],
-    "img_src": []
-  },
-  {
-    "id": "59 ",
+    "id": "59",
     "brand": "Huawei",
     "model": "Huawei P50 Pro",
     "rate": 4.1,
@@ -706,17 +667,9 @@
     "storage": "256GB",
     "price": "$935",
     "color": ["#dd4774", "#416d67", "#5b8bad", "#c79f57"],
-    "img_src": []
-  },
-  {
-    "id": "60 ",
-    "brand": "Huawei",
-    "model": "Huawei P50",
-    "rate": 3.8,
-    "ram": "8GB",
-    "storage": "512GB",
-    "price": "$1147",
-    "color": ["#9e832a", "#1e2a64", "#b5e56b"],
-    "img_src": []
+    "img_src": [
+      "https://m.media-amazon.com/images/I/51tNBbfB4DL._AC_SX679_.jpg",
+      "https://m.media-amazon.com/images/I/51Vc6m0o2ML._AC_SX679_.jpg"
+    ]
   }
 ]
